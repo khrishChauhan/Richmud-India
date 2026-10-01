@@ -90,7 +90,7 @@ export const CareersPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>Careers at PAN Seeds</span>
           </div>
@@ -157,7 +157,7 @@ export const CareersPage: React.FC = () => {
               onClick={() => setActiveTab('jobs')}
               className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                 activeTab === 'jobs'
-                  ? 'bg-gold-gradient text-charcoal-950 font-bold shadow-sm'
+                  ? 'bg-botanical-800 text-white font-bold shadow-md'
                   : 'text-gray-600 hover:text-charcoal-900'
               }`}
             >
@@ -168,7 +168,7 @@ export const CareersPage: React.FC = () => {
               onClick={() => setActiveTab('internships')}
               className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                 activeTab === 'internships'
-                  ? 'bg-gold-gradient text-charcoal-950 font-bold shadow-sm'
+                  ? 'bg-botanical-800 text-white font-bold shadow-md'
                   : 'text-gray-600 hover:text-charcoal-900'
               }`}
             >
@@ -204,11 +204,11 @@ export const CareersPage: React.FC = () => {
           {filteredOpportunities.map((opp) => (
             <div
               key={opp.id}
-              className="bg-white rounded-2xl p-6 border border-gold-300/40 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl p-6 border border-gold-300/40 hover:border-botanical-600 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full bg-botanical-50 border border-botanical-200 text-botanical-900 text-[11px] font-semibold uppercase tracking-wider">
+                  <span className="px-3 py-1 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[11px] font-bold uppercase tracking-wider shadow-sm">
                     {opp.department}
                   </span>
                   <span className="text-xs font-semibold text-gray-500">
@@ -216,7 +216,7 @@ export const CareersPage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-charcoal-900 group-hover:text-gold-700 transition-colors">
+                <h3 className="font-serif text-2xl font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   {opp.title}
                 </h3>
 
@@ -259,10 +259,10 @@ export const CareersPage: React.FC = () => {
                 </span>
                 <button
                   onClick={() => handleApplyClick(opp)}
-                  className="px-5 py-2 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm hover:scale-105 hover:ring-2 hover:ring-botanical-800/30 transition-all flex items-center gap-1.5"
+                  className="px-5 py-2 rounded-full bg-botanical-800 hover:bg-botanical-900 text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:scale-105 border border-gold-400/40 transition-all flex items-center gap-1.5"
                 >
                   <span>Apply Now</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-gold-300" />
                 </button>
               </div>
             </div>

@@ -64,13 +64,13 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 text-xs text-gray-400">
-              <div className="flex items-center gap-1.5 bg-white/5 border border-gold-500/20 px-3 py-1.5 rounded-full">
-                <ShieldCheck className="w-3.5 h-3.5 text-botanical-400" />
-                <span>NABL Accredited Testing</span>
+              <div className="flex items-center gap-2 bg-botanical-900/90 border border-botanical-600 px-3.5 py-1.5 rounded-full text-white shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="font-medium">NABL Accredited Testing</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/5 border border-gold-500/20 px-3 py-1.5 rounded-full">
-                <Award className="w-3.5 h-3.5 text-botanical-400" />
-                <span>ISTA Compliant Standards</span>
+              <div className="flex items-center gap-2 bg-botanical-900/90 border border-botanical-600 px-3.5 py-1.5 rounded-full text-white shadow-sm">
+                <Award className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="font-medium">ISTA Compliant Standards</span>
               </div>
             </div>
           </div>

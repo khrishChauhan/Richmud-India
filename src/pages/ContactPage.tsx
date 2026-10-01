@@ -51,7 +51,7 @@ export const ContactPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>Connect with PAN Seeds</span>
           </div>
@@ -75,18 +75,18 @@ export const ContactPage: React.FC = () => {
           <div className="lg:col-span-5 space-y-8">
             
             {/* Toll-Free Farmer Care Box */}
-            <div className="p-6 rounded-3xl bg-gold-gradient text-charcoal-950 shadow-gold-md space-y-3">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold">
-                <Headphones className="w-4 h-4" />
+            <div className="p-6 rounded-3xl bg-gradient-to-br from-botanical-900 via-botanical-800 to-[#12362b] text-white border border-gold-400/40 shadow-xl space-y-3">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-gold-300">
+                <Headphones className="w-4 h-4 text-emerald-400" />
                 <span>Dedicated Farmer Support Hotline</span>
               </div>
-              <div className="font-serif text-3xl font-bold tracking-tight">
+              <div className="font-serif text-3xl font-bold tracking-tight text-white">
                 1800-120-PANSEEDS
               </div>
-              <div className="text-xs font-medium opacity-90">
+              <div className="text-xs font-medium text-emerald-100/90">
                 (1800-120-7267) • Toll-free across India in 6 regional languages
               </div>
-              <div className="text-[11px] pt-1 opacity-80">
+              <div className="text-[11px] pt-1 text-emerald-200/80">
                 Monday to Saturday: 9:00 AM – 6:00 PM IST
               </div>
             </div>
@@ -204,8 +204,8 @@ export const ContactPage: React.FC = () => {
                         onClick={() => setSelectedSubject(sub.id)}
                         className={`p-3 rounded-xl text-left text-xs font-semibold border transition-all ${
                           selectedSubject === sub.id
-                            ? 'bg-botanical-50 border-botanical-600 text-botanical-900 ring-1 ring-botanical-500'
-                            : 'bg-ivory-50 border-gray-200 text-gray-700 hover:border-gold-300'
+                            ? 'bg-botanical-800 border-botanical-700 text-white shadow-sm font-bold'
+                            : 'bg-ivory-50 border-gray-200 text-gray-700 hover:border-botanical-400'
                         }`}
                       >
                         {sub.label}
@@ -294,9 +294,9 @@ export const ContactPage: React.FC = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm hover:scale-105 transition-all flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-botanical-800 hover:bg-botanical-900 text-white font-bold text-xs uppercase tracking-wider shadow-md hover:scale-105 border border-gold-400/40 transition-all flex items-center justify-center gap-2"
                   >
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 text-gold-300" />
                     <span>Transmit Message</span>
                   </button>
                 </div>

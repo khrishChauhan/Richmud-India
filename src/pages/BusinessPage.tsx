@@ -145,7 +145,7 @@ export const BusinessPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>Industrial & Scientific Engine</span>
           </div>
@@ -173,19 +173,19 @@ export const BusinessPage: React.FC = () => {
                 onClick={() => setActivePillarId(pillar.id)}
                 className={`p-4 rounded-xl text-left transition-all duration-300 flex items-center gap-3.5 ${
                   isSelected
-                    ? 'bg-gold-gradient text-charcoal-950 shadow-gold-sm'
-                    : 'hover:bg-gold-50/60 text-charcoal-800'
+                    ? 'bg-botanical-800 text-white shadow-md border border-gold-400/50'
+                    : 'hover:bg-botanical-50/70 text-charcoal-800'
                 }`}
               >
                 <div
                   className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
-                    isSelected ? 'bg-charcoal-950 text-gold-400' : 'bg-botanical-50 text-botanical-800 border border-botanical-100'
+                    isSelected ? 'bg-gold-500 text-charcoal-950 font-bold shadow-sm' : 'bg-botanical-100 text-botanical-800 border border-botanical-200'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold opacity-80">
+                  <div className={`text-[10px] uppercase tracking-widest font-bold ${isSelected ? 'text-gold-300' : 'text-gray-500'}`}>
                     Pillar {pillar.number}
                   </div>
                   <div className="text-sm font-bold font-serif">
@@ -206,7 +206,7 @@ export const BusinessPage: React.FC = () => {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-botanical-50 border border-botanical-200 text-botanical-900 text-xs font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-800 border border-botanical-600 text-white text-xs font-bold uppercase tracking-wider shadow-sm">
                 <span>Pillar {activePillar.number}: {activePillar.badge}</span>
               </div>
 

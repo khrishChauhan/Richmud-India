@@ -47,7 +47,7 @@ export const AboutPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>Legacy of Trust Since 1992</span>
           </div>
@@ -69,7 +69,7 @@ export const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             <div className="space-y-6">
-              <div className="text-xs uppercase tracking-widest text-gold-600 font-semibold">
+              <div className="text-xs uppercase tracking-widest text-botanical-800 font-bold">
                 Our Corporate Ethos
               </div>
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900 leading-tight">
@@ -84,9 +84,9 @@ export const AboutPage: React.FC = () => {
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-botanical-50/70 border border-botanical-200/80">
-                  <div className="text-2xl font-serif font-bold text-botanical-800">100%</div>
-                  <div className="text-xs text-charcoal-800 font-medium mt-1">Certified Genetic Purity Standard</div>
+                <div className="p-4 rounded-xl bg-botanical-800 text-white border border-botanical-700 shadow-md">
+                  <div className="text-2xl font-serif font-bold text-white">100%</div>
+                  <div className="text-xs text-emerald-100 font-medium mt-1">Certified Genetic Purity Standard</div>
                 </div>
                 <div className="p-4 rounded-xl bg-ivory-50 border border-gold-300/30">
                   <div className="text-2xl font-serif font-bold text-gold-700">4 R&D Stations</div>
@@ -106,7 +106,7 @@ export const AboutPage: React.FC = () => {
               {/* Floating luxury badge */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-gold-md border border-gold-400/40 max-w-xs hidden sm:block">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-botanical-100 flex items-center justify-center text-botanical-800 shrink-0 border border-botanical-200">
+                  <div className="w-10 h-10 rounded-full bg-botanical-800 flex items-center justify-center text-white shrink-0 border border-botanical-600 shadow-sm">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>

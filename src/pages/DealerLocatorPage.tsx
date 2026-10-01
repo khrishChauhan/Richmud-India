@@ -58,7 +58,7 @@ export const DealerLocatorPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>Authorized Distribution Network</span>
           </div>
@@ -121,7 +121,7 @@ export const DealerLocatorPage: React.FC = () => {
             <span className="text-[11px] uppercase tracking-wider text-gray-400 font-semibold">
               Verified Stockists
             </span>
-            <span className="font-serif text-lg font-bold text-gold-700">
+            <span className="font-serif text-lg font-bold text-botanical-800">
               {filteredDealers.length} Located
             </span>
           </div>
@@ -146,7 +146,7 @@ export const DealerLocatorPage: React.FC = () => {
                 </p>
                 <a
                   href="tel:18001207267"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-700 hover:underline pt-2"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-botanical-800 hover:underline pt-2"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Call 1800-120-PANSEEDS (7267)</span>
@@ -161,14 +161,14 @@ export const DealerLocatorPage: React.FC = () => {
                     onClick={() => setActiveDealerId(dealer.id)}
                     className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
                       isSelected
-                        ? 'bg-white border-gold-500 shadow-gold-md ring-1 ring-gold-400/50'
-                        : 'bg-white/80 hover:bg-white border-gold-200 hover:border-gold-400 shadow-sm'
+                        ? 'bg-white border-botanical-600 shadow-xl ring-2 ring-botanical-600/30'
+                        : 'bg-white/80 hover:bg-white border-gold-200 hover:border-botanical-400 shadow-sm'
                     }`}
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-botanical-900 bg-botanical-100 px-2.5 py-0.5 rounded-full border border-botanical-200">
-                          <ShieldCheck className="w-3.5 h-3.5 text-botanical-700" />
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-white bg-botanical-800 px-3 py-1 rounded-full border border-botanical-600 shadow-sm">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
                           <span>Authorized Dealer</span>
                         </span>
                         <span className="text-xs font-bold text-charcoal-800">

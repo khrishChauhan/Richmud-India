@@ -37,7 +37,7 @@ export const MediaCenterPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>News & Corporate Communications</span>
           </div>
@@ -62,7 +62,7 @@ export const MediaCenterPage: React.FC = () => {
               onClick={() => setActiveTab('releases')}
               className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                 activeTab === 'releases'
-                  ? 'bg-gold-gradient text-charcoal-950 font-bold shadow-sm'
+                  ? 'bg-botanical-800 text-white font-bold shadow-md'
                   : 'text-gray-600 hover:text-charcoal-900'
               }`}
             >
@@ -73,7 +73,7 @@ export const MediaCenterPage: React.FC = () => {
               onClick={() => setActiveTab('events')}
               className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                 activeTab === 'events'
-                  ? 'bg-gold-gradient text-charcoal-950 font-bold shadow-sm'
+                  ? 'bg-botanical-800 text-white font-bold shadow-md'
                   : 'text-gray-600 hover:text-charcoal-900'
               }`}
             >
@@ -85,9 +85,9 @@ export const MediaCenterPage: React.FC = () => {
           {/* Download Press Kit Button */}
           <button
             onClick={handleDownloadPressKit}
-            className="px-5 py-2.5 rounded-full border border-gold-500 text-gold-800 hover:bg-gold-50 hover:ring-2 hover:ring-botanical-800/25 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2"
+            className="px-5 py-2.5 rounded-full border border-botanical-700 bg-botanical-50 text-botanical-900 hover:bg-botanical-800 hover:text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shadow-sm"
           >
-            <Download className="w-4 h-4 text-gold-600" />
+            <Download className="w-4 h-4 text-botanical-700 group-hover:text-white" />
             <span>{pressKitDownloaded ? 'Press Kit Downloaded!' : 'Download Official Media Kit (PDF)'}</span>
           </button>
 
@@ -102,7 +102,7 @@ export const MediaCenterPage: React.FC = () => {
             {pressReleases.map((article) => (
               <div
                 key={article.id}
-                className="bg-white rounded-2xl overflow-hidden border border-gold-300/40 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 flex flex-col group"
+                className="bg-white rounded-2xl overflow-hidden border border-gold-300/40 hover:border-botanical-600 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
               >
                 <div className="h-56 overflow-hidden relative">
                   <img
@@ -110,7 +110,7 @@ export const MediaCenterPage: React.FC = () => {
                     alt={article.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-botanical-100/95 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-botanical-900 border border-botanical-200 shadow-sm">
+                  <div className="absolute top-3 left-3 bg-botanical-800 text-white px-3 py-1 rounded-full text-[11px] font-bold border border-botanical-600 shadow-sm">
                     {article.category}
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export const MediaCenterPage: React.FC = () => {
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl font-bold text-charcoal-900 group-hover:text-gold-700 transition-colors leading-snug">
+                    <h3 className="font-serif text-2xl font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors leading-snug">
                       {article.title}
                     </h3>
 
@@ -138,7 +138,7 @@ export const MediaCenterPage: React.FC = () => {
                   <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                     <button
                       onClick={() => setSelectedArticle(article)}
-                      className="text-xs font-bold text-gold-800 hover:text-gold-950 flex items-center gap-1.5 group-hover:underline"
+                      className="text-xs font-bold text-botanical-800 hover:text-botanical-950 flex items-center gap-1.5 group-hover:underline"
                     >
                       <span>Read Full Release</span>
                       <ArrowRight className="w-3.5 h-3.5" />
