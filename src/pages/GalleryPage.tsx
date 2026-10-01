@@ -53,6 +53,11 @@ export const GalleryPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
+          <img
+            src="/richmud-logo.png"
+            alt="richmud"
+            className="h-12 sm:h-16 mx-auto w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] mb-2"
+          />
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/10 border border-gold-400/30 text-gold-300 text-[10px] sm:text-xs font-semibold uppercase tracking-widest">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:w-3.5 text-gold-400" />
             <span>Visual Chronicles</span>

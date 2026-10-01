@@ -37,7 +37,7 @@ const pillars: Pillar[] = [
     icon: FlaskConical,
     headline: 'Molecular Crop Breeding & Climate-Smart Hybridization',
     tagline: 'Where plant genomics meet traditional agronomist instinct',
-    overview: 'Our R&D division is the scientific heartbeat of PAN Seeds. Spread across 4 multi-location research stations and central biotechnology laboratories, our team of Ph.D. geneticists, plant pathologists, and breeders work tirelessly to isolate traits for drought tolerance, heat endurance, and viral immunity.',
+    overview: 'Our R&D division is the scientific heartbeat of richmud. Spread across 4 multi-location research stations and central biotechnology laboratories, our team of Ph.D. geneticists, plant pathologists, and breeders work tirelessly to isolate traits for drought tolerance, heat endurance, and viral immunity.',
     stats: [
       { value: '45+ Acres', label: 'Breeding & Trial Plots' },
       { value: '20,000+', label: 'Germplasm Accessions' },
@@ -71,7 +71,7 @@ const pillars: Pillar[] = [
     icon: ShieldCheck,
     headline: 'NABL Accredited Testing & Seed Longevity Standards',
     tagline: 'Guaranteed 98%+ physical purity and exceptional germination vigor',
-    overview: 'Every single seed pouch that bears the PAN Seeds emblem passes through our high-precision Quality Assurance laboratories. Certified under Seeds Act guidelines and international ISTA protocols, our QA specialists verify physical purity, moisture stability, and seedling vigor before dispatch.',
+    overview: 'Every single seed pouch that bears the richmud emblem passes through our high-precision Quality Assurance laboratories. Certified under Seeds Act guidelines and international ISTA protocols, our QA specialists verify physical purity, moisture stability, and seedling vigor before dispatch.',
     stats: [
       { value: '98%+', label: 'Physical Purity Standard' },
       { value: '100% GOT', label: 'Grow-Out Genetic Verification' },
@@ -145,6 +145,11 @@ export const BusinessPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
+          <img
+            src="/richmud-logo.png"
+            alt="richmud"
+            className="h-12 sm:h-16 mx-auto w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] mb-2"
+          />
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:w-3.5 text-gold-400" />
             <span>Industrial & Scientific Engine</span>

@@ -97,11 +97,18 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
             {/* Slide Content */}
             <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
               <div className="max-w-2xl space-y-4 sm:space-y-6">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-md">
-                  <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
-                  <span className="text-white font-medium">{slide.subtitle}</span>
+                {/* 3D Golden Logo + Badge */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <img
+                    src="/richmud-logo.png"
+                    alt="richmud"
+                    className="h-7 sm:h-9 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                  />
+                  <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-md">
+                    <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
+                    <span className="text-white font-medium">{slide.subtitle}</span>
+                  </div>
                 </div>
 
                 {/* Heading */}
@@ -470,10 +477,17 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest shadow-sm">
-            <Sprout className="w-4 h-4 text-emerald-300" />
-            <span>Grow with PAN Seeds</span>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+          <div className="flex flex-col items-center justify-center space-y-3">
+            <img
+              src="/richmud-logo.png"
+              alt="richmud"
+              className="h-14 sm:h-20 w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
+            />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest shadow-sm">
+              <Sprout className="w-4 h-4 text-emerald-300" />
+              <span>Grow with richmud</span>
+            </div>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
@@ -482,7 +496,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
           </h2>
 
           <p className="text-base sm:text-lg text-emerald-100/90 max-w-2xl mx-auto leading-relaxed">
-            Whether you are a progressive grower seeking certified high-vigor hybrids or a reputable agri-input distributor aiming to become an authorized PAN Seeds dealer, our doors are open.
+            Whether you are a progressive grower seeking certified high-vigor hybrids or a reputable agri-input distributor aiming to become an authorized richmud dealer, our doors are open.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

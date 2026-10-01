@@ -49,15 +49,22 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
       {/* Background Subtle Gold Radiance */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-gold-400/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Luxury Logo Watermark in Footer */}
+      <img
+        src="/richmud-logo.png"
+        alt=""
+        className="absolute -bottom-8 right-4 w-72 sm:w-96 opacity-[0.035] pointer-events-none select-none blur-[0.3px]"
+        aria-hidden="true"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 pb-12 border-b border-gray-800/80">
           
           {/* Brand Column (Span 2 on Desktop, Full Width on Mobile) */}
           <div className="lg:col-span-2 space-y-4">
-            <SeedLogo variant="dark" size="md" />
+            <SeedLogo variant="dark" size="lg" />
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-md">
-              PAN Seeds is a premier agricultural crop science and seed research enterprise. 
+              richmud is a premier agricultural crop science and seed research enterprise. 
               Guided by our pledge, <span className="text-gold-300 italic inline-flex items-center gap-1.5">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block" /> good life"</span>, 
               we empower over 10 million farmers across India with elite hybrid genetics and harvest reliability.
             </p>
@@ -205,7 +212,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
         {/* Bottom Bar: Copyright & Corporate Info */}
         <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-gray-500 gap-3 text-center sm:text-left">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2">
-            <span>© {new Date().getFullYear()} PAN Seeds Pvt. Ltd. All Rights Reserved.</span>
+            <span>© {new Date().getFullYear()} richmud India Pvt. Ltd. All Rights Reserved.</span>
             <span className="hidden sm:inline">•</span>
             <span className="italic text-gold-400">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block mx-0.5" /> good life"</span>
           </div>

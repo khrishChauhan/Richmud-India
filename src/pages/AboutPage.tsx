@@ -47,8 +47,13 @@ export const AboutPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
+          <img
+            src="/richmud-logo.png"
+            alt="richmud"
+            className="h-12 sm:h-16 mx-auto w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] mb-2"
+          />
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
-            <Sparkles className="w-3 sm:w-3.5 h-3 sm:w-3.5 text-gold-400" />
+            <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
             <span>Legacy of Trust Since 1992</span>
           </div>
 
@@ -58,7 +63,7 @@ export const AboutPage: React.FC = () => {
           </h1>
 
           <p className="text-gray-300 max-w-2xl mx-auto text-xs sm:text-base lg:text-lg font-light leading-relaxed">
-            PAN Seeds was forged on a sacred contract with the Indian farmer: that every grain sown will germinate with vitality and bear fruitful harvest.
+            richmud was forged on a sacred contract with the Indian farmer: that every grain sown will germinate with vitality and bear fruitful harvest.
           </p>
         </div>
       </section>
@@ -77,7 +82,7 @@ export const AboutPage: React.FC = () => {
                 <span className="text-gold-gradient">Agricultural Transformation</span>
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Founded in 1992 in the fertile agro-ecological heartland of Eastern India, PAN Seeds has grown into one of the country’s premier indigenous seed conglomerates. Our tagline, <span className="font-semibold text-charcoal-900 italic">"Good seed good life"</span>, is not merely a brand slogan — it is our operational philosophy.
+                Founded in 1992 in the fertile agro-ecological heartland of Eastern India, richmud has grown into one of the country’s premier indigenous seed conglomerates. Our tagline, <span className="font-semibold text-charcoal-900 italic">"Good seed good life"</span>, is not merely a brand slogan — it is our operational philosophy.
               </p>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 We believe that agricultural prosperity begins in the seed embryo. By uniting time-honored farmer wisdom with ultramodern molecular biotechnology, marker-assisted breeding, and ISO/ISTA-certified quality laboratories, we equip farmers to triumph over erratic weather, emerging pests, and water scarcity.
