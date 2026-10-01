@@ -190,7 +190,7 @@ export const ContactPage: React.FC = () => {
                   Message Dispatched Successfully
                 </h3>
                 <p className="text-sm text-gray-600 max-w-md mx-auto">
-                  Thank you for reaching out to PAN Seeds. An authorized regional representative or technical agronomist will contact you within 24 business hours.
+                  Thank you for reaching out to richmud. An authorized regional representative or technical agronomist will contact you within 24 business hours.
                 </p>
               </div>
             ) : (

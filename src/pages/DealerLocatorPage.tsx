@@ -239,7 +239,7 @@ export const DealerLocatorPage: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-gold-400 animate-pulse" />
                   <span className="font-serif text-lg font-bold tracking-wide">
-                    PAN Seeds Pan-India Supply Grid
+                    richmud Pan-India Supply Grid
                   </span>
                 </div>
                 <div className="text-xs text-gold-400 font-mono">
@@ -333,7 +333,7 @@ export const DealerLocatorPage: React.FC = () => {
               <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-400 gap-2 border-t border-gray-800 pt-3">
                 <div className="flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-botanical-400" />
-                  <span>All dealers stock genuine sealed PAN Seeds pouches with QR verification.</span>
+                  <span>All dealers stock genuine sealed richmud pouches with QR verification.</span>
                 </div>
                 <div className="text-gold-400 font-medium">
                   Need Dealership? Inquire via Contact Page

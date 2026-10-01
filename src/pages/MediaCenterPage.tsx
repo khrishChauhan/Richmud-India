@@ -294,13 +294,13 @@ export const MediaCenterPage: React.FC = () => {
                   {selectedArticle.content}
                 </p>
                 <p>
-                  For media inquiries, press interviews with Dr. Ananya Pan or Shri Pradeep Kumar Pan, or certified high-resolution photo assets, please contact <a href="mailto:media@panseeds.in" className="text-gold-700 underline font-semibold">media@panseeds.in</a>.
+                  For media inquiries, press interviews with Dr. Ananya Pan or Shri Pradeep Kumar Pan, or certified high-resolution photo assets, please contact <a href="mailto:media@richmud.in" className="text-gold-700 underline font-semibold">media@richmud.in</a>.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
                 <span className="text-xs text-gray-400">
-                  PAN Seeds Communications Bureau
+                  richmud Communications Bureau
                 </span>
                 <button
                   onClick={() => setSelectedArticle(null)}

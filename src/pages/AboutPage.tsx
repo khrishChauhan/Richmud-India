@@ -104,7 +104,7 @@ export const AboutPage: React.FC = () => {
               <div className="rounded-3xl overflow-hidden shadow-2xl border border-gold-300/40">
                 <img
                   src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1200&q=80"
-                  alt="Farmers with PAN Seeds"
+                  alt="Farmers with richmud"
                   className="w-full h-[440px] object-cover"
                 />
               </div>
@@ -163,7 +163,7 @@ export const AboutPage: React.FC = () => {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-charcoal-900">
-                  <span>PAN Seeds Commitment</span>
+                  <span>richmud Commitment</span>
                   <CheckCircle2 className="w-3.5 h-3.5 text-botanical-700 ml-auto" />
                 </div>
               </div>

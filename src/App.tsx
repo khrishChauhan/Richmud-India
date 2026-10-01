@@ -47,6 +47,22 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Update document.title dynamically
+  useEffect(() => {
+    const titles: Record<string, string> = {
+      home: 'richmud | Good Seed • Good Life',
+      about: 'About Us | richmud',
+      business: 'Core Business | richmud',
+      products: 'Seed Catalog | richmud',
+      dealers: 'Dealer Locator | richmud',
+      gallery: 'Gallery | richmud',
+      careers: 'Careers | richmud',
+      media: 'Media Center | richmud',
+      contact: 'Contact Us | richmud',
+    };
+    document.title = titles[activePage] || 'richmud | Good Seed • Good Life';
+  }, [activePage]);
+
   // Update hash when activePage changes
   const handlePageChange = (page: string) => {
     setActivePage(page);

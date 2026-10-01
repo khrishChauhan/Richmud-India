@@ -277,7 +277,7 @@ export const BusinessPage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                   <div className="text-xs uppercase tracking-widest text-gold-400 font-semibold">
-                    PAN Seeds Infrastructure
+                    richmud Infrastructure
                   </div>
                   <div className="font-serif text-2xl font-bold mt-1">
                     {activePillar.name} Facilities

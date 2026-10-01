@@ -69,7 +69,7 @@ export const galleryItems: GalleryItem[] = [
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80',
     date: 'October 2024',
     location: 'Vigyan Bhawan, New Delhi',
-    description: 'PAN Seeds honored by the Union Ministry of Agriculture for outstanding contribution to certified seed dissemination.',
+    description: 'richmud honored by the Union Ministry of Agriculture for outstanding contribution to certified seed dissemination.',
   },
   {
     id: 'gal-awards-02',
@@ -79,6 +79,6 @@ export const galleryItems: GalleryItem[] = [
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80',
     date: 'August 2024',
     location: 'Federation of Seed Industry of India (FSII)',
-    description: 'Recognizing PAN Seeds breeding team for developing breakthrough yellow mosaic resistant green gram cultivars.',
+    description: 'Recognizing richmud breeding team for developing breakthrough yellow mosaic resistant green gram cultivars.',
   },
 ];
