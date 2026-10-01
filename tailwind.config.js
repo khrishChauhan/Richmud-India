@@ -30,6 +30,19 @@ export default {
           900: '#1A1A1A',
           950: '#111111',
         },
+        botanical: {
+          50: '#F2F8F5',
+          100: '#EAF4EE', // Soft subtle sage/leaf tint for badges
+          200: '#D2E8DC',
+          300: '#A6D2BE',
+          400: '#74B497',
+          500: '#4B9473',
+          600: '#33765A',
+          700: '#255D46',
+          800: '#1B4D3E', // Heritage Botanical Green / Deep Emerald
+          900: '#14532D',
+          950: '#0C241D',
+        },
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
