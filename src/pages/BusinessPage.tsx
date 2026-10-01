@@ -179,7 +179,7 @@ export const BusinessPage: React.FC = () => {
               >
                 <div
                   className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
-                    isSelected ? 'bg-charcoal-950 text-gold-400' : 'bg-gold-100 text-gold-700'
+                    isSelected ? 'bg-charcoal-950 text-gold-400' : 'bg-botanical-50 text-botanical-800 border border-botanical-100'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -206,7 +206,7 @@ export const BusinessPage: React.FC = () => {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-50 border border-gold-300 text-gold-800 text-xs font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-botanical-50 border border-botanical-200 text-botanical-900 text-xs font-semibold uppercase tracking-wider">
                 <span>Pillar {activePillar.number}: {activePillar.badge}</span>
               </div>
 
@@ -249,7 +249,7 @@ export const BusinessPage: React.FC = () => {
                       className="p-4 rounded-xl bg-ivory-50 border border-gold-300/30 hover:border-gold-500 transition-colors space-y-1.5"
                     >
                       <div className="flex items-center gap-2 text-xs font-bold text-charcoal-900">
-                        <CheckCircle2 className="w-4 h-4 text-gold-600 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-botanical-700 shrink-0" />
                         <span>{hl.title}</span>
                       </div>
                       <p className="text-xs text-gray-600 leading-relaxed pl-6">

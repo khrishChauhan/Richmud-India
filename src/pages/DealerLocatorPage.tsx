@@ -167,8 +167,8 @@ export const DealerLocatorPage: React.FC = () => {
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-gold-800 bg-gold-100/70 px-2.5 py-0.5 rounded-full">
-                          <ShieldCheck className="w-3.5 h-3.5 text-gold-700" />
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-botanical-900 bg-botanical-100 px-2.5 py-0.5 rounded-full border border-botanical-200">
+                          <ShieldCheck className="w-3.5 h-3.5 text-botanical-700" />
                           <span>Authorized Dealer</span>
                         </span>
                         <span className="text-xs font-bold text-charcoal-800">
@@ -290,8 +290,8 @@ export const DealerLocatorPage: React.FC = () => {
                 {activeDealer && (
                   <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-2xl p-4 border border-gold-400 shadow-2xl z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-2">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase text-gold-800">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-gold-600" />
+                      <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase text-botanical-900 bg-botanical-100/90 px-2 py-0.5 rounded-md border border-botanical-200">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-botanical-700" />
                         <span>Selected Certified Outlet</span>
                       </div>
                       <div className="font-serif text-lg font-bold text-charcoal-900">
@@ -305,7 +305,7 @@ export const DealerLocatorPage: React.FC = () => {
                     <div className="flex items-center gap-2 shrink-0">
                       <a
                         href={`tel:${activeDealer.phone}`}
-                        className="px-4 py-2 rounded-xl bg-gold-gradient text-charcoal-950 font-bold text-xs flex items-center gap-1.5 shadow-gold-sm hover:opacity-95"
+                        className="px-4 py-2 rounded-xl bg-gold-gradient text-charcoal-950 font-bold text-xs flex items-center gap-1.5 shadow-gold-sm hover:opacity-95 hover:ring-2 hover:ring-botanical-800/25"
                       >
                         <Phone className="w-3.5 h-3.5" />
                         <span>Call Now</span>
@@ -327,7 +327,7 @@ export const DealerLocatorPage: React.FC = () => {
               {/* Map Footer Note */}
               <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-400 gap-2 border-t border-gray-800 pt-3">
                 <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-gold-400" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-botanical-400" />
                   <span>All dealers stock genuine sealed PAN Seeds pouches with QR verification.</span>
                 </div>
                 <div className="text-gold-400 font-medium">

@@ -84,9 +84,9 @@ export const AboutPage: React.FC = () => {
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-ivory-50 border border-gold-300/30">
-                  <div className="text-2xl font-serif font-bold text-gold-700">100%</div>
-                  <div className="text-xs text-gray-600 font-medium mt-1">Certified Genetic Purity Standard</div>
+                <div className="p-4 rounded-xl bg-botanical-50/70 border border-botanical-200/80">
+                  <div className="text-2xl font-serif font-bold text-botanical-800">100%</div>
+                  <div className="text-xs text-charcoal-800 font-medium mt-1">Certified Genetic Purity Standard</div>
                 </div>
                 <div className="p-4 rounded-xl bg-ivory-50 border border-gold-300/30">
                   <div className="text-2xl font-serif font-bold text-gold-700">4 R&D Stations</div>
@@ -106,7 +106,7 @@ export const AboutPage: React.FC = () => {
               {/* Floating luxury badge */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-gold-md border border-gold-400/40 max-w-xs hidden sm:block">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-botanical-100 flex items-center justify-center text-botanical-800 shrink-0 border border-botanical-200">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>
@@ -157,9 +157,9 @@ export const AboutPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-gold-700">
+                <div className="pt-6 mt-6 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-charcoal-900">
                   <span>PAN Seeds Commitment</span>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-600 ml-auto" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-botanical-700 ml-auto" />
                 </div>
               </div>
             ))}

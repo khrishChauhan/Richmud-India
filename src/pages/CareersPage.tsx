@@ -208,7 +208,7 @@ export const CareersPage: React.FC = () => {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full bg-gold-50 border border-gold-200 text-gold-800 text-[11px] font-semibold uppercase tracking-wider">
+                  <span className="px-3 py-1 rounded-full bg-botanical-50 border border-botanical-200 text-botanical-900 text-[11px] font-semibold uppercase tracking-wider">
                     {opp.department}
                   </span>
                   <span className="text-xs font-semibold text-gray-500">
@@ -246,7 +246,7 @@ export const CareersPage: React.FC = () => {
                   </div>
                   {opp.qualifications.slice(0, 2).map((q, i) => (
                     <div key={i} className="flex items-start gap-2 text-xs text-gray-600">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-botanical-700 shrink-0 mt-0.5" />
                       <span>{q}</span>
                     </div>
                   ))}
@@ -259,7 +259,7 @@ export const CareersPage: React.FC = () => {
                 </span>
                 <button
                   onClick={() => handleApplyClick(opp)}
-                  className="px-5 py-2 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm hover:scale-105 transition-all flex items-center gap-1.5"
+                  className="px-5 py-2 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm hover:scale-105 hover:ring-2 hover:ring-botanical-800/30 transition-all flex items-center gap-1.5"
                 >
                   <span>Apply Now</span>
                   <ArrowRight className="w-3.5 h-3.5" />

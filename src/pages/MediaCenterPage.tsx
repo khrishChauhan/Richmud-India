@@ -85,7 +85,7 @@ export const MediaCenterPage: React.FC = () => {
           {/* Download Press Kit Button */}
           <button
             onClick={handleDownloadPressKit}
-            className="px-5 py-2.5 rounded-full border border-gold-500 text-gold-800 hover:bg-gold-50 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2"
+            className="px-5 py-2.5 rounded-full border border-gold-500 text-gold-800 hover:bg-gold-50 hover:ring-2 hover:ring-botanical-800/25 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2"
           >
             <Download className="w-4 h-4 text-gold-600" />
             <span>{pressKitDownloaded ? 'Press Kit Downloaded!' : 'Download Official Media Kit (PDF)'}</span>
@@ -110,7 +110,7 @@ export const MediaCenterPage: React.FC = () => {
                     alt={article.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-charcoal-900 border border-gold-300/40">
+                  <div className="absolute top-3 left-3 bg-botanical-100/95 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-botanical-900 border border-botanical-200 shadow-sm">
                     {article.category}
                   </div>
                 </div>

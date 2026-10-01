@@ -153,7 +153,7 @@ export const ContactPage: React.FC = () => {
 
             {/* Certification Footnote */}
             <div className="flex items-center gap-3 p-4 rounded-xl bg-ivory-100 border border-gold-200/60 text-xs text-gray-600">
-              <ShieldCheck className="w-5 h-5 text-gold-700 shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-botanical-700 shrink-0" />
               <span>
                 All communications are recorded for quality assurance under ISTA and Seeds Act protocols.
               </span>
@@ -178,7 +178,7 @@ export const ContactPage: React.FC = () => {
 
             {submitted ? (
               <div className="py-16 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-gold-100 border border-gold-400 text-gold-700 flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 rounded-full bg-botanical-100 border border-botanical-400 text-botanical-800 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-3xl font-bold text-charcoal-900">
@@ -204,7 +204,7 @@ export const ContactPage: React.FC = () => {
                         onClick={() => setSelectedSubject(sub.id)}
                         className={`p-3 rounded-xl text-left text-xs font-semibold border transition-all ${
                           selectedSubject === sub.id
-                            ? 'bg-gold-50 border-gold-500 text-gold-900 ring-1 ring-gold-400'
+                            ? 'bg-botanical-50 border-botanical-600 text-botanical-900 ring-1 ring-botanical-500'
                             : 'bg-ivory-50 border-gray-200 text-gray-700 hover:border-gold-300'
                         }`}
                       >
