@@ -116,17 +116,17 @@ export default function App() {
         {/* Floating Helpline Pill */}
         <a
           href="tel:18001207267"
-          className="group hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/95 backdrop-blur-md border border-gold-400/50 shadow-gold-md hover:bg-gold-50 hover:ring-2 hover:ring-botanical-800/25 transition-all hover:scale-105"
+          className="group hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-botanical-900/95 backdrop-blur-md border border-gold-400/50 shadow-gold-md hover:bg-botanical-800 transition-all hover:scale-105 text-white"
           title="Call Farmer Helpline 1800-120-7267"
         >
-          <div className="w-6 h-6 rounded-full bg-gold-gradient flex items-center justify-center text-charcoal-950 font-bold">
+          <div className="w-7 h-7 rounded-full bg-gold-gradient flex items-center justify-center text-charcoal-950 font-bold shadow-sm">
             <Phone className="w-3.5 h-3.5" />
           </div>
           <div className="text-left">
-            <div className="text-[10px] uppercase font-bold text-botanical-800 tracking-wider">
+            <div className="text-[10px] uppercase font-bold text-gold-300 tracking-wider">
               Kisan Helpline
             </div>
-            <div className="text-xs font-bold text-charcoal-900 font-mono">
+            <div className="text-xs font-bold text-white font-mono">
               1800-120-7267
             </div>
           </div>

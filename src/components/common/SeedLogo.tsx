@@ -43,13 +43,18 @@ export const SeedLogo: React.FC<SeedLogoProps> = ({
               <stop offset="50%" stopColor="#D4AF37" />
               <stop offset="100%" stopColor="#B8860B" />
             </linearGradient>
+            <linearGradient id="emeraldSeedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#2E6B56" />
+              <stop offset="50%" stopColor="#1B4D3E" />
+              <stop offset="100%" stopColor="#0E3328" />
+            </linearGradient>
             <linearGradient id="goldSeedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FAF3DE" />
               <stop offset="40%" stopColor="#D4AF37" />
               <stop offset="100%" stopColor="#946B08" />
             </linearGradient>
             <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#D4AF37" floodOpacity="0.4" />
+              <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#1B4D3E" floodOpacity="0.3" />
             </filter>
           </defs>
 
@@ -65,36 +70,44 @@ export const SeedLogo: React.FC<SeedLogoProps> = ({
             className="opacity-90"
           />
 
-          {/* Inner Accent Ring */}
+          {/* Inner Botanical Ring */}
           <circle
             cx="50"
             cy="50"
             r="38"
             fill="none"
-            stroke="url(#goldRingGrad)"
-            strokeWidth="0.75"
-            className="opacity-50"
+            stroke="#1B4D3E"
+            strokeWidth="1.2"
+            strokeDasharray="12 4"
+            className="opacity-60"
           />
 
-          {/* Golden Sprouting Seed Leaf */}
+          {/* Golden & Emerald Dual-Tone Sprouting Seed */}
           <path
             d="M50 18 C66 33 72 58 50 82 C28 58 34 33 50 18 Z"
             fill="url(#goldSeedGrad)"
             filter="url(#goldGlow)"
           />
 
+          {/* Botanical Emerald Germination Leaf Wing */}
+          <path
+            d="M50 22 C61 36 63 56 50 74 C50 60 52 40 50 22 Z"
+            fill="url(#emeraldSeedGrad)"
+            opacity="0.85"
+          />
+
           {/* Inner Germination Line */}
           <path
-            d="M50 26 C57 40 57 58 50 72"
+            d="M50 26 C54 40 54 58 50 72"
             stroke="#FAF9F6"
             strokeWidth="1.8"
             strokeLinecap="round"
             fill="none"
-            className="opacity-90"
+            className="opacity-95"
           />
 
           {/* Central Vitality Sprout */}
-          <circle cx="50" cy="50" r="3" fill="#FAF9F6" />
+          <circle cx="50" cy="50" r="3" fill="#D4AF37" stroke="#FAF9F6" strokeWidth="1" />
         </svg>
       </div>
 
@@ -104,17 +117,17 @@ export const SeedLogo: React.FC<SeedLogoProps> = ({
           className={`font-serif tracking-widest font-bold leading-none ${titleSizes[size]} ${
             variant === 'dark'
               ? 'text-white'
-              : 'text-charcoal-900 group-hover:text-gold-700 transition-colors'
+              : 'text-charcoal-900 group-hover:text-botanical-800 transition-colors'
           }`}
         >
           PAN <span className="text-gold-gradient">SEEDS</span>
         </span>
         {showTagline && (
           <span
-            className={`font-sans uppercase tracking-[0.22em] font-medium text-gold-600 mt-1 flex items-center gap-1 ${taglineSizes[size]}`}
+            className={`font-sans uppercase tracking-[0.22em] font-semibold text-botanical-800 mt-1 flex items-center gap-1.5 ${taglineSizes[size]}`}
           >
             <span>Good seed</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-botanical-700 inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-gold-500 inline-block shadow-sm" />
             <span>good life</span>
           </span>
         )}
