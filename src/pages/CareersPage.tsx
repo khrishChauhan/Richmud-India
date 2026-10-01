@@ -84,7 +84,7 @@ export const CareersPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-20 sm:pt-24 pb-20">
+    <div className="pb-20">
       {/* 1. HERO HEADER */}
       <section className="relative py-12 sm:py-20 bg-charcoal-950 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />

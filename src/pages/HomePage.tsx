@@ -71,7 +71,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
   const featuredProducts = productsData.filter((p) => p.featured).slice(0, 4);
 
   return (
-    <div className="pt-20">
+    <div>
       {/* 1. HERO SLIDER / CAROUSEL */}
       <section 
         className="relative h-[72vh] sm:h-[82vh] min-h-[460px] sm:min-h-[580px] max-h-[820px] overflow-hidden bg-charcoal-950 text-white"

@@ -74,7 +74,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#1A1A1A] flex flex-col font-sans selection:bg-gold-500 selection:text-white w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#1A1A1A] flex flex-col font-sans selection:bg-gold-500 selection:text-white w-full max-w-full overflow-x-clip">
       {/* Sticky Glassmorphic Navbar */}
       <Navbar
         activePage={activePage}
@@ -83,7 +83,7 @@ export default function App() {
       />
 
       {/* Main Page Content */}
-      <main className="flex-1 w-full max-w-full overflow-x-hidden">
+      <main className="flex-1 w-full max-w-full">
         {activePage === 'home' && (
           <HomePage
             setActivePage={handlePageChange}
