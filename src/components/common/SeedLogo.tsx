@@ -114,20 +114,20 @@ export const SeedLogo: React.FC<SeedLogoProps> = ({
       {/* Typography */}
       <div className="flex flex-col justify-center text-left">
         <span
-          className={`font-serif tracking-widest font-bold leading-none ${titleSizes[size]} ${
+          className={`font-serif tracking-tight font-bold leading-none ${titleSizes[size]} ${
             variant === 'dark'
               ? 'text-white'
-              : 'text-charcoal-900 group-hover:text-gold-700 transition-colors'
+              : 'text-[#1A1A1A] group-hover:text-stone-900 transition-colors'
           }`}
         >
-          PAN <span className="text-gold-gradient">SEEDS</span>
+          rich<span className="text-[#D4AF37]">mud</span>
         </span>
         {showTagline && (
           <span
-            className={`font-sans uppercase tracking-[0.24em] font-semibold text-botanical-800 mt-1 flex items-center gap-1.5 whitespace-nowrap ${taglineSizes[size]}`}
+            className={`font-sans uppercase tracking-[0.22em] font-semibold text-emerald-800 mt-0.5 flex items-center gap-1 whitespace-nowrap ${taglineSizes[size]}`}
           >
             <span>Good seed</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-gold-500 inline-block shadow-sm" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] inline-block shadow-sm" />
             <span>good life</span>
           </span>
         )}
