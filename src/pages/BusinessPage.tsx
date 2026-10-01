@@ -139,23 +139,23 @@ export const BusinessPage: React.FC = () => {
   const activePillar = pillars.find((p) => p.id === activePillarId) || pillars[0];
 
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-20 sm:pt-24 pb-20">
       {/* 1. HERO HEADER */}
-      <section className="relative py-20 bg-charcoal-950 text-white overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-charcoal-950 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
+            <Sparkles className="w-3 sm:w-3.5 h-3 sm:w-3.5 text-gold-400" />
             <span>Industrial & Scientific Engine</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
             Our Core Business & <br />
             <span className="text-gold-gradient">The 3-Pillar Enterprise</span>
           </h1>
 
-          <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-gray-300 max-w-2xl mx-auto text-xs sm:text-base lg:text-lg font-light leading-relaxed">
             From molecular DNA sequencing in our biotechnology laboratories to climate-controlled packaging and grassroots farmer education.
           </p>
         </div>

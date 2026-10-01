@@ -32,6 +32,19 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [productsMegaOpen, setProductsMegaOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,94 +76,100 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-luxury border-b border-gold-400/20 py-3'
-          : 'bg-white/80 backdrop-blur-sm border-b border-gold-400/10 py-4'
+          ? 'bg-white/90 backdrop-blur-md border-b border-amber-200/30'
+          : 'bg-white/85 backdrop-blur-md border-b border-amber-200/20'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-[68px] sm:h-[72px]">
           {/* Brand Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="focus:outline-none focus:ring-2 focus:ring-gold-400/50 rounded-lg p-1"
+            className="focus:outline-none focus:ring-1 focus:ring-gold-400/50 rounded-lg p-0.5 flex items-center shrink-0"
           >
             <SeedLogo size="md" />
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <nav className="hidden lg:flex items-center h-full space-x-0.5 xl:space-x-1">
             {/* Home */}
             <button
               onClick={() => handleNavClick('home')}
-              className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
+              className={`relative h-full flex items-center px-3 text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
                 activePage === 'home'
-                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
-                  : 'text-charcoal-800 hover:text-gold-600'
+                  ? 'text-[#14532D] font-semibold'
+                  : 'text-stone-700 hover:text-[#D4AF37]'
               }`}
             >
-              Home
+              <span>Home</span>
+              {activePage === 'home' && (
+                <span className="absolute bottom-0 inset-x-2.5 h-[1.5px] bg-[#14532D]" />
+              )}
             </button>
 
             {/* About Us Dropdown */}
             <div 
-              className="relative"
+              className="relative h-full flex items-center"
               onMouseEnter={() => setAboutDropdownOpen(true)}
               onMouseLeave={() => setAboutDropdownOpen(false)}
             >
               <button
                 onClick={() => handleNavClick('about')}
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
+                className={`relative h-full flex items-center gap-1.5 px-3 text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
                   activePage === 'about'
-                    ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
-                    : 'text-charcoal-800 hover:text-gold-600'
+                    ? 'text-[#14532D] font-semibold'
+                    : 'text-stone-700 hover:text-[#D4AF37]'
                 }`}
               >
-                About Us
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-botanical-800' : ''}`} />
+                <span>About Us</span>
+                <ChevronDown className={`w-3.5 h-3.5 stroke-[1.5] transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-gold-600' : 'text-stone-400'}`} />
+                {activePage === 'about' && (
+                  <span className="absolute bottom-0 inset-x-2.5 h-[1.5px] bg-[#14532D]" />
+                )}
               </button>
 
               {aboutDropdownOpen && (
-                <div className="absolute top-full left-0 w-64 pt-2 z-50">
-                  <div className="bg-white rounded-xl shadow-xl border border-gold-300/30 p-2 backdrop-blur-lg">
+                <div className="absolute top-full left-0 w-64 pt-1.5 z-50">
+                  <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-lg border border-amber-200/40 p-2 animate-in fade-in zoom-in-95 duration-150">
                     <button
                       onClick={() => handleNavClick('about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-botanical-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-50 text-xs font-medium text-stone-800 flex items-center justify-between group transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-charcoal-900 group-hover:text-botanical-800">Corporate Overview</div>
-                        <div className="text-[11px] text-gray-500">30+ years of seed excellence</div>
+                        <div className="font-semibold text-stone-900 group-hover:text-[#14532D]">Corporate Overview</div>
+                        <div className="text-[11px] text-stone-500">30+ years of seed excellence</div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-botanical-700 transition-opacity" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-[#14532D] transition-opacity" />
                     </button>
                     <button
                       onClick={() => handleNavClick('about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-botanical-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-50 text-xs font-medium text-stone-800 flex items-center justify-between group transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-charcoal-900 group-hover:text-botanical-800">Vision, Mission & Ethos</div>
-                        <div className="text-[11px] text-gray-500">Our guiding principles</div>
+                        <div className="font-semibold text-stone-900 group-hover:text-[#14532D]">Vision, Mission & Ethos</div>
+                        <div className="text-[11px] text-stone-500">Our guiding principles</div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-botanical-700 transition-opacity" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-[#14532D] transition-opacity" />
                     </button>
                     <button
                       onClick={() => handleNavClick('about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-botanical-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-50 text-xs font-medium text-stone-800 flex items-center justify-between group transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-charcoal-900 group-hover:text-botanical-800">Director's Journey</div>
-                        <div className="text-[11px] text-gray-500">Founding story & milestones</div>
+                        <div className="font-semibold text-stone-900 group-hover:text-[#14532D]">Director's Journey</div>
+                        <div className="text-[11px] text-stone-500">Founding story & milestones</div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-botanical-700 transition-opacity" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-[#14532D] transition-opacity" />
                     </button>
                     <button
                       onClick={() => handleNavClick('about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-botanical-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-stone-50 text-xs font-medium text-stone-800 flex items-center justify-between group transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-charcoal-900 group-hover:text-botanical-800">Board & Leadership</div>
-                        <div className="text-[11px] text-gray-500">Visionary scientific leadership</div>
+                        <div className="font-semibold text-stone-900 group-hover:text-[#14532D]">Board & Leadership</div>
+                        <div className="text-[11px] text-stone-500">Visionary scientific leadership</div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-botanical-700 transition-opacity" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-[#14532D] transition-opacity" />
                     </button>
                   </div>
                 </div>
@@ -160,37 +179,43 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Core Business */}
             <button
               onClick={() => handleNavClick('business')}
-              className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
+              className={`relative h-full flex items-center px-3 text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
                 activePage === 'business'
-                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
-                  : 'text-charcoal-800 hover:text-gold-600'
+                  ? 'text-[#14532D] font-semibold'
+                  : 'text-stone-700 hover:text-[#D4AF37]'
               }`}
             >
-              Core Business
+              <span>Core Business</span>
+              {activePage === 'business' && (
+                <span className="absolute bottom-0 inset-x-2.5 h-[1.5px] bg-[#14532D]" />
+              )}
             </button>
 
             {/* Products Mega Menu */}
             <div 
-              className="relative"
+              className="relative h-full flex items-center"
               onMouseEnter={() => setProductsMegaOpen(true)}
               onMouseLeave={() => setProductsMegaOpen(false)}
             >
               <button
                 onClick={() => handleNavClick('products')}
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
+                className={`relative h-full flex items-center gap-1.5 px-3 text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
                   activePage === 'products'
-                    ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
-                    : 'text-charcoal-800 hover:text-gold-600'
+                    ? 'text-[#14532D] font-semibold'
+                    : 'text-stone-700 hover:text-[#D4AF37]'
                 }`}
               >
-                Products
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsMegaOpen ? 'rotate-180 text-botanical-800' : ''}`} />
+                <span>Products</span>
+                <ChevronDown className={`w-3.5 h-3.5 stroke-[1.5] transition-transform duration-200 ${productsMegaOpen ? 'rotate-180 text-gold-600' : 'text-stone-400'}`} />
+                {activePage === 'products' && (
+                  <span className="absolute bottom-0 inset-x-2.5 h-[1.5px] bg-[#14532D]" />
+                )}
               </button>
 
               {productsMegaOpen && (
-                <div className="absolute top-full -left-20 w-[640px] pt-2 z-50">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gold-300/30 p-5 backdrop-blur-xl">
-                    <div className="flex items-center justify-between pb-3 border-b border-gray-100 mb-3">
+                <div className="absolute top-full -left-20 w-[640px] pt-1.5 z-50">
+                  <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl border border-amber-200/40 p-5 animate-in fade-in zoom-in-95 duration-150">
+                    <div className="flex items-center justify-between pb-3 border-b border-stone-100 mb-3">
                       <span className="text-xs uppercase tracking-wider font-semibold text-gold-700">Seed Catalog & Crop Science</span>
                       <button 
                         onClick={() => handleNavClick('products')} 
@@ -203,66 +228,66 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <div className="grid grid-cols-2 gap-3">
                       <button
                         onClick={() => handleCategoryClick('field-crops')}
-                        className="text-left p-3 rounded-xl hover:bg-botanical-50/60 border border-transparent hover:border-botanical-300/40 transition-all flex items-start gap-3 group"
+                        className="text-left p-3 rounded-xl hover:bg-stone-50 border border-transparent hover:border-amber-200/50 transition-all flex items-start gap-3 group"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-botanical-100 text-botanical-800 flex items-center justify-center shrink-0 group-hover:bg-botanical-800 group-hover:text-white transition-colors">
-                          <Sprout className="w-5 h-5" />
+                        <div className="w-9 h-9 rounded-lg bg-stone-100 text-stone-700 flex items-center justify-center shrink-0 group-hover:bg-[#14532D] group-hover:text-white transition-colors">
+                          <Sprout className="w-5 h-5 stroke-[1.5]" />
                         </div>
                         <div>
-                          <div className="font-semibold text-xs text-charcoal-900 group-hover:text-botanical-900">Field Crops</div>
-                          <div className="text-[11px] text-gray-500 mt-0.5 line-clamp-1">Wheat, Paddy, Mustard, Maize, Pulses</div>
+                          <div className="font-semibold text-xs text-stone-900 group-hover:text-[#14532D]">Field Crops</div>
+                          <div className="text-[11px] text-stone-500 mt-0.5 line-clamp-1">Wheat, Paddy, Mustard, Maize, Pulses</div>
                         </div>
                       </button>
 
                       <button
                         onClick={() => handleCategoryClick('vegetable-seeds')}
-                        className="text-left p-3 rounded-xl hover:bg-botanical-50/60 border border-transparent hover:border-botanical-300/40 transition-all flex items-start gap-3 group"
+                        className="text-left p-3 rounded-xl hover:bg-stone-50 border border-transparent hover:border-amber-200/50 transition-all flex items-start gap-3 group"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-botanical-100 text-botanical-800 flex items-center justify-center shrink-0 group-hover:bg-botanical-800 group-hover:text-white transition-colors">
-                          <Sprout className="w-5 h-5" />
+                        <div className="w-9 h-9 rounded-lg bg-stone-100 text-stone-700 flex items-center justify-center shrink-0 group-hover:bg-[#14532D] group-hover:text-white transition-colors">
+                          <Sprout className="w-5 h-5 stroke-[1.5]" />
                         </div>
                         <div>
-                          <div className="font-semibold text-xs text-charcoal-900 group-hover:text-botanical-900">Vegetable Seeds</div>
-                          <div className="text-[11px] text-gray-500 mt-0.5 line-clamp-1">22+ Hybrid Greens, Gourds, Roots & Solanaceous</div>
+                          <div className="font-semibold text-xs text-stone-900 group-hover:text-[#14532D]">Vegetable Seeds</div>
+                          <div className="text-[11px] text-stone-500 mt-0.5 line-clamp-1">22+ Hybrid Greens, Gourds, Roots & Solanaceous</div>
                         </div>
                       </button>
 
                       <button
                         onClick={() => handleCategoryClick('fodder-crops')}
-                        className="text-left p-3 rounded-xl hover:bg-botanical-50/60 border border-transparent hover:border-botanical-300/40 transition-all flex items-start gap-3 group"
+                        className="text-left p-3 rounded-xl hover:bg-stone-50 border border-transparent hover:border-amber-200/50 transition-all flex items-start gap-3 group"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-botanical-100 text-botanical-800 flex items-center justify-center shrink-0 group-hover:bg-botanical-800 group-hover:text-white transition-colors">
-                          <Sprout className="w-5 h-5" />
+                        <div className="w-9 h-9 rounded-lg bg-stone-100 text-stone-700 flex items-center justify-center shrink-0 group-hover:bg-[#14532D] group-hover:text-white transition-colors">
+                          <Sprout className="w-5 h-5 stroke-[1.5]" />
                         </div>
                         <div>
-                          <div className="font-semibold text-xs text-charcoal-900 group-hover:text-botanical-900">Fodder Crops</div>
-                          <div className="text-[11px] text-gray-500 mt-0.5 line-clamp-1">NutriGold Sorghum, Berseem Clover</div>
+                          <div className="font-semibold text-xs text-stone-900 group-hover:text-[#14532D]">Fodder Crops</div>
+                          <div className="text-[11px] text-stone-500 mt-0.5 line-clamp-1">NutriGold Sorghum, Berseem Clover</div>
                         </div>
                       </button>
 
                       <button
                         onClick={() => handleCategoryClick('jute-crops')}
-                        className="text-left p-3 rounded-xl hover:bg-botanical-50/60 border border-transparent hover:border-botanical-300/40 transition-all flex items-start gap-3 group"
+                        className="text-left p-3 rounded-xl hover:bg-stone-50 border border-transparent hover:border-amber-200/50 transition-all flex items-start gap-3 group"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-botanical-100 text-botanical-800 flex items-center justify-center shrink-0 group-hover:bg-botanical-800 group-hover:text-white transition-colors">
-                          <Sprout className="w-5 h-5" />
+                        <div className="w-9 h-9 rounded-lg bg-stone-100 text-stone-700 flex items-center justify-center shrink-0 group-hover:bg-[#14532D] group-hover:text-white transition-colors">
+                          <Sprout className="w-5 h-5 stroke-[1.5]" />
                         </div>
                         <div>
-                          <div className="font-semibold text-xs text-charcoal-900 group-hover:text-botanical-900">Jute Crops</div>
-                          <div className="text-[11px] text-gray-500 mt-0.5 line-clamp-1">Golden Fiber Tossa & White Jute</div>
+                          <div className="font-semibold text-xs text-stone-900 group-hover:text-[#14532D]">Jute Crops</div>
+                          <div className="text-[11px] text-stone-500 mt-0.5 line-clamp-1">Golden Fiber Tossa & White Jute</div>
                         </div>
                       </button>
 
                       <button
                         onClick={() => handleCategoryClick('crop-protection')}
-                        className="col-span-2 text-left p-3 rounded-xl hover:bg-botanical-50/60 border border-transparent hover:border-botanical-300/40 transition-all flex items-start gap-3 group bg-botanical-50/40"
+                        className="col-span-2 text-left p-3 rounded-xl hover:bg-stone-50 border border-transparent hover:border-amber-200/50 transition-all flex items-start gap-3 group bg-stone-50/50"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-botanical-200 text-botanical-900 flex items-center justify-center shrink-0 group-hover:bg-botanical-800 group-hover:text-white transition-colors">
-                          <FlaskConical className="w-5 h-5" />
+                        <div className="w-9 h-9 rounded-lg bg-stone-200 text-stone-800 flex items-center justify-center shrink-0 group-hover:bg-[#14532D] group-hover:text-white transition-colors">
+                          <FlaskConical className="w-5 h-5 stroke-[1.5]" />
                         </div>
                         <div>
-                          <div className="font-semibold text-xs text-charcoal-900 group-hover:text-botanical-900">Crop Protection & Bio-Nutrition</div>
-                          <div className="text-[11px] text-gray-500 mt-0.5">Systemic Insecticides, Broad-spectrum Fungicides, Herbicides & PanVigor PGR</div>
+                          <div className="font-semibold text-xs text-stone-900 group-hover:text-[#14532D]">Crop Protection & Bio-Nutrition</div>
+                          <div className="text-[11px] text-stone-500 mt-0.5">Systemic Insecticides, Broad-spectrum Fungicides, Herbicides & PanVigor PGR</div>
                         </div>
                       </button>
                     </div>
@@ -274,205 +299,356 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Gallery */}
             <button
               onClick={() => handleNavClick('gallery')}
-              className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
+              className={`relative h-full flex items-center px-3 text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
                 activePage === 'gallery'
-                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
-                  : 'text-charcoal-800 hover:text-gold-600'
+                  ? 'text-[#14532D] font-semibold'
+                  : 'text-stone-700 hover:text-[#D4AF37]'
               }`}
             >
-              Gallery
+              <span>Gallery</span>
+              {activePage === 'gallery' && (
+                <span className="absolute bottom-0 inset-x-2.5 h-[1.5px] bg-[#14532D]" />
+              )}
             </button>
 
             {/* Careers */}
             <button
               onClick={() => handleNavClick('careers')}
-              className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
+              className={`relative h-full flex items-center px-3 text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
                 activePage === 'careers'
-                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
-                  : 'text-charcoal-800 hover:text-gold-600'
+                  ? 'text-[#14532D] font-semibold'
+                  : 'text-stone-700 hover:text-[#D4AF37]'
               }`}
             >
-              Careers
+              <span>Careers</span>
+              {activePage === 'careers' && (
+                <span className="absolute bottom-0 inset-x-2.5 h-[1.5px] bg-[#14532D]" />
+              )}
             </button>
 
             {/* Media Center */}
             <button
               onClick={() => handleNavClick('media')}
-              className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
+              className={`relative h-full flex items-center px-3 text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
                 activePage === 'media'
-                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
-                  : 'text-charcoal-800 hover:text-gold-600'
+                  ? 'text-[#14532D] font-semibold'
+                  : 'text-stone-700 hover:text-[#D4AF37]'
               }`}
             >
-              Media Center
+              <span>Media Center</span>
+              {activePage === 'media' && (
+                <span className="absolute bottom-0 inset-x-2.5 h-[1.5px] bg-[#14532D]" />
+              )}
             </button>
 
             {/* Contact */}
             <button
               onClick={() => handleNavClick('contact')}
-              className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
+              className={`relative h-full flex items-center px-3 text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
                 activePage === 'contact'
-                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
-                  : 'text-charcoal-800 hover:text-gold-600'
+                  ? 'text-[#14532D] font-semibold'
+                  : 'text-stone-700 hover:text-[#D4AF37]'
               }`}
             >
-              Contact
+              <span>Contact</span>
+              {activePage === 'contact' && (
+                <span className="absolute bottom-0 inset-x-2.5 h-[1.5px] bg-[#14532D]" />
+              )}
             </button>
           </nav>
 
           {/* Action Button: Dealer Locator */}
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-3 shrink-0">
             <button
               onClick={() => handleNavClick('dealers')}
-              className={`relative group overflow-hidden px-4 py-2 rounded-full border transition-all duration-300 flex items-center gap-2 text-xs font-semibold tracking-wider uppercase shadow-md ${
+              className={`whitespace-nowrap px-4 py-2 rounded-full border transition-all duration-300 flex items-center gap-1.5 text-[11px] font-semibold tracking-wider uppercase ${
                 activePage === 'dealers'
-                  ? 'bg-botanical-900 text-gold-300 border-gold-400 font-bold ring-2 ring-botanical-700 shadow-gold-sm'
-                  : 'bg-botanical-800 hover:bg-botanical-900 text-white border-gold-400/40 hover:border-gold-300 shadow-sm'
+                  ? 'bg-[#14532D] text-white border-[#14532D] shadow-sm'
+                  : 'border-[#14532D]/40 text-[#14532D] hover:bg-[#14532D] hover:text-white hover:border-[#14532D] bg-transparent'
               }`}
             >
-              <MapPin className="w-3.5 h-3.5 text-gold-300 group-hover:scale-110 transition-transform" />
+              <MapPin className="w-3.5 h-3.5 stroke-[1.5]" />
               <span>Dealer Locator</span>
             </button>
           </div>
 
           {/* Mobile Menu Trigger */}
-          <div className="flex lg:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-1.5">
             <button
               onClick={() => handleNavClick('dealers')}
-              className="px-3 py-1.5 rounded-full border border-botanical-700 text-white text-xs font-semibold flex items-center gap-1 bg-botanical-800 shadow-sm"
+              className="px-3 py-1.5 rounded-full border border-[#14532D]/40 text-[#14532D] text-[11px] font-semibold flex items-center gap-1 hover:bg-[#14532D] hover:text-white transition-colors whitespace-nowrap"
             >
-              <MapPin className="w-3 h-3 text-gold-300" />
+              <MapPin className="w-3.5 h-3.5 stroke-[1.5]" />
               <span>Dealers</span>
             </button>
 
+            {/* Accessible Animated Hamburger Button (44x44px touch target) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-charcoal-800 hover:text-gold-600 focus:outline-none"
-              aria-label="Toggle Navigation Menu"
+              className="w-11 h-11 flex flex-col items-center justify-center gap-1.5 rounded-xl text-stone-800 hover:bg-stone-100/70 focus:outline-none transition-colors"
+              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+              aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <span
+                className={`w-5 h-[2px] bg-stone-800 rounded-full transition-all duration-300 transform origin-center ${
+                  mobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+              />
+              <span
+                className={`w-5 h-[2px] bg-stone-800 rounded-full transition-all duration-200 ${
+                  mobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+                }`}
+              />
+              <span
+                className={`w-5 h-[2px] bg-stone-800 rounded-full transition-all duration-300 transform origin-center ${
+                  mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+              />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-b border-gold-300/30 px-4 pt-3 pb-6 max-h-[85vh] overflow-y-auto shadow-2xl">
-          <div className="space-y-1">
+      {/* Slide-over Backdrop Overlay */}
+      <div
+        className={`fixed inset-0 bg-stone-950/40 backdrop-blur-sm z-50 transition-opacity duration-300 lg:hidden ${
+          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setMobileMenuOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Slide-over Luxury Drawer */}
+      <div
+        className={`fixed top-0 right-0 bottom-0 w-[86%] max-w-sm bg-white/95 backdrop-blur-2xl border-l border-amber-200/40 z-50 flex flex-col shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        {/* Drawer Header */}
+        <div className="flex items-center justify-between px-5 h-[70px] border-b border-amber-200/25 shrink-0 bg-white/60">
+          <SeedLogo size="sm" />
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="w-10 h-10 flex items-center justify-center rounded-xl text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5 stroke-[1.5]" />
+          </button>
+        </div>
+
+        {/* Drawer Scrollable Navigation */}
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1 overscroll-contain">
+          {/* Home */}
+          <button
+            onClick={() => handleNavClick('home')}
+            className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-colors flex items-center justify-between ${
+              activePage === 'home'
+                ? 'bg-[#14532D]/10 text-[#14532D] font-semibold'
+                : 'text-stone-800 hover:bg-stone-50'
+            }`}
+          >
+            <span>Home</span>
+            {activePage === 'home' && <span className="w-1.5 h-1.5 rounded-full bg-[#14532D]" />}
+          </button>
+
+          {/* About Us Accordion */}
+          <div className="rounded-xl overflow-hidden">
             <button
-              onClick={() => handleNavClick('home')}
-              className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium ${
-                activePage === 'home' ? 'bg-botanical-50 text-botanical-900 font-semibold' : 'text-charcoal-900'
+              onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+              className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-colors flex items-center justify-between ${
+                activePage === 'about'
+                  ? 'bg-[#14532D]/10 text-[#14532D] font-semibold'
+                  : 'text-stone-800 hover:bg-stone-50'
               }`}
             >
-              Home
+              <span>About Us</span>
+              <ChevronDown
+                className={`w-4 h-4 text-stone-400 transition-transform duration-300 ${
+                  mobileAboutOpen ? 'rotate-180 text-gold-600' : ''
+                }`}
+              />
             </button>
 
-            <button
-              onClick={() => handleNavClick('about')}
-              className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium ${
-                activePage === 'about' ? 'bg-botanical-50 text-botanical-900 font-semibold' : 'text-charcoal-900'
-              }`}
-            >
-              About Us (Overview, Vision & Leadership)
-            </button>
-
-            <button
-              onClick={() => handleNavClick('business')}
-              className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium ${
-                activePage === 'business' ? 'bg-botanical-50 text-botanical-900 font-semibold' : 'text-charcoal-900'
-              }`}
-            >
-              Core Business (R&D, QA & Marketing)
-            </button>
-
-            <div className="py-2 border-y border-gray-100 my-2">
-              <div className="text-xs uppercase tracking-wider text-botanical-800 font-semibold px-3 mb-2">
-                Products Catalog
+            {mobileAboutOpen && (
+              <div className="pl-4 pr-1 py-1 space-y-1 bg-stone-50/70 rounded-xl my-1 border-l-2 border-gold-400/40 ml-3">
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors"
+                >
+                  Corporate Overview
+                </button>
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors"
+                >
+                  Vision, Mission & Ethos
+                </button>
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors"
+                >
+                  Director's Journey & Heritage
+                </button>
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors"
+                >
+                  Board of Directors & Scientists
+                </button>
               </div>
-              <div className="grid grid-cols-2 gap-1 px-1">
+            )}
+          </div>
+
+          {/* Core Business */}
+          <button
+            onClick={() => handleNavClick('business')}
+            className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-colors flex items-center justify-between ${
+              activePage === 'business'
+                ? 'bg-[#14532D]/10 text-[#14532D] font-semibold'
+                : 'text-stone-800 hover:bg-stone-50'
+            }`}
+          >
+            <span>Core Business</span>
+            {activePage === 'business' && <span className="w-1.5 h-1.5 rounded-full bg-[#14532D]" />}
+          </button>
+
+          {/* Products / Core Business Accordion */}
+          <div className="rounded-xl overflow-hidden">
+            <button
+              onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+              className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-colors flex items-center justify-between ${
+                activePage === 'products'
+                  ? 'bg-[#14532D]/10 text-[#14532D] font-semibold'
+                  : 'text-stone-800 hover:bg-stone-50'
+              }`}
+            >
+              <span>Products Catalog</span>
+              <ChevronDown
+                className={`w-4 h-4 text-stone-400 transition-transform duration-300 ${
+                  mobileProductsOpen ? 'rotate-180 text-gold-600' : ''
+                }`}
+              />
+            </button>
+
+            {mobileProductsOpen && (
+              <div className="pl-4 pr-1 py-1 space-y-1 bg-stone-50/70 rounded-xl my-1 border-l-2 border-gold-400/40 ml-3">
                 <button
                   onClick={() => handleCategoryClick('field-crops')}
-                  className="text-left px-2.5 py-1.5 rounded-md text-xs hover:bg-botanical-50 text-gray-700 font-medium"
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors flex items-center justify-between"
                 >
-                  🌾 Field Crops
+                  <span>🌾 Field Crops (Paddy, Wheat)</span>
+                  <ArrowRight className="w-3 h-3 text-stone-400" />
                 </button>
                 <button
                   onClick={() => handleCategoryClick('vegetable-seeds')}
-                  className="text-left px-2.5 py-1.5 rounded-md text-xs hover:bg-botanical-50 text-gray-700 font-medium"
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors flex items-center justify-between"
                 >
-                  🥬 Vegetable Seeds
+                  <span>🥬 Vegetable Seeds (22+ Hybrids)</span>
+                  <ArrowRight className="w-3 h-3 text-stone-400" />
                 </button>
                 <button
                   onClick={() => handleCategoryClick('fodder-crops')}
-                  className="text-left px-2.5 py-1.5 rounded-md text-xs hover:bg-botanical-50 text-gray-700 font-medium"
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors flex items-center justify-between"
                 >
-                  🌱 Fodder Crops
+                  <span>🌱 Fodder Crops (Sorghum)</span>
+                  <ArrowRight className="w-3 h-3 text-stone-400" />
                 </button>
                 <button
                   onClick={() => handleCategoryClick('jute-crops')}
-                  className="text-left px-2.5 py-1.5 rounded-md text-xs hover:bg-botanical-50 text-gray-700 font-medium"
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors flex items-center justify-between"
                 >
-                  🌾 Jute Crops
+                  <span>🌾 Jute Crops (Golden Fiber)</span>
+                  <ArrowRight className="w-3 h-3 text-stone-400" />
                 </button>
                 <button
                   onClick={() => handleCategoryClick('crop-protection')}
-                  className="col-span-2 text-left px-2.5 py-1.5 rounded-md text-xs hover:bg-botanical-50 text-gray-700 font-medium"
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-stone-700 hover:text-[#14532D] hover:bg-white transition-colors flex items-center justify-between"
                 >
-                  🛡️ Crop Protection & Bio-Nutrition
+                  <span>🛡️ Crop Protection & PGR</span>
+                  <ArrowRight className="w-3 h-3 text-stone-400" />
+                </button>
+                <button
+                  onClick={() => handleNavClick('products')}
+                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-bold text-[#14532D] hover:bg-white transition-colors flex items-center gap-1 pt-2 border-t border-stone-200/60"
+                >
+                  <span>View All 30+ Varieties</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-            </div>
-
-            <button
-              onClick={() => handleNavClick('gallery')}
-              className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium ${
-                activePage === 'gallery' ? 'bg-botanical-50 text-botanical-900 font-semibold' : 'text-charcoal-900'
-              }`}
-            >
-              Gallery
-            </button>
-
-            <button
-              onClick={() => handleNavClick('careers')}
-              className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium ${
-                activePage === 'careers' ? 'bg-botanical-50 text-botanical-900 font-semibold' : 'text-charcoal-900'
-              }`}
-            >
-              Careers & Internships
-            </button>
-
-            <button
-              onClick={() => handleNavClick('media')}
-              className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium ${
-                activePage === 'media' ? 'bg-botanical-50 text-botanical-900 font-semibold' : 'text-charcoal-900'
-              }`}
-            >
-              Media Center
-            </button>
-
-            <button
-              onClick={() => handleNavClick('contact')}
-              className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium ${
-                activePage === 'contact' ? 'bg-botanical-50 text-botanical-900 font-semibold' : 'text-charcoal-900'
-              }`}
-            >
-              Contact Us
-            </button>
-
-            <div className="pt-3">
-              <button
-                onClick={() => handleNavClick('dealers')}
-                className="w-full py-2.5 rounded-xl bg-botanical-800 hover:bg-botanical-900 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md border border-gold-400/40"
-              >
-                <MapPin className="w-4 h-4 text-gold-300" />
-                Find Dealer Near You
-              </button>
-            </div>
+            )}
           </div>
+
+          {/* Gallery */}
+          <button
+            onClick={() => handleNavClick('gallery')}
+            className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-colors flex items-center justify-between ${
+              activePage === 'gallery'
+                ? 'bg-[#14532D]/10 text-[#14532D] font-semibold'
+                : 'text-stone-800 hover:bg-stone-50'
+            }`}
+          >
+            <span>Photo & Field Gallery</span>
+            {activePage === 'gallery' && <span className="w-1.5 h-1.5 rounded-full bg-[#14532D]" />}
+          </button>
+
+          {/* Careers */}
+          <button
+            onClick={() => handleNavClick('careers')}
+            className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-colors flex items-center justify-between ${
+              activePage === 'careers'
+                ? 'bg-[#14532D]/10 text-[#14532D] font-semibold'
+                : 'text-stone-800 hover:bg-stone-50'
+            }`}
+          >
+            <span>Careers & Internships</span>
+            {activePage === 'careers' && <span className="w-1.5 h-1.5 rounded-full bg-[#14532D]" />}
+          </button>
+
+          {/* Media Center */}
+          <button
+            onClick={() => handleNavClick('media')}
+            className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-colors flex items-center justify-between ${
+              activePage === 'media'
+                ? 'bg-[#14532D]/10 text-[#14532D] font-semibold'
+                : 'text-stone-800 hover:bg-stone-50'
+            }`}
+          >
+            <span>Media Center</span>
+            {activePage === 'media' && <span className="w-1.5 h-1.5 rounded-full bg-[#14532D]" />}
+          </button>
+
+          {/* Contact */}
+          <button
+            onClick={() => handleNavClick('contact')}
+            className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-colors flex items-center justify-between ${
+              activePage === 'contact'
+                ? 'bg-[#14532D]/10 text-[#14532D] font-semibold'
+                : 'text-stone-800 hover:bg-stone-50'
+            }`}
+          >
+            <span>Contact Us</span>
+            {activePage === 'contact' && <span className="w-1.5 h-1.5 rounded-full bg-[#14532D]" />}
+          </button>
         </div>
-      )}
+
+        {/* Quick-Action Pinned Bottom */}
+        <div className="p-4 border-t border-amber-200/30 bg-stone-50/80 space-y-2.5 shrink-0">
+          <button
+            onClick={() => handleNavClick('dealers')}
+            className="w-full py-2.5 rounded-full bg-[#14532D] text-white hover:bg-[#1B4D3E] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all"
+          >
+            <MapPin className="w-3.5 h-3.5 stroke-[1.5]" />
+            <span>Locate Authorized Dealer</span>
+          </button>
+          <a
+            href="tel:18001207267"
+            className="w-full py-2 rounded-full border border-stone-300 text-stone-700 hover:border-gold-500 hover:text-gold-700 font-semibold text-xs flex items-center justify-center gap-2 transition-all bg-white"
+          >
+            <PhoneCall className="w-3.5 h-3.5 text-[#14532D]" />
+            <span>Kisan Helpline: 1800-120-7267</span>
+          </a>
+        </div>
+      </div>
     </header>
   );
 };

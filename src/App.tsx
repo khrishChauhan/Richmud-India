@@ -74,7 +74,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#1A1A1A] flex flex-col font-sans selection:bg-gold-500 selection:text-white">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#1A1A1A] flex flex-col font-sans selection:bg-gold-500 selection:text-white w-full max-w-full overflow-x-hidden">
       {/* Sticky Glassmorphic Navbar */}
       <Navbar
         activePage={activePage}
@@ -83,7 +83,7 @@ export default function App() {
       />
 
       {/* Main Page Content */}
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {activePage === 'home' && (
           <HomePage
             setActivePage={handlePageChange}
@@ -112,8 +112,8 @@ export default function App() {
       />
 
       {/* Floating Action Button: Quick Farmer Call + Back to Top */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-auto">
-        {/* Floating Helpline Pill */}
+      <div className="fixed bottom-5 sm:bottom-6 right-5 sm:right-6 z-40 flex flex-col items-end gap-2.5 sm:gap-3 pointer-events-auto">
+        {/* Floating Helpline Pill (Desktop) */}
         <a
           href="tel:18001207267"
           className="group hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-botanical-900/95 backdrop-blur-md border border-gold-400/50 shadow-gold-md hover:bg-botanical-800 transition-all hover:scale-105 text-white"
@@ -132,14 +132,23 @@ export default function App() {
           </div>
         </a>
 
+        {/* Floating Helpline Button (Mobile) */}
+        <a
+          href="tel:18001207267"
+          className="flex sm:hidden w-11 h-11 rounded-full bg-botanical-900/95 backdrop-blur-md border border-gold-400/60 shadow-lg items-center justify-center text-white"
+          aria-label="Call Kisan Helpline 1800-120-7267"
+        >
+          <Phone className="w-4 h-4 text-gold-400" />
+        </a>
+
         {/* Back to Top Button */}
         {showScrollTop && (
           <button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="w-11 h-11 rounded-full bg-charcoal-900 text-gold-400 hover:bg-black hover:text-gold-300 border border-gold-400/40 shadow-lg flex items-center justify-center transition-all animate-in fade-in"
+            className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-charcoal-900 text-gold-400 hover:bg-black hover:text-gold-300 border border-gold-400/40 shadow-lg flex items-center justify-center transition-all animate-in fade-in"
           >
-            <ArrowUp className="w-5 h-5" />
+            <ArrowUp className="w-4 sm:w-5 h-4 sm:h-5" />
           </button>
         )}
       </div>

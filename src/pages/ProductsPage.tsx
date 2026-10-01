@@ -77,31 +77,31 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
   }, [selectedCategory, selectedSubcategory, searchQuery]);
 
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-20 sm:pt-24 pb-20">
       {/* 1. HERO HEADER */}
-      <section className="relative py-20 bg-charcoal-950 text-white overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-charcoal-950 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
+            <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
             <span>Certified Hybrid & Crop Science Portfolio</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
             Superior Genetics for <br />
             <span className="text-gold-gradient">Abundant Harvests</span>
           </h1>
 
-          <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-gray-300 max-w-2xl mx-auto text-xs sm:text-base lg:text-lg font-light leading-relaxed">
             Explore our comprehensive repository of field crops, hybrid vegetable seeds, forage cultivars, jute fiber, and crop protection science.
           </p>
         </div>
       </section>
 
       {/* 2. CATEGORY SELECTOR TABS */}
-      <section className="relative z-20 -mt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl p-2 shadow-luxury border border-gold-400/30 flex flex-wrap items-center justify-center gap-1.5">
+      <section className="relative z-20 -mt-6 sm:-mt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl p-1.5 sm:p-2 shadow-luxury border border-gold-400/30 flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
           {categoriesConfig.map((cat) => {
             const isSelected = cat.id === selectedCategory;
             return (
@@ -111,7 +111,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                   setSelectedCategory(cat.id);
                   setSelectedSubcategory('All');
                 }}
-                className={`px-4 sm:px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
+                className={`px-2.5 sm:px-5 py-1.5 sm:py-3 rounded-lg sm:rounded-xl text-[11px] sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 ${
                   isSelected
                     ? 'bg-botanical-800 text-white shadow-md border border-gold-400/50 font-bold'
                     : 'text-charcoal-800 hover:bg-botanical-50/70'
@@ -119,7 +119,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
               >
                 <span>{cat.label}</span>
                 <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                  className={`text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-bold ${
                     isSelected ? 'bg-gold-500 text-charcoal-950 shadow-sm' : 'bg-gray-100 text-gray-600'
                   }`}
                 >
@@ -207,63 +207,63 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
                 className="bg-white rounded-2xl overflow-hidden border border-gold-300/40 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 flex flex-col group"
               >
                 {/* Product Image */}
-                <div className="h-52 overflow-hidden relative bg-gray-100">
+                <div className="h-32 sm:h-52 overflow-hidden relative bg-gray-100">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-botanical-800 text-white px-3 py-1 rounded-full text-[11px] font-bold shadow-md border border-botanical-600">
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-botanical-800 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-bold shadow-md border border-botanical-600 truncate max-w-[85%]">
                     {product.subcategory || product.categoryName}
                   </div>
                   {product.scientificName && (
-                    <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-gray-200 italic truncate">
+                    <div className="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-2 sm:left-2 sm:right-2 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 rounded text-[8px] sm:text-[10px] text-gray-200 italic truncate">
                       {product.scientificName}
                     </div>
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between space-y-2 sm:space-y-3">
                   <div>
-                    <h3 className="font-serif text-xl font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors leading-tight">
+                    <h3 className="font-serif text-sm sm:text-xl font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors leading-tight line-clamp-1 sm:line-clamp-none">
                       {product.name}
                     </h3>
                     
                     {product.vernacularName && (
-                      <div className="text-xs font-semibold text-gold-700 mt-1">
+                      <div className="text-[10px] sm:text-xs font-semibold text-gold-700 mt-0.5 sm:mt-1 truncate">
                         {product.vernacularName}
                       </div>
                     )}
 
-                    <p className="text-xs text-gray-500 mt-2 line-clamp-2">
+                    <p className="text-[11px] sm:text-xs text-gray-500 mt-1 line-clamp-2">
                       {product.tagline}
                     </p>
 
                     {/* Key Traits Badges */}
-                    <div className="mt-3 flex flex-wrap gap-1.5">
+                    <div className="mt-2 sm:mt-3 flex flex-wrap gap-1 sm:gap-1.5">
                       {product.keyTraits.slice(0, 2).map((trait, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 rounded bg-botanical-50 text-botanical-900 text-[10px] font-semibold border border-botanical-200"
+                          className="px-1.5 sm:px-2 py-0.5 rounded bg-botanical-50 text-botanical-900 text-[9px] sm:text-[10px] font-semibold border border-botanical-200 truncate max-w-full"
                         >
-                          <span className="text-botanical-700 font-bold mr-1">✓</span>{trait}
+                          <span className="text-botanical-700 font-bold mr-0.5 sm:mr-1">✓</span>{trait}
                         </span>
                       ))}
                     </div>
                   </div>
 
                   {/* Footer & Drawer Trigger */}
-                  <div className="pt-3 border-t border-gray-100 space-y-2.5">
+                  <div className="pt-2 sm:pt-3 border-t border-gray-100 space-y-2">
                     {product.maturityDays && (
-                      <div className="flex items-center justify-between text-[11px] text-gray-500">
+                      <div className="hidden sm:flex items-center justify-between text-[11px] text-gray-500">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3 text-gold-600" />
                           <span>Maturity:</span>
@@ -276,10 +276,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
 
                     <button
                       onClick={() => setSelectedProduct(product)}
-                      className="w-full py-2 rounded-xl bg-botanical-50 hover:bg-botanical-800 hover:text-white border border-botanical-300 text-botanical-900 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                      className="w-full py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-botanical-50 hover:bg-botanical-800 hover:text-white border border-botanical-300 text-botanical-900 text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm"
                     >
-                      <Info className="w-3.5 h-3.5" />
-                      <span>View Specifications</span>
+                      <Info className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <span>Specifications</span>
                     </button>
                   </div>
                 </div>

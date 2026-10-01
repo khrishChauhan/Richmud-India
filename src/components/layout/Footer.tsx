@@ -51,110 +51,112 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-gold-400/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-gray-800/80">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 pb-12 border-b border-gray-800/80">
           
-          {/* Brand Column (Span 2) */}
-          <div className="lg:col-span-2 space-y-5">
-            <SeedLogo variant="dark" size="lg" />
-            <p className="text-gray-400 text-sm leading-relaxed max-w-md pt-2">
+          {/* Brand Column (Span 2 on Desktop, Full Width on Mobile) */}
+          <div className="lg:col-span-2 space-y-4">
+            <SeedLogo variant="dark" size="md" />
+            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-md">
               PAN Seeds is a premier agricultural crop science and seed research enterprise. 
               Guided by our pledge, <span className="text-gold-300 italic inline-flex items-center gap-1.5">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block" /> good life"</span>, 
-              we empower over 10 million farmers across India with elite hybrid genetics, 
-              high vitality germination, and unyielding harvest reliability.
+              we empower over 10 million farmers across India with elite hybrid genetics and harvest reliability.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs text-gray-400">
-              <div className="flex items-center gap-2 bg-botanical-900/90 border border-botanical-600 px-3.5 py-1.5 rounded-full text-white shadow-sm">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="font-medium">NABL Accredited Testing</span>
+            <div className="flex flex-wrap gap-2.5 text-[11px] text-gray-400">
+              <div className="flex items-center gap-1.5 bg-botanical-900/90 border border-botanical-600 px-3 py-1 rounded-full text-white shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span className="font-medium">NABL Accredited</span>
               </div>
-              <div className="flex items-center gap-2 bg-botanical-900/90 border border-botanical-600 px-3.5 py-1.5 rounded-full text-white shadow-sm">
-                <Award className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="font-medium">ISTA Compliant Standards</span>
+              <div className="flex items-center gap-1.5 bg-botanical-900/90 border border-botanical-600 px-3 py-1 rounded-full text-white shadow-sm">
+                <Award className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span className="font-medium">ISTA Compliant</span>
               </div>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-xs uppercase tracking-widest text-gold-400 font-semibold font-sans">
-              Navigation
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <button onClick={() => handleNav('home')} className="hover:text-gold-300 transition-colors">
-                  Home
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('about')} className="hover:text-gold-300 transition-colors">
-                  About Us & Leadership
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('business')} className="hover:text-gold-300 transition-colors">
-                  Core Business & R&D
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('products')} className="hover:text-gold-300 transition-colors">
-                  Seed Catalog
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('gallery')} className="hover:text-gold-300 transition-colors">
-                  Photo & Field Gallery
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('dealers')} className="hover:text-gold-300 transition-colors text-gold-400 font-medium">
-                  Dealer Locator
-                </button>
-              </li>
-            </ul>
-          </div>
+          {/* 2-Column Mobile Links Grid (Navigation & Products side by side on mobile) */}
+          <div className="lg:col-span-2 grid grid-cols-2 gap-6">
+            {/* Quick Links */}
+            <div className="space-y-3">
+              <h4 className="text-[11px] sm:text-xs uppercase tracking-widest text-gold-400 font-semibold font-sans">
+                Navigation
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm">
+                <li>
+                  <button onClick={() => handleNav('home')} className="hover:text-gold-300 transition-colors text-left">
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNav('about')} className="hover:text-gold-300 transition-colors text-left">
+                    About Us
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNav('business')} className="hover:text-gold-300 transition-colors text-left">
+                    Core Business
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNav('products')} className="hover:text-gold-300 transition-colors text-left">
+                    Seed Catalog
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNav('gallery')} className="hover:text-gold-300 transition-colors text-left">
+                    Photo Gallery
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNav('dealers')} className="hover:text-gold-300 transition-colors text-gold-400 font-medium text-left">
+                    Dealer Locator
+                  </button>
+                </li>
+              </ul>
+            </div>
 
-          {/* Seed Categories */}
-          <div className="space-y-4">
-            <h4 className="text-xs uppercase tracking-widest text-gold-400 font-semibold font-sans">
-              Products
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <button onClick={() => handleCat('field-crops')} className="hover:text-gold-300 transition-colors">
-                  Field Crops (Wheat, Paddy, Mustard)
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleCat('vegetable-seeds')} className="hover:text-gold-300 transition-colors">
-                  Vegetable Seeds (22+ Hybrids)
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleCat('fodder-crops')} className="hover:text-gold-300 transition-colors">
-                  Fodder Crops (NutriGold Sorghum)
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleCat('jute-crops')} className="hover:text-gold-300 transition-colors">
-                  Jute Crops (Tossa Golden Fiber)
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleCat('crop-protection')} className="hover:text-gold-300 transition-colors">
-                  Crop Protection & Nutrition
-                </button>
-              </li>
-            </ul>
+            {/* Seed Categories */}
+            <div className="space-y-3">
+              <h4 className="text-[11px] sm:text-xs uppercase tracking-widest text-gold-400 font-semibold font-sans">
+                Products
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm">
+                <li>
+                  <button onClick={() => handleCat('field-crops')} className="hover:text-gold-300 transition-colors text-left">
+                    Field Crops
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleCat('vegetable-seeds')} className="hover:text-gold-300 transition-colors text-left">
+                    Vegetable Seeds
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleCat('fodder-crops')} className="hover:text-gold-300 transition-colors text-left">
+                    Fodder Crops
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleCat('jute-crops')} className="hover:text-gold-300 transition-colors text-left">
+                    Jute Crops
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleCat('crop-protection')} className="hover:text-gold-300 transition-colors text-left">
+                    Crop Protection
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Newsletter & Farmer Helpline */}
-          <div className="space-y-4">
-            <h4 className="text-xs uppercase tracking-widest text-gold-400 font-semibold font-sans">
+          <div className="lg:col-span-1 space-y-4">
+            <h4 className="text-[11px] sm:text-xs uppercase tracking-widest text-gold-400 font-semibold font-sans">
               Stay Connected
             </h4>
             <p className="text-xs text-gray-400">
-              Subscribe to the PAN Seeds Agronomy Journal for seasonal crop advisories, market updates, and new variety launches.
+              Subscribe for seasonal crop advisories and variety releases.
             </p>
 
             <form onSubmit={handleSubscribe} className="space-y-2">
@@ -184,31 +186,31 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
             </form>
 
             <div className="pt-2 border-t border-gray-800">
-              <div className="text-[11px] uppercase tracking-wider text-gray-400 font-medium mb-1">
+              <div className="text-[10px] uppercase tracking-wider text-gray-400 font-medium mb-1">
                 Toll-Free Farmer Advisory
               </div>
               <a
                 href="tel:18001207267"
-                className="text-base font-serif font-bold text-gold-400 hover:text-gold-300 flex items-center gap-2"
+                className="text-sm sm:text-base font-serif font-bold text-gold-400 hover:text-gold-300 flex items-center gap-2"
               >
-                <Phone className="w-4 h-4 text-gold-500" />
-                1800-120-PANSEEDS (7267)
+                <Phone className="w-3.5 h-3.5 text-gold-500" />
+                <span>1800-120-PANSEEDS</span>
               </a>
-              <div className="text-[11px] text-gray-500 mt-0.5">Mon - Sat (9:00 AM - 6:00 PM IST)</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Mon - Sat (9:00 AM - 6:00 PM IST)</div>
             </div>
           </div>
 
         </div>
 
         {/* Bottom Bar: Copyright & Corporate Info */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-          <div className="flex items-center gap-2 text-center md:text-left">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-gray-500 gap-3 text-center sm:text-left">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2">
             <span>© {new Date().getFullYear()} PAN Seeds Pvt. Ltd. All Rights Reserved.</span>
-            <span className="hidden md:inline">•</span>
-            <span className="hidden md:inline italic text-gold-400">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block mx-0.5" /> good life"</span>
+            <span className="hidden sm:inline">•</span>
+            <span className="italic text-gold-400">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block mx-0.5" /> good life"</span>
           </div>
 
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center justify-center space-x-4 sm:space-x-6 text-[11px] sm:text-xs">
             <button onClick={() => handleNav('careers')} className="hover:text-gold-300 transition-colors">
               Careers
             </button>
@@ -216,7 +218,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
               Press & Media
             </button>
             <button onClick={() => handleNav('contact')} className="hover:text-gold-300 transition-colors">
-              Corporate Headquarters
+              Headquarters
             </button>
           </div>
         </div>

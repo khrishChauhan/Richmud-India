@@ -74,7 +74,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
     <div className="pt-20">
       {/* 1. HERO SLIDER / CAROUSEL */}
       <section 
-        className="relative h-[82vh] min-h-[580px] max-h-[820px] overflow-hidden bg-charcoal-950 text-white"
+        className="relative h-[72vh] sm:h-[82vh] min-h-[460px] sm:min-h-[580px] max-h-[820px] overflow-hidden bg-charcoal-950 text-white"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
@@ -96,16 +96,16 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
 
             {/* Slide Content */}
             <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-              <div className="max-w-2xl space-y-6">
+              <div className="max-w-2xl space-y-4 sm:space-y-6">
                 {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold tracking-widest uppercase shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-md">
+                  <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
                   <span className="text-white font-medium">{slide.subtitle}</span>
                 </div>
 
                 {/* Heading */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.15]">
+                <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.15]">
                   {slide.title.split(' ')[0]}{' '}
                   <span className="text-gold-gradient">
                     {slide.title.split(' ').slice(1).join(' ')}
@@ -113,23 +113,23 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 </h1>
 
                 {/* Subtitle / Description */}
-                <p className="text-base sm:text-lg text-gray-200 font-normal leading-relaxed max-w-xl">
+                <p className="text-xs sm:text-base lg:text-lg text-gray-200 font-normal leading-relaxed max-w-xl">
                   {slide.description}
                 </p>
 
                 {/* Action Buttons */}
-                <div className="pt-2 flex flex-wrap items-center gap-4">
+                <div className="pt-1 sm:pt-2 flex flex-wrap items-center gap-2.5 sm:gap-4">
                   <button
                     onClick={() => setActivePage(slide.ctaPrimaryPage)}
-                    className="px-7 py-3.5 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-xs uppercase tracking-wider shadow-gold-md hover:scale-105 transition-all flex items-center gap-2 group hover:ring-2 hover:ring-botanical-800/30"
+                    className="px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-[11px] sm:text-xs uppercase tracking-wider shadow-gold-md hover:scale-105 transition-all flex items-center gap-1.5 sm:gap-2 group hover:ring-2 hover:ring-botanical-800/30"
                   >
                     <span>{slide.ctaPrimary}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
 
                   <button
                     onClick={() => setActivePage(slide.ctaSecondaryPage)}
-                    className="px-6 py-3.5 rounded-full bg-botanical-800/80 hover:bg-botanical-800 backdrop-blur-md border border-botanical-500/50 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-sm hover:ring-2 hover:ring-gold-400/40"
+                    className="px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-full bg-botanical-800/80 hover:bg-botanical-800 backdrop-blur-md border border-botanical-500/50 text-white font-semibold text-[11px] sm:text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm hover:ring-2 hover:ring-gold-400/40"
                   >
                     <span>{slide.ctaSecondary}</span>
                   </button>
@@ -291,7 +291,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Field Crops Card */}
             <div 
               onClick={() => {
@@ -300,25 +300,25 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               }}
               className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
-              <div className="h-60 overflow-hidden relative">
+              <div className="h-44 sm:h-60 overflow-hidden relative">
                 <img
                   src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80"
                   alt="Field Crops"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-xs font-bold uppercase tracking-wider shadow-md">
+                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md">
                   Cereals & Pulses
                 </span>
               </div>
-              <div className="p-6 space-y-3">
-                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
+              <div className="p-4 sm:p-6 space-y-2 sm:space-y-3">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Field Crops
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   Wheat (Pan Ratna), Hybrid Paddy (Pan Samrat), Sona Mustard, Maize, Gram, and high-protein Lentils.
                 </p>
-                <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
+                <div className="pt-1 sm:pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>View Varieties</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -333,25 +333,25 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               }}
               className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
-              <div className="h-60 overflow-hidden relative">
+              <div className="h-44 sm:h-60 overflow-hidden relative">
                 <img
                   src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80"
                   alt="Vegetable Seeds"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-xs font-bold uppercase tracking-wider shadow-md">
+                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md">
                   22+ Hybrid Greens & Fruits
                 </span>
               </div>
-              <div className="p-6 space-y-3">
-                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
+              <div className="p-4 sm:p-6 space-y-2 sm:space-y-3">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Vegetable Seeds
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   Export-grade Okra, Hot Chili, Snow White Muli, Sweet Watermelon, Palak, Dhaniya, Tomato, and Gourds.
                 </p>
-                <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
+                <div className="pt-1 sm:pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>Explore Vegetables</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -366,25 +366,25 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               }}
               className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
-              <div className="h-60 overflow-hidden relative">
+              <div className="h-44 sm:h-60 overflow-hidden relative">
                 <img
                   src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=800&q=80"
                   alt="Crop Protection"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-xs font-bold uppercase tracking-wider shadow-md">
+                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md">
                   Crop Care & PGR
                 </span>
               </div>
-              <div className="p-6 space-y-3">
-                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
+              <div className="p-4 sm:p-6 space-y-2 sm:space-y-3">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Crop Protection
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   Systemic insecticides, curative fungicides, selective herbicides, and seaweed-based PanVigor bio-stimulants.
                 </p>
-                <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
+                <div className="pt-1 sm:pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>View Formulations</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -416,44 +416,44 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {featuredProducts.map((product) => (
               <div
                 key={product.id}
                 onClick={() => setActivePage('products')}
                 className="bg-white rounded-2xl overflow-hidden border border-gold-300/30 hover:border-botanical-600 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group"
               >
-                <div className="h-48 overflow-hidden relative">
+                <div className="h-32 sm:h-48 overflow-hidden relative">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-botanical-800 text-white px-3 py-1 rounded-full text-[11px] font-bold border border-botanical-600 shadow-sm">
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-botanical-800 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-bold border border-botanical-600 shadow-sm truncate max-w-[85%]">
                     {product.categoryName}
                   </div>
                 </div>
 
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between space-y-2 sm:space-y-3">
                   <div>
-                    <h4 className="font-serif text-lg font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
+                    <h4 className="font-serif text-sm sm:text-lg font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors line-clamp-1 sm:line-clamp-none">
                       {product.name}
                     </h4>
                     {product.vernacularName && (
-                      <div className="text-xs text-gold-700 font-medium">
+                      <div className="text-[10px] sm:text-xs text-gold-700 font-medium truncate">
                         {product.vernacularName}
                       </div>
                     )}
-                    <p className="text-xs text-gray-500 mt-2 line-clamp-2">
+                    <p className="text-[11px] sm:text-xs text-gray-500 mt-1 line-clamp-2">
                       {product.tagline}
                     </p>
                   </div>
 
-                  <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-xs">
-                    <span className="text-gray-500 font-medium">
+                  <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-[10px] sm:text-xs">
+                    <span className="text-gray-500 font-medium truncate">
                       {product.maturityDays || 'High Yield'}
                     </span>
-                    <span className="text-botanical-800 font-bold group-hover:underline flex items-center gap-1">
+                    <span className="text-botanical-800 font-bold group-hover:underline flex items-center gap-1 shrink-0">
                       Details <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
