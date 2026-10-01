@@ -98,10 +98,10 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
             <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
               <div className="max-w-2xl space-y-6">
                 {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-gold-400/40 text-gold-300 text-xs font-semibold tracking-widest uppercase">
-                  <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 animate-pulse" />
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold tracking-widest uppercase shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-                  <span>{slide.subtitle}</span>
+                  <span className="text-white font-medium">{slide.subtitle}</span>
                 </div>
 
                 {/* Heading */}
@@ -129,7 +129,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
 
                   <button
                     onClick={() => setActivePage(slide.ctaSecondaryPage)}
-                    className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-gold-400/40 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 hover:ring-2 hover:ring-botanical-800/30"
+                    className="px-6 py-3.5 rounded-full bg-botanical-800/80 hover:bg-botanical-800 backdrop-blur-md border border-botanical-500/50 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-sm hover:ring-2 hover:ring-gold-400/40"
                   >
                     <span>{slide.ctaSecondary}</span>
                   </button>
@@ -232,8 +232,8 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
 
             {/* Message & Quote */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-botanical-800 bg-botanical-100/80 px-3.5 py-1 rounded-full border border-botanical-200/80">
-                <Leaf className="w-3.5 h-3.5 text-botanical-700" />
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-white bg-botanical-800 px-4 py-1.5 rounded-full border border-botanical-700 shadow-sm">
+                <Leaf className="w-3.5 h-3.5 text-emerald-300" />
                 <span>Founding Leadership & Ethos</span>
               </div>
 
@@ -242,7 +242,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               </h2>
 
               {/* Quote Block with Gold Quotation Accent */}
-              <div className="relative pl-6 border-l-2 border-gold-500/80 italic text-gray-700 text-lg leading-relaxed">
+              <div className="relative pl-6 border-l-2 border-botanical-700 italic text-gray-700 text-lg leading-relaxed">
                 <Quote className="absolute -top-3 -left-3 w-6 h-6 text-gold-400 opacity-40" />
                 {directorSpotlight.shortQuote}
               </div>
@@ -254,17 +254,17 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               {/* Signature and CTA */}
               <div className="pt-4 flex flex-wrap items-center justify-between gap-6 border-t border-gold-300/30">
                 <div>
-                  <div className="font-serif italic text-2xl text-gold-800 tracking-wider">
+                  <div className="font-serif italic text-2xl text-botanical-900 tracking-wider font-semibold">
                     Pradeep K. Pan
                   </div>
-                  <div className="text-[11px] uppercase tracking-wider text-gray-400">
+                  <div className="text-[11px] uppercase tracking-wider text-gray-500 font-medium">
                     Founder & Managing Director
                   </div>
                 </div>
 
                 <button
                   onClick={() => setActivePage('about')}
-                  className="px-6 py-2.5 rounded-full border border-gold-500 text-gold-800 hover:bg-gold-500 hover:text-white hover:ring-2 hover:ring-botanical-800/25 transition-all text-xs font-semibold tracking-wider uppercase flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-full border-2 border-botanical-800 text-botanical-900 hover:bg-botanical-800 hover:text-white transition-all text-xs font-semibold tracking-wider uppercase flex items-center gap-2 shadow-sm"
                 >
                   <span>Explore 30-Year Journey</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -298,7 +298,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 if (onSelectCategory) onSelectCategory('field-crops');
                 setActivePage('products');
               }}
-              className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-gold-500 transition-all duration-300 shadow-sm hover:shadow-gold-md"
+              className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
               <div className="h-60 overflow-hidden relative">
                 <img
@@ -307,18 +307,18 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-botanical-100/95 backdrop-blur-sm text-botanical-900 border border-botanical-200 text-xs font-bold uppercase tracking-wider shadow-sm">
+                <span className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-xs font-bold uppercase tracking-wider shadow-md">
                   Cereals & Pulses
                 </span>
               </div>
               <div className="p-6 space-y-3">
-                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-gold-700 transition-colors">
+                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Field Crops
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   Wheat (Pan Ratna), Hybrid Paddy (Pan Samrat), Sona Mustard, Maize, Gram, and high-protein Lentils.
                 </p>
-                <div className="pt-2 flex items-center gap-1.5 text-xs font-semibold text-gold-700 group-hover:text-gold-800">
+                <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>View Varieties</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -331,7 +331,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 if (onSelectCategory) onSelectCategory('vegetable-seeds');
                 setActivePage('products');
               }}
-              className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-gold-500 transition-all duration-300 shadow-sm hover:shadow-gold-md"
+              className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
               <div className="h-60 overflow-hidden relative">
                 <img
@@ -340,18 +340,18 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-botanical-100/95 backdrop-blur-sm text-botanical-900 border border-botanical-200 text-xs font-bold uppercase tracking-wider shadow-sm">
+                <span className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-xs font-bold uppercase tracking-wider shadow-md">
                   22+ Hybrid Greens & Fruits
                 </span>
               </div>
               <div className="p-6 space-y-3">
-                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-gold-700 transition-colors">
+                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Vegetable Seeds
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   Export-grade Okra, Hot Chili, Snow White Muli, Sweet Watermelon, Palak, Dhaniya, Tomato, and Gourds.
                 </p>
-                <div className="pt-2 flex items-center gap-1.5 text-xs font-semibold text-gold-700 group-hover:text-gold-800">
+                <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>Explore Vegetables</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -364,7 +364,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 if (onSelectCategory) onSelectCategory('crop-protection');
                 setActivePage('products');
               }}
-              className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-gold-500 transition-all duration-300 shadow-sm hover:shadow-gold-md"
+              className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
               <div className="h-60 overflow-hidden relative">
                 <img
@@ -373,18 +373,18 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-botanical-100/95 backdrop-blur-sm text-botanical-900 border border-botanical-200 text-xs font-bold uppercase tracking-wider shadow-sm">
+                <span className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-xs font-bold uppercase tracking-wider shadow-md">
                   Crop Care & PGR
                 </span>
               </div>
               <div className="p-6 space-y-3">
-                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-gold-700 transition-colors">
+                <h3 className="text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Crop Protection
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   Systemic insecticides, curative fungicides, selective herbicides, and seaweed-based PanVigor bio-stimulants.
                 </p>
-                <div className="pt-2 flex items-center gap-1.5 text-xs font-semibold text-gold-700 group-hover:text-gold-800">
+                <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>View Formulations</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -399,7 +399,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
             <div>
-              <div className="text-xs uppercase tracking-widest text-gold-600 font-semibold">
+              <div className="text-xs uppercase tracking-widest text-botanical-800 font-bold">
                 Flagship Cultivars
               </div>
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900 mt-1">
@@ -409,7 +409,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
 
             <button
               onClick={() => setActivePage('products')}
-              className="mt-4 sm:mt-0 text-xs uppercase tracking-wider font-bold text-gold-700 hover:text-gold-900 flex items-center gap-1.5"
+              className="mt-4 sm:mt-0 text-xs uppercase tracking-wider font-bold text-botanical-800 hover:text-botanical-950 flex items-center gap-1.5"
             >
               <span>Browse Full 30+ Catalog</span>
               <ArrowRight className="w-4 h-4" />
@@ -421,7 +421,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               <div
                 key={product.id}
                 onClick={() => setActivePage('products')}
-                className="bg-white rounded-2xl overflow-hidden border border-gold-300/30 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 cursor-pointer flex flex-col group"
+                className="bg-white rounded-2xl overflow-hidden border border-gold-300/30 hover:border-botanical-600 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group"
               >
                 <div className="h-48 overflow-hidden relative">
                   <img
@@ -429,14 +429,14 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-botanical-100/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-[11px] font-bold text-botanical-900 border border-botanical-200/80 shadow-sm">
+                  <div className="absolute top-3 left-3 bg-botanical-800 text-white px-3 py-1 rounded-full text-[11px] font-bold border border-botanical-600 shadow-sm">
                     {product.categoryName}
                   </div>
                 </div>
 
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                   <div>
-                    <h4 className="font-serif text-lg font-bold text-charcoal-900 group-hover:text-gold-700 transition-colors">
+                    <h4 className="font-serif text-lg font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                       {product.name}
                     </h4>
                     {product.vernacularName && (
@@ -453,7 +453,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                     <span className="text-gray-500 font-medium">
                       {product.maturityDays || 'High Yield'}
                     </span>
-                    <span className="text-gold-700 font-bold group-hover:underline flex items-center gap-1">
+                    <span className="text-botanical-800 font-bold group-hover:underline flex items-center gap-1">
                       Details <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
@@ -465,14 +465,14 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
       </section>
 
       {/* 6. MINIMALIST LUXURY CTA BANNER */}
-      <section className="py-20 bg-charcoal-950 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-[#0a231b] via-[#143e32] to-[#1b4d3e] text-white relative overflow-hidden border-t border-botanical-700/40">
         {/* Subtle Gold Shimmer Backdrop */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest">
-            <Sprout className="w-4 h-4 text-gold-400" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest shadow-sm">
+            <Sprout className="w-4 h-4 text-emerald-300" />
             <span>Grow with PAN Seeds</span>
           </div>
 
@@ -481,7 +481,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
             <span className="text-gold-gradient">Seed Science Network</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-emerald-100/90 max-w-2xl mx-auto leading-relaxed">
             Whether you are a progressive grower seeking certified high-vigor hybrids or a reputable agri-input distributor aiming to become an authorized PAN Seeds dealer, our doors are open.
           </p>
 
@@ -496,10 +496,10 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
 
             <button
               onClick={() => setActivePage('contact')}
-              className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-gold-400/40 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2"
+              className="px-8 py-3.5 rounded-full bg-botanical-900/80 hover:bg-botanical-900 border border-gold-400/50 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-sm"
             >
               <span>Apply for Dealership</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-gold-300" />
             </button>
           </div>
         </div>
