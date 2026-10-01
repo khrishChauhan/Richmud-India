@@ -220,7 +220,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-charcoal-900 shadow-sm border border-gold-300/40">
+                  <div className="absolute top-3 left-3 bg-botanical-100/95 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-botanical-900 shadow-sm border border-botanical-200">
                     {product.subcategory || product.categoryName}
                   </div>
                   {product.scientificName && (
@@ -252,9 +252,9 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                       {product.keyTraits.slice(0, 2).map((trait, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 rounded bg-ivory-200 text-charcoal-800 text-[10px] font-medium"
+                          className="px-2 py-0.5 rounded bg-botanical-50 text-botanical-900 text-[10px] font-medium border border-botanical-200/60"
                         >
-                          ✓ {trait}
+                          <span className="text-botanical-700 font-bold mr-1">✓</span>{trait}
                         </span>
                       ))}
                     </div>
@@ -276,7 +276,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
 
                     <button
                       onClick={() => setSelectedProduct(product)}
-                      className="w-full py-2 rounded-xl bg-gold-50 hover:bg-gold-500 hover:text-white border border-gold-300/60 text-gold-800 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5"
+                      className="w-full py-2 rounded-xl bg-gold-50 hover:bg-gold-500 hover:text-white border border-gold-300/60 text-gold-800 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 hover:ring-2 hover:ring-botanical-800/25"
                     >
                       <Info className="w-3.5 h-3.5" />
                       <span>View Specifications</span>
@@ -311,7 +311,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
               </button>
 
               <div className="absolute bottom-4 left-6 right-6 text-white space-y-1">
-                <div className="inline-block px-2.5 py-0.5 rounded-full bg-gold-500 text-charcoal-950 text-[10px] font-bold uppercase tracking-wider">
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-botanical-100 text-botanical-900 border border-botanical-300 text-[10px] font-bold uppercase tracking-wider">
                   {selectedProduct.categoryName} • {selectedProduct.subcategory}
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold">
@@ -347,7 +347,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                       key={idx}
                       className="p-2.5 rounded-lg bg-ivory-50 border border-gold-200/60 flex items-start gap-2 text-xs text-charcoal-900"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-gold-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-botanical-700 shrink-0 mt-0.5" />
                       <span>{trait}</span>
                     </div>
                   ))}
@@ -398,9 +398,9 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
 
               {/* Agronomy Tips */}
               {selectedProduct.agronomyTips && (
-                <div className="p-4 rounded-xl bg-gold-50/70 border border-gold-300/50 space-y-1">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-gold-900">
-                    <BookOpen className="w-3.5 h-3.5 text-gold-700" />
+                <div className="p-4 rounded-xl bg-botanical-50/80 border border-botanical-200 space-y-1">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-botanical-900">
+                    <BookOpen className="w-3.5 h-3.5 text-botanical-700" />
                     <span>Recommended Agronomic Practice</span>
                   </div>
                   <p className="text-xs text-charcoal-800 leading-relaxed">
@@ -424,7 +424,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                       setSelectedProduct(null);
                       onLocateDealer();
                     }}
-                    className="px-6 py-2.5 rounded-full bg-gold-gradient text-charcoal-950 text-xs font-bold uppercase tracking-wider shadow-gold-sm hover:scale-105 transition-all flex items-center gap-2"
+                    className="px-6 py-2.5 rounded-full bg-gold-gradient text-charcoal-950 text-xs font-bold uppercase tracking-wider shadow-gold-sm hover:scale-105 hover:ring-2 hover:ring-botanical-800/30 transition-all flex items-center gap-2"
                   >
                     <span>Locate Dealer For This Seed</span>
                     <ArrowRight className="w-3.5 h-3.5" />
