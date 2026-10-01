@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('home')}
               className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
                 activePage === 'home'
-                  ? 'text-gold-700 font-semibold border-b-2 border-gold-500'
+                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
                   : 'text-charcoal-800 hover:text-gold-600'
               }`}
             >
@@ -101,12 +101,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleNavClick('about')}
                 className={`flex items-center gap-1 px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
                   activePage === 'about'
-                    ? 'text-gold-700 font-semibold border-b-2 border-gold-500'
+                    ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
                     : 'text-charcoal-800 hover:text-gold-600'
                 }`}
               >
                 About Us
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-gold-600' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-botanical-800' : ''}`} />
               </button>
 
               {aboutDropdownOpen && (
@@ -114,43 +114,43 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <div className="bg-white rounded-xl shadow-xl border border-gold-300/30 p-2 backdrop-blur-lg">
                     <button
                       onClick={() => handleNavClick('about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-gold-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-botanical-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-charcoal-900 group-hover:text-gold-700">Corporate Overview</div>
+                        <div className="font-semibold text-charcoal-900 group-hover:text-botanical-800">Corporate Overview</div>
                         <div className="text-[11px] text-gray-500">30+ years of seed excellence</div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-gold-600 transition-opacity" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-botanical-700 transition-opacity" />
                     </button>
                     <button
                       onClick={() => handleNavClick('about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-gold-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-botanical-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-charcoal-900 group-hover:text-gold-700">Vision, Mission & Ethos</div>
+                        <div className="font-semibold text-charcoal-900 group-hover:text-botanical-800">Vision, Mission & Ethos</div>
                         <div className="text-[11px] text-gray-500">Our guiding principles</div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-gold-600 transition-opacity" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-botanical-700 transition-opacity" />
                     </button>
                     <button
                       onClick={() => handleNavClick('about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-gold-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-botanical-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-charcoal-900 group-hover:text-gold-700">Director's Journey</div>
+                        <div className="font-semibold text-charcoal-900 group-hover:text-botanical-800">Director's Journey</div>
                         <div className="text-[11px] text-gray-500">Founding story & milestones</div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-gold-600 transition-opacity" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-botanical-700 transition-opacity" />
                     </button>
                     <button
                       onClick={() => handleNavClick('about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-gold-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-botanical-50 text-xs font-medium text-charcoal-900 flex items-center justify-between group transition-colors"
                     >
                       <div>
-                        <div className="font-semibold text-charcoal-900 group-hover:text-gold-700">Board & Leadership</div>
+                        <div className="font-semibold text-charcoal-900 group-hover:text-botanical-800">Board & Leadership</div>
                         <div className="text-[11px] text-gray-500">Visionary scientific leadership</div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-gold-600 transition-opacity" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-botanical-700 transition-opacity" />
                     </button>
                   </div>
                 </div>
@@ -162,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('business')}
               className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
                 activePage === 'business'
-                  ? 'text-gold-700 font-semibold border-b-2 border-gold-500'
+                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
                   : 'text-charcoal-800 hover:text-gold-600'
               }`}
             >
@@ -179,12 +179,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleNavClick('products')}
                 className={`flex items-center gap-1 px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
                   activePage === 'products'
-                    ? 'text-gold-700 font-semibold border-b-2 border-gold-500'
+                    ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
                     : 'text-charcoal-800 hover:text-gold-600'
                 }`}
               >
                 Products
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsMegaOpen ? 'rotate-180 text-gold-600' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsMegaOpen ? 'rotate-180 text-botanical-800' : ''}`} />
               </button>
 
               {productsMegaOpen && (
@@ -276,7 +276,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('gallery')}
               className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
                 activePage === 'gallery'
-                  ? 'text-gold-700 font-semibold border-b-2 border-gold-500'
+                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
                   : 'text-charcoal-800 hover:text-gold-600'
               }`}
             >
@@ -288,7 +288,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('careers')}
               className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
                 activePage === 'careers'
-                  ? 'text-gold-700 font-semibold border-b-2 border-gold-500'
+                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
                   : 'text-charcoal-800 hover:text-gold-600'
               }`}
             >
@@ -300,7 +300,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('media')}
               className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
                 activePage === 'media'
-                  ? 'text-gold-700 font-semibold border-b-2 border-gold-500'
+                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
                   : 'text-charcoal-800 hover:text-gold-600'
               }`}
             >
@@ -312,7 +312,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('contact')}
               className={`px-3 py-2 text-sm font-medium tracking-wide transition-all rounded-md ${
                 activePage === 'contact'
-                  ? 'text-gold-700 font-semibold border-b-2 border-gold-500'
+                  ? 'text-charcoal-950 font-bold border-b-2 border-botanical-800'
                   : 'text-charcoal-800 hover:text-gold-600'
               }`}
             >
@@ -324,7 +324,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden lg:flex items-center space-x-3">
             <button
               onClick={() => handleNavClick('dealers')}
-              className={`relative group overflow-hidden px-4 py-2 rounded-full border transition-all duration-300 flex items-center gap-2 text-xs font-semibold tracking-wider uppercase shadow-gold-sm ${
+              className={`relative group overflow-hidden px-4 py-2 rounded-full border transition-all duration-300 flex items-center gap-2 text-xs font-semibold tracking-wider uppercase shadow-gold-sm hover:ring-2 hover:ring-botanical-800/25 ${
                 activePage === 'dealers'
                   ? 'bg-gold-gradient text-charcoal-950 border-gold-500 font-bold'
                   : 'border-gold-500/70 text-charcoal-900 hover:text-charcoal-950 bg-white hover:bg-gold-50'

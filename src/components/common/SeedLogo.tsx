@@ -111,9 +111,11 @@ export const SeedLogo: React.FC<SeedLogoProps> = ({
         </span>
         {showTagline && (
           <span
-            className={`font-sans uppercase tracking-[0.22em] font-medium text-gold-600 mt-1 ${taglineSizes[size]}`}
+            className={`font-sans uppercase tracking-[0.22em] font-medium text-gold-600 mt-1 flex items-center gap-1 ${taglineSizes[size]}`}
           >
-            Good seed good life
+            <span>Good seed</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-botanical-700 inline-block" />
+            <span>good life</span>
           </span>
         )}
       </div>

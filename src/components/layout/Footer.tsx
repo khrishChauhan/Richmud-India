@@ -58,18 +58,18 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
             <SeedLogo variant="dark" size="lg" />
             <p className="text-gray-400 text-sm leading-relaxed max-w-md pt-2">
               PAN Seeds is a premier agricultural crop science and seed research enterprise. 
-              Guided by our pledge, <span className="text-gold-400 italic">"Good seed good life"</span>, 
+              Guided by our pledge, <span className="text-gold-300 italic inline-flex items-center gap-1.5">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block" /> good life"</span>, 
               we empower over 10 million farmers across India with elite hybrid genetics, 
               high vitality germination, and unyielding harvest reliability.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 text-xs text-gray-400">
               <div className="flex items-center gap-1.5 bg-white/5 border border-gold-500/20 px-3 py-1.5 rounded-full">
-                <ShieldCheck className="w-3.5 h-3.5 text-gold-400" />
+                <ShieldCheck className="w-3.5 h-3.5 text-botanical-400" />
                 <span>NABL Accredited Testing</span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/5 border border-gold-500/20 px-3 py-1.5 rounded-full">
-                <Award className="w-3.5 h-3.5 text-gold-400" />
+                <Award className="w-3.5 h-3.5 text-botanical-400" />
                 <span>ISTA Compliant Standards</span>
               </div>
             </div>
@@ -205,7 +205,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
           <div className="flex items-center gap-2 text-center md:text-left">
             <span>© {new Date().getFullYear()} PAN Seeds Pvt. Ltd. All Rights Reserved.</span>
             <span className="hidden md:inline">•</span>
-            <span className="hidden md:inline italic text-gold-500/80">"Good seed good life"</span>
+            <span className="hidden md:inline italic text-gold-400">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block mx-0.5" /> good life"</span>
           </div>
 
           <div className="flex items-center space-x-6">
