@@ -99,6 +99,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               <div className="max-w-2xl space-y-6">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-gold-400/40 text-gold-300 text-xs font-semibold tracking-widest uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 animate-pulse" />
                   <Sparkles className="w-3.5 h-3.5 text-gold-400" />
                   <span>{slide.subtitle}</span>
                 </div>
@@ -120,7 +121,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 <div className="pt-2 flex flex-wrap items-center gap-4">
                   <button
                     onClick={() => setActivePage(slide.ctaPrimaryPage)}
-                    className="px-7 py-3.5 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-xs uppercase tracking-wider shadow-gold-md hover:scale-105 transition-all flex items-center gap-2 group"
+                    className="px-7 py-3.5 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-xs uppercase tracking-wider shadow-gold-md hover:scale-105 transition-all flex items-center gap-2 group hover:ring-2 hover:ring-botanical-800/30"
                   >
                     <span>{slide.ctaPrimary}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -128,7 +129,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
 
                   <button
                     onClick={() => setActivePage(slide.ctaSecondaryPage)}
-                    className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-gold-400/40 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2"
+                    className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-gold-400/40 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 hover:ring-2 hover:ring-botanical-800/30"
                   >
                     <span>{slide.ctaSecondary}</span>
                   </button>
@@ -177,8 +178,13 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
             {coreStats.map((stat, i) => (
               <div key={i} className={`pt-4 sm:pt-0 ${i !== 0 ? 'sm:pl-6' : ''}`}>
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-gold-gradient tracking-tight">
-                  {stat.value}
+                <div className="flex items-center gap-2">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-gold-gradient tracking-tight">
+                    {stat.value}
+                  </div>
+                  {i === 2 && (
+                    <span className="w-2 h-2 rounded-full bg-botanical-600 inline-block animate-pulse" title="10M+ Farmers Empowered" />
+                  )}
                 </div>
                 <div className="text-sm font-semibold text-charcoal-900 mt-1 font-sans">
                   {stat.label}
@@ -226,8 +232,8 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
 
             {/* Message & Quote */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-gold-700">
-                <Award className="w-4 h-4 text-gold-500" />
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-botanical-800 bg-botanical-100/80 px-3.5 py-1 rounded-full border border-botanical-200/80">
+                <Leaf className="w-3.5 h-3.5 text-botanical-700" />
                 <span>Founding Leadership & Ethos</span>
               </div>
 
@@ -258,7 +264,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
 
                 <button
                   onClick={() => setActivePage('about')}
-                  className="px-6 py-2.5 rounded-full border border-gold-500 text-gold-800 hover:bg-gold-500 hover:text-white transition-all text-xs font-semibold tracking-wider uppercase flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-full border border-gold-500 text-gold-800 hover:bg-gold-500 hover:text-white hover:ring-2 hover:ring-botanical-800/25 transition-all text-xs font-semibold tracking-wider uppercase flex items-center gap-2"
                 >
                   <span>Explore 30-Year Journey</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -301,7 +307,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-charcoal-900 text-xs font-semibold uppercase tracking-wider">
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-botanical-100/95 backdrop-blur-sm text-botanical-900 border border-botanical-200 text-xs font-bold uppercase tracking-wider shadow-sm">
                   Cereals & Pulses
                 </span>
               </div>
@@ -334,7 +340,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-charcoal-900 text-xs font-semibold uppercase tracking-wider">
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-botanical-100/95 backdrop-blur-sm text-botanical-900 border border-botanical-200 text-xs font-bold uppercase tracking-wider shadow-sm">
                   22+ Hybrid Greens & Fruits
                 </span>
               </div>
@@ -367,7 +373,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-charcoal-900 text-xs font-semibold uppercase tracking-wider">
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-botanical-100/95 backdrop-blur-sm text-botanical-900 border border-botanical-200 text-xs font-bold uppercase tracking-wider shadow-sm">
                   Crop Care & PGR
                 </span>
               </div>
@@ -423,7 +429,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-[11px] font-semibold text-charcoal-800">
+                  <div className="absolute top-3 left-3 bg-botanical-100/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-[11px] font-bold text-botanical-900 border border-botanical-200/80 shadow-sm">
                     {product.categoryName}
                   </div>
                 </div>
