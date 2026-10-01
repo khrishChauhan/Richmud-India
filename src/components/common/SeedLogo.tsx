@@ -13,19 +13,19 @@ export const SeedLogo: React.FC<SeedLogoProps> = ({
 }) => {
   const iconSizes = {
     sm: 'w-7 h-7',
-    md: 'w-10 h-10',
+    md: 'w-9 h-9 sm:w-10 sm:h-10',
     lg: 'w-14 h-14',
   };
 
   const titleSizes = {
-    sm: 'text-lg',
-    md: 'text-2xl',
+    sm: 'text-base',
+    md: 'text-xl sm:text-[22px]',
     lg: 'text-3xl',
   };
 
   const taglineSizes = {
-    sm: 'text-[9px]',
-    md: 'text-[11px]',
+    sm: 'text-[8.5px]',
+    md: 'text-[9.5px] sm:text-[10px]',
     lg: 'text-xs',
   };
 
@@ -112,19 +112,19 @@ export const SeedLogo: React.FC<SeedLogoProps> = ({
       </div>
 
       {/* Typography */}
-      <div className="flex flex-col">
+      <div className="flex flex-col justify-center text-left">
         <span
           className={`font-serif tracking-widest font-bold leading-none ${titleSizes[size]} ${
             variant === 'dark'
               ? 'text-white'
-              : 'text-charcoal-900 group-hover:text-botanical-800 transition-colors'
+              : 'text-charcoal-900 group-hover:text-gold-700 transition-colors'
           }`}
         >
           PAN <span className="text-gold-gradient">SEEDS</span>
         </span>
         {showTagline && (
           <span
-            className={`font-sans uppercase tracking-[0.22em] font-semibold text-botanical-800 mt-1 flex items-center gap-1.5 ${taglineSizes[size]}`}
+            className={`font-sans uppercase tracking-[0.24em] font-semibold text-botanical-800 mt-1 flex items-center gap-1.5 whitespace-nowrap ${taglineSizes[size]}`}
           >
             <span>Good seed</span>
             <span className="w-1.5 h-1.5 rounded-full bg-gold-500 inline-block shadow-sm" />
