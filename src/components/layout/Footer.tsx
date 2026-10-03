@@ -49,11 +49,11 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
       {/* Background Subtle Gold Radiance */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-gold-400/5 rounded-full blur-3xl pointer-events-none" />
-      {/* Luxury Logo Watermark in Footer */}
+      {/* Luxury Crest Logo Watermark in Footer */}
       <img
-        src="/richmud-logo.png"
+        src="/richmud-footer-logo.png"
         alt=""
-        className="absolute -bottom-8 right-4 w-72 sm:w-96 opacity-[0.035] pointer-events-none select-none blur-[0.3px]"
+        className="absolute -bottom-10 -right-6 w-80 sm:w-[440px] opacity-[0.045] pointer-events-none select-none filter blur-[0.3px]"
         aria-hidden="true"
       />
 
@@ -62,7 +62,18 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
           
           {/* Brand Column (Span 2 on Desktop, Full Width on Mobile) */}
           <div className="lg:col-span-2 space-y-4">
-            <SeedLogo variant="dark" size="lg" />
+            <button
+              onClick={() => handleNav('home')}
+              className="focus:outline-none flex items-start group select-none transition-transform duration-300 hover:scale-[1.02]"
+              aria-label="richmud Home"
+            >
+              <img
+                src="/richmud-footer-logo.png"
+                alt="richmud — Mud to Gold"
+                className="h-28 sm:h-36 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+                loading="eager"
+              />
+            </button>
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-md">
               richmud is a premier agricultural crop science and seed research enterprise. 
               Guided by our pledge, <span className="text-gold-300 italic inline-flex items-center gap-1.5">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block" /> good life"</span>, 
