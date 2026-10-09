@@ -48,9 +48,9 @@ export const AboutPage: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
           <img
-            src="/richmud-logo.png"
+            src="/richmud-crest-logo.png"
             alt="richmud"
-            className="h-12 sm:h-16 mx-auto w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] mb-2"
+            className="h-16 sm:h-20 md:h-24 mx-auto w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] mb-2 transition-transform duration-300 hover:scale-[1.03]"
           />
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
