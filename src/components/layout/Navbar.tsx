@@ -90,10 +90,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#121212]/98 backdrop-blur-md border-b border-gold-400/25 shadow-lg'
-          : 'bg-[#121212]/95 backdrop-blur-md border-b border-gold-400/15'
+          ? 'bg-[#121212] border-b border-gold-400/25 shadow-2xl'
+          : 'bg-[#121212] border-b border-gold-400/15'
       }`}
-    >
+        style={{ backgroundColor: '#121212' }}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 transition-all duration-300">
           
@@ -145,8 +146,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
 
               {aboutDropdownOpen && (
-                <div className="absolute top-full left-0 w-64 pt-1 z-50 animate-in fade-in zoom-in-95 duration-150">
-                  <div className="bg-[#181818]/98 backdrop-blur-xl rounded-xl shadow-2xl border border-gold-400/30 p-2">
+                <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div 
+                    className="bg-[#141414] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.95)] border border-gold-400/35 p-2"
+                    style={{ backgroundColor: '#141414' }}
+                  >
                     <button
                       onClick={() => handleNavClick('about')}
                       className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/5 text-xs font-medium text-stone-200 flex items-center justify-between group transition-colors"
@@ -214,8 +218,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
 
               {productsMegaOpen && (
-                <div className="absolute top-full -left-16 w-[580px] pt-1 z-50 animate-in fade-in zoom-in-95 duration-150">
-                  <div className="bg-[#181818]/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-gold-400/30 p-4">
+                <div className="absolute top-full -left-16 w-[580px] pt-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div 
+                    className="bg-[#141414] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95)] border border-gold-400/35 p-4"
+                    style={{ backgroundColor: '#141414' }}
+                  >
                     <div className="flex items-center justify-between pb-2.5 border-b border-gray-800 mb-3">
                       <span className="text-xs uppercase tracking-wider font-semibold text-gold-400">richmud Seed Catalog</span>
                       <button 
@@ -229,9 +236,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <div className="grid grid-cols-2 gap-2.5">
                       <button
                         onClick={() => handleCategoryClick('field-crops')}
-                        className="text-left p-2.5 rounded-xl hover:bg-white/5 border border-transparent hover:border-gold-400/30 transition-all flex items-start gap-2.5 group"
+                        className="text-left p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-gold-400/15 hover:border-gold-400/40 transition-all flex items-start gap-2.5 group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-white/5 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-white/10 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                           <Sprout className="w-4 h-4 stroke-[1.5]" />
                         </div>
                         <div>
@@ -242,9 +249,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       <button
                         onClick={() => handleCategoryClick('vegetable-seeds')}
-                        className="text-left p-2.5 rounded-xl hover:bg-white/5 border border-transparent hover:border-gold-400/30 transition-all flex items-start gap-2.5 group"
+                        className="text-left p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-gold-400/15 hover:border-gold-400/40 transition-all flex items-start gap-2.5 group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-white/5 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-white/10 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                           <Sprout className="w-4 h-4 stroke-[1.5]" />
                         </div>
                         <div>
@@ -255,9 +262,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       <button
                         onClick={() => handleCategoryClick('fodder-crops')}
-                        className="text-left p-2.5 rounded-xl hover:bg-white/5 border border-transparent hover:border-gold-400/30 transition-all flex items-start gap-2.5 group"
+                        className="text-left p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-gold-400/15 hover:border-gold-400/40 transition-all flex items-start gap-2.5 group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-white/5 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-white/10 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                           <Sprout className="w-4 h-4 stroke-[1.5]" />
                         </div>
                         <div>
@@ -268,9 +275,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       <button
                         onClick={() => handleCategoryClick('jute-crops')}
-                        className="text-left p-2.5 rounded-xl hover:bg-white/5 border border-transparent hover:border-gold-400/30 transition-all flex items-start gap-2.5 group"
+                        className="text-left p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-gold-400/15 hover:border-gold-400/40 transition-all flex items-start gap-2.5 group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-white/5 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-white/10 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                           <Sprout className="w-4 h-4 stroke-[1.5]" />
                         </div>
                         <div>
@@ -281,7 +288,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       <button
                         onClick={() => handleCategoryClick('crop-protection')}
-                        className="col-span-2 text-left p-2.5 rounded-xl hover:bg-white/5 border border-transparent hover:border-gold-400/30 transition-all flex items-start gap-2.5 group bg-white/[0.03]"
+                        className="col-span-2 text-left p-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] border border-gold-400/15 hover:border-gold-400/40 transition-all flex items-start gap-2.5 group"
                       >
                         <div className="w-8 h-8 rounded-lg bg-white/10 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                           <FlaskConical className="w-4 h-4 stroke-[1.5]" />
@@ -411,15 +418,19 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Luxury Slide-In Mobile Drawer (Opens from LEFT, Footer Dark Theme #121212) */}
         <div
-          className={`fixed top-0 left-0 bottom-0 w-[85%] max-w-sm h-full h-[100dvh] bg-[#121212]/98 backdrop-blur-xl border-r border-gold-400/20 z-[1000] flex flex-col shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+          className={`fixed top-0 left-0 bottom-0 w-[85%] max-w-sm h-full h-[100dvh] bg-[#121212] border-r border-gold-400/20 z-[1000] flex flex-col shadow-2xl transition-transform duration-300 ease-out md:hidden ${
             mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
+          style={{ backgroundColor: '#121212' }}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Menu"
         >
           {/* Drawer Header (Height: matched to top bar) */}
-          <div className="flex items-center justify-between px-5 h-16 sm:h-20 border-b border-gold-400/20 shrink-0 bg-[#121212]">
+          <div 
+            className="flex items-center justify-between px-5 h-16 sm:h-20 border-b border-gold-400/20 shrink-0 bg-[#121212]"
+            style={{ backgroundColor: '#121212' }}
+          >
             <button
               onClick={() => handleNavClick('home')}
               className="focus:outline-none flex items-center transition-transform duration-200 hover:scale-[1.02]"
@@ -605,7 +616,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* 7. Pinned Bottom Luxury CTAs inside Drawer */}
-          <div className="p-4 border-t border-gold-400/20 bg-[#121212] space-y-2.5 shrink-0 pb-[max(1rem,env(safe-area-inset-bottom))]">
+          <div 
+            className="p-4 border-t border-gold-400/20 bg-[#121212] space-y-2.5 shrink-0 pb-[max(1rem,env(safe-area-inset-bottom))]"
+            style={{ backgroundColor: '#121212' }}
+          >
             <button
               onClick={() => handleNavClick('dealers')}
               className="w-full py-3 rounded-full bg-gradient-to-r from-[#14532D] via-[#1B4D3E] to-[#14532D] text-gold-300 font-semibold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md border border-gold-400/40 hover:text-white hover:brightness-110 active:scale-[0.99] transition-all touch-manipulation"
