@@ -100,9 +100,9 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 {/* 3D Golden Logo + Badge */}
                 <div className="flex flex-wrap items-center gap-3">
                   <img
-                    src="/richmud-logo.png"
+                    src="/richmud-crest-logo.png"
                     alt="richmud"
-                    className="h-7 sm:h-9 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                    className="h-10 sm:h-12 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-[1.03]"
                   />
                   <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-md">
                     <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -480,9 +480,9 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
           <div className="flex flex-col items-center justify-center space-y-3">
             <img
-              src="/richmud-logo.png"
+              src="/richmud-crest-logo.png"
               alt="richmud"
-              className="h-14 sm:h-20 w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
+              className="h-14 sm:h-20 w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-[1.03]"
             />
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest shadow-sm">
               <Sprout className="w-4 h-4 text-emerald-300" />
