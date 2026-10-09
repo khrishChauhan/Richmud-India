@@ -121,8 +121,8 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNav('gallery')} className="hover:text-gold-300 transition-colors text-left">
-                    Photo Gallery
+                  <button onClick={() => handleNav('media')} className="hover:text-gold-300 transition-colors text-left">
+                    Media & Gallery
                   </button>
                 </li>
                 <li>

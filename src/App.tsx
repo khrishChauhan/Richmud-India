@@ -5,7 +5,6 @@ import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { BusinessPage } from './pages/BusinessPage';
 import { ProductsPage } from './pages/ProductsPage';
-import { GalleryPage } from './pages/GalleryPage';
 import { CareersPage } from './pages/CareersPage';
 import { DealerLocatorPage } from './pages/DealerLocatorPage';
 import { MediaCenterPage } from './pages/MediaCenterPage';
@@ -22,12 +21,15 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
+      if (hash === 'gallery') {
+        setActivePage('media');
+        return;
+      }
       const validPages = [
         'home', 
         'about', 
         'business', 
         'products', 
-        'gallery', 
         'careers', 
         'dealers', 
         'media', 
@@ -103,7 +105,6 @@ export default function App() {
             onLocateDealer={() => handlePageChange('dealers')}
           />
         )}
-        {activePage === 'gallery' && <GalleryPage />}
         {activePage === 'careers' && <CareersPage />}
         {activePage === 'dealers' && <DealerLocatorPage />}
         {activePage === 'media' && <MediaCenterPage />}

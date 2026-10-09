@@ -1,45 +1,147 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Eye, 
   Target, 
   Award, 
-  Calendar, 
-  ArrowRight, 
-  X, 
   ShieldCheck, 
   CheckCircle2, 
   Sparkles, 
-  Quote,
-  ChevronRight,
+  Quote, 
+  Building2,
+  Mail,
+  Phone,
+  MapPin,
+  MessageCircle,
   GraduationCap,
   Briefcase
 } from 'lucide-react';
-import { 
-  visionMissionValues, 
-  timelineMilestones, 
-  leadershipTeam, 
-  directorSpotlight 
-} from '../data/company';
-import { Leader } from '../types';
+
+interface TeamMember {
+  id: string;
+  name: string;
+  designation: string;
+  initials: string;
+  role: string;
+  bio: string;
+  isExecutive?: boolean;
+  isOpenRole?: boolean;
+}
+
+const completeTeam: TeamMember[] = [
+  {
+    id: 'vinit-kumar',
+    name: 'Mr. Vinit Kumar',
+    designation: 'Director cum Founder',
+    initials: 'VK',
+    role: 'Leadership & Strategy',
+    bio: "Pioneering the startup's vision to empower Indian growers with accessible, lab-tested agri inputs, bridging the lab-to-land gap.",
+    isExecutive: true,
+  },
+  {
+    id: 'kajal-kumari',
+    name: 'Kajal Kumari',
+    designation: 'Director cum Co-Founder',
+    initials: 'KK',
+    role: 'Governance & Strategic Direction',
+    bio: 'Guiding institutional compliance, ethical sourcing, and farmer-centric expansion strategies across Eastern India.',
+    isExecutive: true,
+  },
+  {
+    id: 'haresh-kumar',
+    name: 'Haresh Kumar',
+    designation: 'Executive Director cum Head Sales & Marketing',
+    initials: 'HK',
+    role: 'Sales & Distributor Channels',
+    bio: 'Spearheading regional dealer networks, farmer-connect campaigns, and marketing across district distribution hubs.',
+    isExecutive: true,
+  },
+  {
+    id: 'gulshan-kumar',
+    name: 'Gulshan Kumar',
+    designation: 'Plant Operations and Logistic Head',
+    initials: 'GK',
+    role: 'Plant Operations & Logistics',
+    bio: 'Overseeing manufacturing protocols, seed processing standards, warehousing safety, and punctual rural dispatch.',
+  },
+  {
+    id: 'sonu-kumar',
+    name: 'Sonu Kumar',
+    designation: 'Customer Support & Admin',
+    initials: 'SK',
+    role: 'Support & Corporate Admin',
+    bio: 'Managing seamless dealer support, farmer grievance redressal, administrative operations, and CRM documentation.',
+  },
+  {
+    id: 'hra-finance-head',
+    name: 'HRA Finance Head',
+    designation: 'Finance & Corporate Governance',
+    initials: 'FH',
+    role: 'Financial Governance',
+    bio: 'Position Opening Soon. Seeking senior leadership to lead treasury management, tax compliance, and growth capitalization.',
+    isOpenRole: true,
+  },
+];
+
+const offeringsList = [
+  'High-Yield Hybrid Crop Seeds',
+  'Certified Agrochemicals',
+  "PGR's (Plant Growth Regulators)",
+  'Non-FCO Bio-Fertilizers',
+  'Agronomic Farm Advisory',
+  'Lab-to-Land Agri-Tech Innovation',
+];
+
+interface MemberPortraitProps {
+  id: string;
+  name: string;
+  designation: string;
+  initials: string;
+  isPrimary?: boolean;
+  isOpenRole?: boolean;
+}
+
+function MemberPortraitCard({
+  id,
+  name,
+  designation,
+  initials,
+  isPrimary = false,
+  isOpenRole = false,
+}: MemberPortraitProps) {
+  return (
+    <div className={`flex flex-col items-center group ${isPrimary ? 'w-44 sm:w-56' : 'w-36 sm:w-44'}`}>
+      {/* Crisp White Photo Frame with Elevation Shadow */}
+      <div
+        data-person-id={id}
+        className={`w-full aspect-square bg-white p-2 sm:p-2.5 rounded-sm sm:rounded shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-stone-200/70 relative transition-transform duration-300 group-hover:-translate-y-1 ${
+          isOpenRole ? 'border-dashed border-amber-300' : ''
+        }`}
+      >
+        <div className="w-full h-full bg-gradient-to-b from-stone-100 to-stone-200 flex flex-col items-center justify-center relative overflow-hidden rounded-xs">
+          {/* Silhouette/Initials Placeholder (Ready for real image replacement) */}
+          <span className="font-bold text-stone-700 text-lg sm:text-2xl tracking-wider">
+            {initials}
+          </span>
+          <span className="absolute bottom-1.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-semibold text-stone-500 bg-white/80 px-1.5 py-0.5 rounded-xs">
+            {isOpenRole ? 'Position Open' : 'Official Portrait'}
+          </span>
+        </div>
+      </div>
+
+      {/* Centered Typography Directly Underneath */}
+      <div className="mt-2.5 sm:mt-3 text-center px-1">
+        <h4 className="text-xs sm:text-sm font-bold text-stone-900 group-hover:text-emerald-800 transition-colors leading-snug">
+          {name}
+        </h4>
+        <p className="text-[10px] sm:text-xs font-medium text-stone-600 mt-0.5 leading-tight">
+          {designation}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export const AboutPage: React.FC = () => {
-  const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
-
-  const boardMembers = leadershipTeam.filter((l) => l.role === 'board');
-  const executiveMembers = leadershipTeam.filter((l) => l.role === 'executive');
-
-  const getIcon = (name: string) => {
-    switch (name) {
-      case 'Eye':
-        return <Eye className="w-6 h-6 text-gold-600" />;
-      case 'Target':
-        return <Target className="w-6 h-6 text-gold-600" />;
-      case 'Award':
-      default:
-        return <Award className="w-6 h-6 text-gold-600" />;
-    }
-  };
-
   return (
     <div className="pb-20">
       {/* 1. HERO HEADER */}
@@ -54,352 +156,514 @@ export const AboutPage: React.FC = () => {
           />
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
-            <span>Legacy of Trust Since 1992</span>
+            <span>Richmud India Pvt Ltd. (ROM) • Founded 2025</span>
           </div>
 
           <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
-            Nurturing India's Soil with <br />
-            <span className="text-gold-gradient">Purity, Science & Integrity</span>
+            Empowering Farmers, <br />
+            <span className="text-gold-gradient">Transforming Agriculture</span>
           </h1>
 
           <p className="text-gray-300 max-w-2xl mx-auto text-xs sm:text-base lg:text-lg font-light leading-relaxed">
-            richmud was forged on a sacred contract with the Indian farmer: that every grain sown will germinate with vitality and bear fruitful harvest.
+            Headquartered in Halsi, Lakhisarai (Bihar), Richmud India Pvt Ltd. is an agile agricultural startup delivering elite hybrid seeds, crop protection, non-FCO bio-fertilizers, and lab-to-land agri-tech innovation to elevate farmer prosperity.
           </p>
         </div>
       </section>
 
-      {/* 2. CORPORATE OVERVIEW & ETHOS */}
-      <section className="py-20 bg-white">
+      {/* 2. INSTITUTIONAL SPLIT SHOWCASE (INSPIRED BY BIHAR GOVT / DBT PORTAL) */}
+      <section className="py-16 sm:py-24 bg-stone-50 border-b border-stone-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            <div className="space-y-6">
-              <div className="text-xs uppercase tracking-widest text-botanical-800 font-bold">
-                Our Corporate Ethos
+            {/* LEFT COLUMN: EXACT SCREENSHOT REPLICATION */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="space-y-1 text-center sm:text-left">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-800">
+                  Institutional Leadership Bench
+                </span>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-stone-900">
+                  Official Leadership Portraits
+                </h3>
+                <p className="text-xs text-stone-500">
+                  Prestige institutional framing: crisp white elevated frames with clean unboxed designations.
+                </p>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900 leading-tight">
-                Three Decades of Pioneering <br />
-                <span className="text-gold-gradient">Agricultural Transformation</span>
-              </h2>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Founded in 1992 in the fertile agro-ecological heartland of Eastern India, richmud has grown into one of the country’s premier indigenous seed conglomerates. Our tagline, <span className="font-semibold text-charcoal-900 italic">"Good seed good life"</span>, is not merely a brand slogan — it is our operational philosophy.
-              </p>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                We believe that agricultural prosperity begins in the seed embryo. By uniting time-honored farmer wisdom with ultramodern molecular biotechnology, marker-assisted breeding, and ISO/ISTA-certified quality laboratories, we equip farmers to triumph over erratic weather, emerging pests, and water scarcity.
-              </p>
 
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-botanical-800 text-white border border-botanical-700 shadow-md">
-                  <div className="text-2xl font-serif font-bold text-white">100%</div>
-                  <div className="text-xs text-emerald-100 font-medium mt-1">Certified Genetic Purity Standard</div>
-                </div>
-                <div className="p-4 rounded-xl bg-ivory-50 border border-gold-300/30">
-                  <div className="text-2xl font-serif font-bold text-gold-700">4 R&D Stations</div>
-                  <div className="text-xs text-gray-600 font-medium mt-1">Multi-Climate Screening Facilities</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl border border-gold-300/40">
-                <img
-                  src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1200&q=80"
-                  alt="Farmers with richmud"
-                  className="w-full h-[440px] object-cover"
+              {/* Founder on far left + Staggered Leadership Cohort */}
+              <div className="pt-2 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-5 sm:gap-6">
+                {/* Prominent Large Founder Portrait on far left */}
+                <MemberPortraitCard
+                  id="vinit-kumar"
+                  name="Mr. Vinit Kumar"
+                  designation="Director cum Founder"
+                  initials="VK"
+                  isPrimary={true}
                 />
-              </div>
-              {/* Floating luxury badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-gold-md border border-gold-400/40 max-w-xs hidden sm:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-botanical-800 flex items-center justify-center text-white shrink-0 border border-botanical-600 shadow-sm">
-                    <ShieldCheck className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-charcoal-900">Seeds Act 1966 & ISTA</div>
-                    <div className="text-xs text-gray-500">Exceeding national germination benchmarks</div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* 3. VISION, MISSION & VALUES (3 LUXURY CARDS) */}
-      <section className="py-20 bg-ivory-100 border-y border-gold-300/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-            <div className="text-xs uppercase tracking-widest text-gold-600 font-semibold">
-              Guiding North Star
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900">
-              Vision, Mission & <span className="text-gold-gradient">Core Values</span>
-            </h2>
-            <p className="text-sm text-gray-600">
-              The foundational pillars that anchor our scientific pursuits and community partnerships.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {visionMissionValues.map((card, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-8 border border-gold-300/40 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div className="space-y-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gold-50 border border-gold-200 flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-colors">
-                    {getIcon(card.iconName)}
-                  </div>
-                  <div className="text-xs uppercase tracking-wider text-gold-600 font-semibold">
-                    {card.tagline}
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-charcoal-900">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-charcoal-900">
-                  <span>richmud Commitment</span>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-botanical-700 ml-auto" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. DIRECTOR'S JOURNEY TIMELINE */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <div className="text-xs uppercase tracking-widest text-gold-600 font-semibold">
-              Chronicles of Progress
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900">
-              Director's Journey & <span className="text-gold-gradient">Key Milestones</span>
-            </h2>
-            <p className="text-sm text-gray-600">
-              Tracing thirty-three years of groundbreaking seed trials, infrastructure milestones, and nationwide farmer empowerment.
-            </p>
-          </div>
-
-          <div className="relative border-l-2 border-gold-400/40 ml-4 sm:ml-32 space-y-12">
-            {timelineMilestones.map((item, idx) => (
-              <div key={idx} className="relative pl-8 group">
-                {/* Year Marker Badge */}
-                <div className="sm:absolute sm:-left-32 sm:top-0 mb-2 sm:mb-0">
-                  <span className="inline-block px-3 py-1 rounded-full bg-gold-50 border border-gold-400 text-gold-800 font-serif font-bold text-sm tracking-wider shadow-sm">
-                    {item.year}
-                  </span>
-                </div>
-
-                {/* Node Bullet on Timeline Line */}
-                <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-gold-500 group-hover:bg-gold-500 transition-colors shadow-sm" />
-
-                {/* Milestone Content Box */}
-                <div className="bg-ivory-50 rounded-2xl p-6 border border-gold-200/50 hover:border-gold-400 transition-all shadow-sm hover:shadow-gold-sm">
-                  <div className="inline-block px-2.5 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-gold-200/60 text-gold-900 mb-2">
-                    {item.tag}
-                  </div>
-                  <h3 className="text-xl font-serif font-bold text-charcoal-900">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. LEADERSHIP SECTION */}
-      <section className="py-20 bg-ivory-50 border-t border-gold-300/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <div className="text-xs uppercase tracking-widest text-gold-600 font-semibold">
-              Architects of Crop Science
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900">
-              Board of Directors & <span className="text-gold-gradient">Leadership</span>
-            </h2>
-            <p className="text-sm text-gray-600">
-              Governed by distinguished plant geneticists, agribusiness strategists, and agronomy experts dedicated to scientific excellence.
-            </p>
-          </div>
-
-          {/* Board of Directors */}
-          <div className="mb-16">
-            <h3 className="text-xs uppercase tracking-widest text-charcoal-900 font-bold mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-gold-500" />
-              Board of Directors
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {boardMembers.map((member) => (
-                <div
-                  key={member.id}
-                  className="bg-white rounded-2xl overflow-hidden border border-gold-300/40 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 flex flex-col group"
-                >
-                  <div className="h-72 overflow-hidden relative">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                {/* Staggered Cohort: Top Offset, Bottom Left, Bottom Right */}
+                <div className="grid grid-cols-2 gap-3.5 sm:gap-4 sm:pt-4">
+                  <MemberPortraitCard
+                    id="kajal-kumari"
+                    name="Kajal Kumari"
+                    designation="Director cum Co-Founder"
+                    initials="KK"
+                  />
+                  <MemberPortraitCard
+                    id="haresh-kumar"
+                    name="Haresh Kumar"
+                    designation="Executive Director cum Head Sales & Marketing"
+                    initials="HK"
+                  />
+                  <div className="col-span-2 flex justify-center pt-1">
+                    <MemberPortraitCard
+                      id="gulshan-kumar"
+                      name="Gulshan Kumar"
+                      designation="Plant Operations and Logistic Head"
+                      initials="GK"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                      <button
-                        onClick={() => setSelectedLeader(member)}
-                        className="w-full py-2.5 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2"
-                      >
-                        <span>View Full Biography</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
                   </div>
+                </div>
+              </div>
 
-                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                    <div>
-                      <h4 className="font-serif text-xl font-bold text-charcoal-900">
-                        {member.name}
-                      </h4>
-                      <div className="text-xs text-gold-700 font-semibold mt-1">
-                        {member.designation}
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2 line-clamp-3">
-                        {member.bio}
+              <div className="pt-2 text-[11px] text-stone-500 flex items-center justify-center sm:justify-start gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0" />
+                <span>Executive Command • Halsi, Lakhisarai, Bihar</span>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: CONTENT CONTAINER WITH DELICATE GREEN CORNER BRACKET BORDER */}
+            <div className="lg:col-span-6">
+              <div className="relative rounded-2xl bg-white p-6 sm:p-8 md:p-9 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-stone-200/90 overflow-hidden">
+                {/* Delicate green corner/bracket border (border-t-2 border-r-2 border-emerald-700/60) */}
+                <div className="absolute top-0 right-0 w-20 sm:w-28 h-20 sm:h-28 border-t-2 border-r-2 border-emerald-700/60 rounded-tr-2xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-14 sm:w-20 h-14 sm:h-20 border-b-2 border-l-2 border-emerald-700/30 rounded-bl-2xl pointer-events-none" />
+
+                <div className="flex gap-4 sm:gap-6 relative z-10">
+                  <div className="flex-1 space-y-4">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-emerald-50 border-l-3 border-emerald-700 text-emerald-900 text-xs font-bold uppercase tracking-wider">
+                      <Building2 className="w-3.5 h-3.5 text-emerald-700" />
+                      <span>Founding Profile & Vision</span>
+                    </div>
+
+                    <h2 className="text-xl sm:text-3xl font-serif font-bold text-stone-900 tracking-tight leading-snug">
+                      Richmud India Pvt Ltd. (ROM)
+                    </h2>
+
+                    <div className="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed">
+                      <p>
+                        Established in <strong className="text-stone-900">2025</strong> in <strong className="text-stone-900">Halsi, Lakhisarai (Bihar)</strong>, Richmud India Pvt Ltd. (ROM) is an agile agri-input startup committed to revolutionizing modern farming. We bridge scientific laboratories directly to local farmer lands, making high-quality seeds, crop protection, and non-FCO fertilizers accessible to every grower.
+                      </p>
+                      <p>
+                        Our mission is to maximize every farmer's net income through certified genetics, plant growth regulators (PGRs), modern bio-inputs, and lab-to-land agronomic services.
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
-                      <span className="text-gray-400 font-medium">Exp: {member.experience}</span>
-                      <button
-                        onClick={() => setSelectedLeader(member)}
-                        className="text-gold-700 font-bold hover:underline"
-                      >
-                        Read Profile →
-                      </button>
+                    {/* Director's Personal Message Block */}
+                    <div className="p-4 rounded-xl bg-stone-50 border-l-3 border-emerald-600 space-y-2 mt-2">
+                      <div className="flex items-center gap-2 text-[11px] font-bold text-emerald-800 uppercase tracking-wider">
+                        <Quote className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>Director's Message • Mr. Vinit Kumar</span>
+                      </div>
+                      <blockquote className="text-stone-800 text-xs sm:text-sm italic leading-relaxed">
+                        "As the director of Richmud India, my journey is driven by a vision to empower farmers with high-quality, affordable seeds, fertilizers, agrochemicals, and modern agricultural solutions. Overcoming initial challenges of building a trusted distributor network and winning farmer confidence, we remain committed to sustainable farming and introducing agri-tech innovation from lab to land to elevate farmer prosperity."
+                      </blockquote>
+                      <div className="pt-1.5 border-t border-stone-200/70 flex items-center justify-between text-[11px] text-stone-500">
+                        <span className="font-semibold text-stone-800">Mr. Vinit Kumar</span>
+                        <span>Halsi, Lakhisarai</span>
+                      </div>
+                    </div>
+
+                    {/* Offerings Pills */}
+                    <div className="pt-1 space-y-1.5">
+                      <div className="text-[11px] font-bold text-stone-900 uppercase tracking-wider">
+                        Core Agri Portfolio:
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {offeringsList.map((offering, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2.5 py-1 rounded-sm bg-stone-100 border border-stone-200/80 text-stone-700 text-[11px] font-medium"
+                          >
+                            ✓ {offering}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
+
+                  {/* Vertical Crop / Plant Visual Accent on far right */}
+                  <div className="hidden sm:flex flex-col items-center justify-between w-12 py-2 border-l border-emerald-900/10 pl-3 shrink-0 text-emerald-800/40 select-none pointer-events-none">
+                    <Sparkles className="w-4 h-4 text-emerald-600/70" />
+                    <div className="w-[1px] flex-1 bg-gradient-to-b from-emerald-600/30 via-emerald-700/60 to-emerald-600/30 my-2" />
+                    <div className="[writing-mode:vertical-rl] text-[9px] uppercase font-bold tracking-widest text-emerald-800/60 py-2">
+                      Rich Soil • Healthy Crops
+                    </div>
+                    <div className="w-[1px] flex-1 bg-gradient-to-b from-emerald-600/30 via-emerald-700/60 to-emerald-600/30 my-2" />
+                    <ShieldCheck className="w-4 h-4 text-emerald-600/70" />
+                  </div>
                 </div>
-              ))}
+
+              </div>
             </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 3. VISION, MISSION & VALUES (3-CARD GRID) */}
+      <section className="py-16 sm:py-24 bg-white border-b border-stone-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-800">
+              Guiding Principles
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
+              Vision, Mission & Core Values
+            </h2>
+            <p className="text-sm text-stone-600">
+              The foundational pillars steering Richmud India's pledge to farm families.
+            </p>
           </div>
 
-          {/* Executive Management Team */}
-          <div>
-            <h3 className="text-xs uppercase tracking-widest text-charcoal-900 font-bold mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-gold-500" />
-              Executive Management Team
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {executiveMembers.map((member) => (
-                <div
-                  key={member.id}
-                  className="bg-white rounded-xl p-5 border border-gold-200/60 hover:border-gold-400 shadow-sm transition-all flex items-start gap-4 group"
-                >
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-16 h-16 rounded-xl object-cover object-top border border-gold-300/40 shrink-0"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <h5 className="font-serif text-base font-bold text-charcoal-900 truncate">
-                      {member.name}
-                    </h5>
-                    <div className="text-[11px] text-gold-700 font-semibold mt-0.5">
-                      {member.designation}
-                    </div>
-                    <div className="text-[11px] text-gray-500 mt-1 line-clamp-2">
-                      {member.credentials}
-                    </div>
-                    <button
-                      onClick={() => setSelectedLeader(member)}
-                      className="mt-2 text-[11px] text-gold-700 font-bold hover:underline flex items-center gap-1"
-                    >
-                      <span>Bio & Credentials</span>
-                      <ChevronRight className="w-3 h-3" />
-                    </button>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {/* Vision */}
+            <div className="p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-emerald-50/60 to-white border border-emerald-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs">
+                  <Eye className="w-6 h-6 stroke-[1.8]" />
                 </div>
-              ))}
+                <div className="text-xs font-bold uppercase tracking-widest text-emerald-800">
+                  Our Vision
+                </div>
+                <h3 className="text-lg font-serif font-bold text-stone-900 leading-snug">
+                  Rich Soil, Healthy Crops & Prosperous Farmers
+                </h3>
+                <p className="text-sm text-stone-700 leading-relaxed">
+                  "To become India's most trusted agri input & agri services partner, where the name 'Richmud' always stands for rich soil, healthy crops and prosperous farmers."
+                </p>
+              </div>
+              <div className="pt-3 border-t border-emerald-100 text-xs font-semibold text-emerald-800">
+                Pledge: Trusted Rural Partner
+              </div>
+            </div>
+
+            {/* Mission */}
+            <div className="p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-amber-50/60 to-white border border-amber-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center shadow-xs">
+                  <Target className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <div className="text-xs font-bold uppercase tracking-widest text-amber-800">
+                  Our Mission
+                </div>
+                <h3 className="text-lg font-serif font-bold text-stone-900 leading-snug">
+                  Maximize Net Farm Family Income
+                </h3>
+                <p className="text-sm text-stone-700 leading-relaxed">
+                  "To deliver high-quality affordable, Agri input & Agri services that maximize every farmer's income."
+                </p>
+              </div>
+              <div className="pt-3 border-t border-amber-100 text-xs font-semibold text-amber-800">
+                Pledge: Affordable Agri-Solutions
+              </div>
+            </div>
+
+            {/* Values */}
+            <div className="p-7 sm:p-8 rounded-2xl bg-gradient-to-b from-teal-50/60 to-white border border-teal-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shadow-xs">
+                  <ShieldCheck className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <div className="text-xs font-bold uppercase tracking-widest text-teal-700">
+                  Our Core Values
+                </div>
+                <h3 className="text-lg font-serif font-bold text-stone-900 leading-snug">
+                  Crop Security, High Yields & Innovation
+                </h3>
+                <p className="text-sm text-stone-700 leading-relaxed">
+                  "To empower farmers with high quality seeds, crop protection, Agri solutions, and innovative technologies that secure crops, boost yields and elevate farmer prosperity."
+                </p>
+              </div>
+              <div className="pt-3 border-t border-teal-100 text-xs font-semibold text-teal-800">
+                Pledge: Integrity from Lab to Land
+              </div>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* BIO MODAL FOR LEADERS */}
-      {selectedLeader && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-gold-400/40 relative animate-in fade-in zoom-in-95 duration-200">
-            <button
-              onClick={() => setSelectedLeader(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
-              aria-label="Close Biography Modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
+      {/* 4. COMPLETE MANAGEMENT TEAM & GOVERNANCE */}
+      <section className="py-16 sm:py-24 bg-stone-50 border-b border-stone-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-800">
+              Institutional Governance
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
+              Management Team & Department Heads
+            </h2>
+            <p className="text-xs sm:text-sm text-stone-600">
+              Official institutional portrait gallery of executive leaders and departmental commanders at Richmud India Pvt Ltd. (ROM).
+            </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <img
-                src={selectedLeader.image}
-                alt={selectedLeader.name}
-                className="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover object-top border-2 border-gold-400 shrink-0 shadow-md"
+          {/* Institutional Gallery Grid of Framed Portraits - All 6 Team Members */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 justify-items-center">
+            {completeTeam.map((member) => (
+              <MemberPortraitCard
+                key={member.id}
+                id={member.id}
+                name={member.name}
+                designation={member.designation}
+                initials={member.initials}
+                isOpenRole={member.isOpenRole}
               />
-              <div className="space-y-2">
-                <span className="px-2.5 py-1 rounded-full bg-gold-100 text-gold-800 text-xs font-semibold uppercase tracking-wider">
-                  {selectedLeader.role === 'board' ? 'Board of Directors' : 'Executive Management'}
-                </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-charcoal-900">
-                  {selectedLeader.name}
-                </h3>
-                <div className="text-sm font-semibold text-gold-700">
-                  {selectedLeader.designation}
+            ))}
+          </div>
+
+          {/* Departmental Command & Contact Banner */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-white border border-stone-200/80 text-xs text-stone-600">
+            <div className="flex items-center gap-2 text-center sm:text-left">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0" />
+              <span>
+                <strong>Corporate Office:</strong> Halsi, Lakhisarai, Bihar (811306 / 811311) • Direct Helpline:{' '}
+                <a href="tel:+917888585478" className="text-stone-900 font-semibold hover:text-emerald-800">
+                  +91-7888585478
+                </a>
+              </span>
+            </div>
+            <a
+              href="mailto:richmudindia@gmail.com"
+              className="px-4 py-2 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold text-xs tracking-wider uppercase shadow-xs transition-colors shrink-0"
+            >
+              Contact Bureau →
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. CAREERS & INTERNSHIP (LAB TO LAND) */}
+      <section className="py-16 sm:py-24 bg-white border-b border-stone-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-800">
+              Join Our Mission
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
+              Careers & Internship Programs
+            </h2>
+            <p className="text-sm text-stone-600">
+              Be a catalyst in India's rural agricultural renaissance. Build your career with Richmud India.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* INTERNSHIP CARD */}
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-emerald-50/50 border border-emerald-200 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-xs">
+                  <GraduationCap className="w-6 h-6 stroke-[1.8]" />
                 </div>
-                {selectedLeader.credentials && (
-                  <div className="flex items-center gap-2 text-xs text-gray-600">
-                    <GraduationCap className="w-4 h-4 text-gold-600 shrink-0" />
-                    <span>{selectedLeader.credentials}</span>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-800">
+                    College Students & Graduates
+                  </span>
+                  <h3 className="text-xl font-serif font-bold text-stone-900 mt-1">
+                    Richmud India Internship Program
+                  </h3>
+                </div>
+                <p className="text-sm text-stone-700 leading-relaxed">
+                  Gain hands-on field exposure to cutting-edge Agri input supply chains, lab-to-land seed trial observation, farmer-connect workshops, and digital agri-distribution. Mentored directly by seasoned agronomy heads.
+                </p>
+                <div className="space-y-1.5 text-xs text-stone-600">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Real-world agricultural technology exposure</span>
                   </div>
-                )}
-                {selectedLeader.experience && (
-                  <div className="flex items-center gap-2 text-xs text-gray-600">
-                    <Briefcase className="w-4 h-4 text-gold-600 shrink-0" />
-                    <span>Experience: {selectedLeader.experience}</span>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Mentorship by Director & Operations Leads</span>
                   </div>
-                )}
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Certificate of Completion & Pre-Placement Opportunities</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-emerald-100">
+                <a
+                  href="mailto:richmudindia@gmail.com?subject=Application%20for%20Richmud%20India%20Internship%20Program"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs uppercase tracking-wider shadow-sm transition-all"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Apply for Internship (richmudindia@gmail.com)</span>
+                </a>
               </div>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-gray-100 space-y-4">
-              <h4 className="text-xs uppercase tracking-wider font-semibold text-gold-800">
-                Executive Profile & Vision
-              </h4>
-              <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
-                {selectedLeader.bio}
-              </p>
-            </div>
+            {/* CAREER OPPORTUNITIES CARD */}
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-amber-50/40 via-white to-amber-50/30 border border-amber-200 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-xs">
+                  <Briefcase className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-amber-800">
+                    Full-Time Positions
+                  </span>
+                  <h3 className="text-xl font-serif font-bold text-stone-900 mt-1">
+                    Job Opportunities in Agri-Transformation
+                  </h3>
+                </div>
+                <p className="text-sm text-stone-700 leading-relaxed">
+                  We are actively assembling a high-caliber team across Bihar and Eastern India. Explore rewarding careers in regional sales & marketing, supply chain operations, agronomy advisory, and administrative governance.
+                </p>
+                <div className="space-y-1.5 text-xs text-stone-600">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                    <span>Regional Sales & Field Agronomy Executives</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                    <span>Warehouse & Logistics Supervisors</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                    <span>Finance, Accounts & Administration Openings</span>
+                  </div>
+                </div>
+              </div>
 
-            <div className="mt-8 flex justify-end">
-              <button
-                onClick={() => setSelectedLeader(null)}
-                className="px-6 py-2.5 rounded-full bg-charcoal-900 hover:bg-black text-white text-xs font-semibold uppercase tracking-wider transition-colors"
-              >
-                Close Biography
-              </button>
+              <div className="pt-4 border-t border-amber-100">
+                <a
+                  href="mailto:richmudindia@gmail.com?subject=Job%20Application%20-%20Richmud%20India%20Pvt%20Ltd"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-stone-900 hover:bg-black text-white font-semibold text-xs uppercase tracking-wider shadow-sm transition-all"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Send Resume (richmudindia@gmail.com)</span>
+                </a>
+              </div>
             </div>
           </div>
+
         </div>
-      )}
+      </section>
+
+      {/* 6. CORPORATE OFFICE & CONTACT STRIP */}
+      <section className="py-16 sm:py-20 bg-stone-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-stone-800">
+            <div className="space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-400">
+                Direct Contact & Showroom
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+                Connect with Richmud India Pvt Ltd.
+              </h2>
+              <p className="text-xs sm:text-sm text-stone-400 max-w-xl">
+                Reach out for dealership inquiries, bulk seed distribution, farmer advisory visits, or institutional partnerships.
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://wa.me/917888585478?text=Hello%20Richmud%20India,%20I%20am%20interested%20in%20your%20products."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center gap-2 shadow-xs transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>WhatsApp Us</span>
+              </a>
+              <a
+                href="mailto:richmudindia@gmail.com"
+                className="px-4 py-2 rounded-full border border-stone-700 hover:border-stone-500 text-stone-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                <span>Email Bureau</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Headquarters Card */}
+            <div className="p-6 rounded-2xl bg-stone-800/80 border border-stone-700/80 space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-white">Corporate Headquarters</h4>
+                <p className="text-xs text-stone-300 mt-1 leading-relaxed">
+                  Halsi, Lakhisarai, Bihar, India
+                </p>
+                <p className="text-xs text-amber-400 font-semibold mt-0.5">
+                  Postal Pincode: 811306 / 811311
+                </p>
+              </div>
+            </div>
+
+            {/* Direct Phone Lines */}
+            <div className="p-6 rounded-2xl bg-stone-800/80 border border-stone-700/80 space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-white">Direct Helpline & Inquiries</h4>
+                <div className="mt-1 space-y-1">
+                  <a
+                    href="tel:+917888585478"
+                    className="block text-xs font-mono font-medium text-stone-200 hover:text-emerald-400 transition-colors"
+                  >
+                    +91-7888585478 (Primary Contact)
+                  </a>
+                  <a
+                    href="tel:+919572144270"
+                    className="block text-xs font-mono font-medium text-stone-200 hover:text-emerald-400 transition-colors"
+                  >
+                    +91-9572144270 (Support Line)
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Email Bureau & Hours */}
+            <div className="p-6 rounded-2xl bg-stone-800/80 border border-stone-700/80 space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-white">Official Correspondence</h4>
+                <a
+                  href="mailto:richmudindia@gmail.com"
+                  className="block text-xs text-amber-300 hover:underline font-medium mt-1"
+                >
+                  richmudindia@gmail.com
+                </a>
+                <p className="text-[11px] text-stone-400 mt-1">
+                  Mon – Sat: 9:00 AM – 6:30 PM IST
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-6 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
+            <div>
+              <span>Official Channels: </span>
+              <span className="text-stone-300 font-medium">Facebook • Instagram • LinkedIn • YouTube • X (Twitter) • WhatsApp</span>
+            </div>
+            <div className="text-[11px] text-stone-500">
+              © {new Date().getFullYear()} Richmud India Pvt Ltd. (ROM). All rights reserved.
+            </div>
+          </div>
+
+        </div>
+      </section>
     </div>
   );
 };
