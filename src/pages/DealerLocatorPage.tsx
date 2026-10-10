@@ -61,7 +61,7 @@ export const DealerLocatorPage: React.FC = () => {
           <img
             src="/richmud-crest-logo.png"
             alt="richmud"
-            className="h-16 sm:h-20 md:h-24 mx-auto w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] mb-2 transition-transform duration-300 hover:scale-[1.03]"
+            className="h-24 sm:h-32 md:h-36 mx-auto w-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.7)] my-2 sm:my-3 transition-transform duration-300 hover:scale-[1.03]"
           />
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:w-3.5 text-gold-400" />

@@ -98,11 +98,11 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
             <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
               <div className="max-w-2xl space-y-4 sm:space-y-6">
                 {/* 3D Golden Logo + Badge */}
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5 mb-2">
                   <img
                     src="/richmud-crest-logo.png"
                     alt="richmud"
-                    className="h-10 sm:h-12 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-[1.03]"
+                    className="h-20 sm:h-28 md:h-32 w-auto object-contain filter drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)] transition-transform duration-300 hover:scale-[1.03]"
                   />
                   <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-md">
                     <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -205,6 +205,85 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
         </div>
       </section>
 
+      {/* 2.5. OUR STORY SNIPPET: WHO WE ARE / OUR ROOTS */}
+      <section className="py-14 sm:py-20 bg-stone-50/70 border-b border-gold-300/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-gold-300/40 shadow-sm relative overflow-hidden">
+            {/* Subtle decorative accent */}
+            <div className="absolute top-0 right-0 w-36 h-36 bg-emerald-50 rounded-bl-full pointer-events-none -z-0" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Column: Narrative Teaser */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-50 px-3.5 py-1.5 rounded-full border border-gold-300/40">
+                  <Sprout className="w-3.5 h-3.5 text-gold-600" />
+                  <span>WHO WE ARE • OUR ROOTS</span>
+                </div>
+
+                <h2 className="text-2xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight leading-tight">
+                  Empowering the Farming Community from <br className="hidden sm:inline" />
+                  <span className="text-gold-gradient">Bihar's Agricultural Heartland</span>
+                </h2>
+
+                <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
+                  Richmud India Pvt Ltd. (ROM) is an agri-input startup founded in 2025 in Halsi, Lakhisarai, Bihar. Deeply committed to ground-level farming challenges, we deliver high-quality crop seeds, Agrochemicals, PGR’s, non-FCO fertilizer, and Agri services to elevate farmer prosperity.
+                </p>
+
+                <div className="pt-2">
+                  <button
+                    onClick={() => setActivePage('about')}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold text-xs uppercase tracking-wider shadow-sm transition-all group"
+                  >
+                    <span>Read Our Full Story</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-gold-400 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Right Column: 3 Key Highlight Counters */}
+              <div className="lg:col-span-5 grid grid-cols-3 gap-3 sm:gap-4 text-center">
+                <div className="p-4 sm:p-5 rounded-2xl bg-stone-50 border border-gold-300/30 shadow-2xs">
+                  <div className="text-2xl sm:text-4xl font-serif font-bold text-gold-gradient">
+                    2025
+                  </div>
+                  <div className="text-[11px] sm:text-xs font-semibold text-stone-900 uppercase tracking-wider mt-1">
+                    Year Founded
+                  </div>
+                  <div className="text-[10px] text-stone-500 mt-0.5">
+                    Halsi, Lakhisarai
+                  </div>
+                </div>
+
+                <div className="p-4 sm:p-5 rounded-2xl bg-stone-50 border border-gold-300/30 shadow-2xs">
+                  <div className="text-2xl sm:text-4xl font-serif font-bold text-gold-gradient">
+                    Bihar
+                  </div>
+                  <div className="text-[11px] sm:text-xs font-semibold text-stone-900 uppercase tracking-wider mt-1">
+                    Heartland
+                  </div>
+                  <div className="text-[10px] text-stone-500 mt-0.5">
+                    Ground Operations
+                  </div>
+                </div>
+
+                <div className="p-4 sm:p-5 rounded-2xl bg-stone-50 border border-gold-300/30 shadow-2xs">
+                  <div className="text-2xl sm:text-4xl font-serif font-bold text-gold-gradient">
+                    5+
+                  </div>
+                  <div className="text-[11px] sm:text-xs font-semibold text-stone-900 uppercase tracking-wider mt-1">
+                    Agri Verticals
+                  </div>
+                  <div className="text-[10px] text-stone-500 mt-0.5">
+                    Seeds, PGR & More
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. DIRECTOR'S SPOTLIGHT SECTION */}
       <section className="py-20 sm:py-28 relative overflow-hidden bg-ivory-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -241,11 +320,12 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-white bg-botanical-800 px-4 py-1.5 rounded-full border border-botanical-700 shadow-sm">
                 <Leaf className="w-3.5 h-3.5 text-emerald-300" />
-                <span>Founding Leadership & Ethos</span>
+                <span>Founding Leadership & Vision</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-charcoal-900 leading-tight">
-                "When the seed is pure, <span className="text-gold-gradient">life flourishes."</span>
+                Empowering Farmers with <br />
+                <span className="text-gold-gradient">High-Impact Solutions</span>
               </h2>
 
               {/* Quote Block with Gold Quotation Accent */}
@@ -262,10 +342,10 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               <div className="pt-4 flex flex-wrap items-center justify-between gap-6 border-t border-gold-300/30">
                 <div>
                   <div className="font-serif italic text-2xl text-botanical-900 tracking-wider font-semibold">
-                    Pradeep K. Pan
+                    {directorSpotlight.name}
                   </div>
                   <div className="text-[11px] uppercase tracking-wider text-gray-500 font-medium">
-                    Founder & Managing Director
+                    {directorSpotlight.designation}
                   </div>
                 </div>
 
@@ -273,7 +353,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                   onClick={() => setActivePage('about')}
                   className="px-6 py-2.5 rounded-full border-2 border-botanical-800 text-botanical-900 hover:bg-botanical-800 hover:text-white transition-all text-xs font-semibold tracking-wider uppercase flex items-center gap-2 shadow-sm"
                 >
-                  <span>Explore 30-Year Journey</span>
+                  <span>Explore Director's Journey & Team</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -428,13 +508,13 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               <div
                 key={product.id}
                 onClick={() => setActivePage('products')}
-                className="bg-white rounded-2xl overflow-hidden border border-gold-300/30 hover:border-botanical-600 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group"
+                className="bg-white rounded-2xl overflow-hidden border border-amber-200/50 hover:border-botanical-600 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group"
               >
-                <div className="h-32 sm:h-48 overflow-hidden relative">
+                <div className="h-32 sm:h-44 md:h-48 overflow-hidden relative bg-[#FAF9F6] border-b border-amber-200/40 flex items-center justify-center p-3 sm:p-4">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-xs"
                   />
                   <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-botanical-800 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-bold border border-botanical-600 shadow-sm truncate max-w-[85%]">
                     {product.categoryName}
@@ -478,11 +558,11 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <div className="flex flex-col items-center justify-center space-y-3">
+          <div className="flex flex-col items-center justify-center space-y-4">
             <img
               src="/richmud-crest-logo.png"
               alt="richmud"
-              className="h-14 sm:h-20 w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-[1.03]"
+              className="h-24 sm:h-32 md:h-36 w-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.7)] mb-2 transition-transform duration-300 hover:scale-[1.03]"
             />
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-gold-400/30 text-gold-300 text-xs font-semibold uppercase tracking-widest shadow-sm">
               <Sprout className="w-4 h-4 text-emerald-300" />

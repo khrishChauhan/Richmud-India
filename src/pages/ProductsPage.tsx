@@ -86,7 +86,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
           <img
             src="/richmud-crest-logo.png"
             alt="richmud"
-            className="h-16 sm:h-20 md:h-24 mx-auto w-auto object-contain filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] mb-2 transition-transform duration-300 hover:scale-[1.03]"
+            className="h-24 sm:h-32 md:h-36 mx-auto w-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.7)] my-2 sm:my-3 transition-transform duration-300 hover:scale-[1.03]"
           />
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
@@ -216,20 +216,20 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl overflow-hidden border border-gold-300/40 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 flex flex-col group"
+                className="bg-white rounded-2xl overflow-hidden border border-amber-200/50 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 flex flex-col group"
               >
                 {/* Product Image */}
-                <div className="h-32 sm:h-52 overflow-hidden relative bg-gray-100">
+                <div className="h-32 sm:h-44 md:h-52 overflow-hidden relative bg-[#FAF9F6] border-b border-amber-200/40 flex items-center justify-center p-3 sm:p-4">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-xs"
                   />
                   <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-botanical-800 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-bold shadow-md border border-botanical-600 truncate max-w-[85%]">
                     {product.subcategory || product.categoryName}
                   </div>
                   {product.scientificName && (
-                    <div className="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-2 sm:left-2 sm:right-2 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 rounded text-[8px] sm:text-[10px] text-gray-200 italic truncate">
+                    <div className="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-2 sm:left-2 sm:right-2 bg-stone-900/80 backdrop-blur-xs px-2 py-0.5 rounded text-[8px] sm:text-[10px] text-gold-300 italic truncate text-center">
                       {product.scientificName}
                     </div>
                   )}
@@ -299,30 +299,31 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gold-400/40 relative animate-in fade-in zoom-in-95 duration-200">
             {/* Header Image Banner */}
-            <div className="h-56 relative overflow-hidden bg-charcoal-950">
-              <img
-                src={selectedProduct.image}
-                alt={selectedProduct.name}
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-              
+            <div className="relative overflow-hidden bg-[#FAF9F6] border-b border-amber-200/40 flex flex-col items-center justify-center pt-8 pb-5 px-6">
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 hover:bg-black text-white transition-colors"
+                className="absolute top-4 right-4 p-2 rounded-full bg-stone-200/80 hover:bg-stone-300 text-stone-700 transition-colors z-20"
                 aria-label="Close Specifications Modal"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="absolute bottom-4 left-6 right-6 text-white space-y-1">
-                <div className="inline-block px-3 py-1 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] font-bold uppercase tracking-wider shadow-md">
+              <div className="h-44 sm:h-52 w-full flex items-center justify-center p-2">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-contain drop-shadow-sm"
+                />
+              </div>
+
+              <div className="w-full text-center space-y-1.5 pt-2">
+                <div className="inline-block px-3 py-1 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] font-bold uppercase tracking-wider shadow-xs">
                   {selectedProduct.categoryName} • {selectedProduct.subcategory}
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
                   {selectedProduct.name}
                 </h3>
-                <div className="text-xs sm:text-sm text-gold-300 font-medium">
+                <div className="text-xs sm:text-sm text-gold-700 font-semibold">
                   {selectedProduct.vernacularName} {selectedProduct.scientificName && `(${selectedProduct.scientificName})`}
                 </div>
               </div>
