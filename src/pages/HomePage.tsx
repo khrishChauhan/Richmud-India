@@ -387,14 +387,13 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               }}
               className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
-              <div className="h-44 sm:h-60 overflow-hidden relative">
+              <div className="h-44 sm:h-60 overflow-hidden relative bg-black border-b border-amber-200/40 flex items-center justify-center p-3 sm:p-5">
                 <img
-                  src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80"
+                  src="/coming-soon-gold.png"
                   alt="Field Crops"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md">
+                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md z-10">
                   Cereals & Pulses
                 </span>
               </div>
@@ -420,14 +419,13 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               }}
               className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
-              <div className="h-44 sm:h-60 overflow-hidden relative">
+              <div className="h-44 sm:h-60 overflow-hidden relative bg-black border-b border-amber-200/40 flex items-center justify-center p-3 sm:p-5">
                 <img
-                  src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80"
+                  src="/coming-soon-gold.png"
                   alt="Vegetable Seeds"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md">
+                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md z-10">
                   22+ Hybrid Greens & Fruits
                 </span>
               </div>
@@ -453,14 +451,13 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               }}
               className="group cursor-pointer rounded-2xl overflow-hidden bg-ivory-50 border border-gold-300/30 hover:border-botanical-600 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
-              <div className="h-44 sm:h-60 overflow-hidden relative">
+              <div className="h-44 sm:h-60 overflow-hidden relative bg-black border-b border-amber-200/40 flex items-center justify-center p-3 sm:p-5">
                 <img
-                  src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=800&q=80"
+                  src="/coming-soon-gold.png"
                   alt="Crop Protection"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md">
+                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-md z-10">
                   Crop Care & PGR
                 </span>
               </div>

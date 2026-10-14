@@ -98,14 +98,42 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 transition-all duration-300">
           
-          {/* 1. Branding: richmud logo */}
-          <button
-            onClick={() => handleNavClick('home')}
-            className="focus:outline-none focus:ring-1 focus:ring-gold-400/50 rounded-xl p-1 flex items-center shrink-0 transition-transform duration-200 hover:scale-[1.02]"
-            aria-label="richmud Home"
-          >
-            <SeedLogo size="md" />
-          </button>
+          {/* Mobile Left: Glitch-Free 3-Bar to 'X' Animated Hamburger Button (< md: 768px) */}
+          <div className="flex md:hidden items-center shrink-0 w-20 sm:w-24 justify-start">
+            <button
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="w-11 h-11 flex flex-col items-center justify-center gap-[5px] rounded-xl text-gold-400 hover:bg-white/10 active:bg-white/20 focus:outline-none transition-colors touch-manipulation select-none"
+              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+              aria-expanded={mobileMenuOpen}
+            >
+              <span
+                className={`w-5 h-[2px] bg-gold-400 rounded-full transition-all duration-300 ease-out origin-center ${
+                  mobileMenuOpen ? 'rotate-45 translate-y-[7px] !bg-emerald-400' : ''
+                }`}
+              />
+              <span
+                className={`w-5 h-[2px] bg-gold-400 rounded-full transition-all duration-200 ease-out ${
+                  mobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+                }`}
+              />
+              <span
+                className={`w-5 h-[2px] bg-gold-400 rounded-full transition-all duration-300 ease-out origin-center ${
+                  mobileMenuOpen ? '-rotate-45 -translate-y-[7px] !bg-emerald-400' : ''
+                }`}
+              />
+            </button>
+          </div>
+
+          {/* 1. Branding: richmud logo (Centered on mobile, left-aligned on desktop) */}
+          <div className="flex-1 md:flex-none flex justify-center md:justify-start shrink-0">
+            <button
+              onClick={() => handleNavClick('home')}
+              className="focus:outline-none focus:ring-1 focus:ring-gold-400/50 rounded-xl p-1 flex items-center transition-transform duration-200 hover:scale-[1.02]"
+              aria-label="richmud Home"
+            >
+              <SeedLogo size="md" />
+            </button>
+          </div>
 
           {/* 2. Desktop Navigation Links (Restores seamlessly >= md: 768px) */}
           <nav className="hidden md:flex items-center h-full space-x-1 lg:space-x-1.5 xl:space-x-2">
@@ -365,39 +393,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
 
-          {/* 4. Mobile Top Bar Actions (< md: 768px): Mini CTA + Glitch-Free Animated Hamburger */}
-          <div className="flex md:hidden items-center gap-2">
-            {/* Optional compact mini CTA */}
+          {/* 4. Mobile Right: Dealers Action Button (< md: 768px) */}
+          <div className="flex md:hidden items-center shrink-0 w-20 sm:w-24 justify-end">
             <button
               onClick={() => handleNavClick('dealers')}
               className="px-2.5 py-1.5 rounded-full border border-gold-400/40 text-gold-400 hover:bg-botanical-800 hover:text-white hover:border-emerald-400 text-[11px] font-semibold flex items-center gap-1 transition-all touch-manipulation whitespace-nowrap active:scale-95"
             >
               <MapPin className="w-3.5 h-3.5 stroke-[1.5]" />
               <span>Dealers</span>
-            </button>
-
-            {/* Glitch-Free 3-Bar to 'X' Animated Hamburger Button (44x44px touch target) */}
-            <button
-              onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="w-11 h-11 flex flex-col items-center justify-center gap-[5px] rounded-xl text-gold-400 hover:bg-white/10 active:bg-white/20 focus:outline-none transition-colors touch-manipulation select-none shrink-0"
-              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-              aria-expanded={mobileMenuOpen}
-            >
-              <span
-                className={`w-5 h-[2px] bg-gold-400 rounded-full transition-all duration-300 ease-out origin-center ${
-                  mobileMenuOpen ? 'rotate-45 translate-y-[7px] !bg-emerald-400' : ''
-                }`}
-              />
-              <span
-                className={`w-5 h-[2px] bg-gold-400 rounded-full transition-all duration-200 ease-out ${
-                  mobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
-                }`}
-              />
-              <span
-                className={`w-5 h-[2px] bg-gold-400 rounded-full transition-all duration-300 ease-out origin-center ${
-                  mobileMenuOpen ? '-rotate-45 -translate-y-[7px] !bg-emerald-400' : ''
-                }`}
-              />
             </button>
           </div>
         </div>
