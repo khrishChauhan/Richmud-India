@@ -150,11 +150,11 @@ export const DealerLocatorPage: React.FC = () => {
                   No registered dealers matched your filter criteria. Try selecting "All States" or call our toll-free farmer helpline.
                 </p>
                 <a
-                  href="tel:18001207267"
+                  href="tel:+919142950191"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-botanical-800 hover:underline pt-2"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>Call 1800-120-PANSEEDS (7267)</span>
+                  <span>Call Helpline: +91 91429 50191</span>
                 </a>
               </div>
             ) : (

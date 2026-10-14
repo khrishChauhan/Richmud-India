@@ -205,14 +205,14 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
 
             <div className="pt-2 border-t border-gray-800">
               <div className="text-[10px] uppercase tracking-wider text-gray-400 font-medium mb-1">
-                Toll-Free Farmer Advisory
+                Farmer Advisory & Helpline
               </div>
               <a
-                href="tel:18001207267"
+                href="tel:+919142950191"
                 className="text-sm sm:text-base font-serif font-bold text-gold-400 hover:text-gold-300 flex items-center gap-2"
               >
                 <Phone className="w-3.5 h-3.5 text-gold-500" />
-                <span>1800-120-PANSEEDS</span>
+                <span>+91 91429 50191</span>
               </a>
               <div className="text-[10px] text-gray-500 mt-0.5">Mon - Sat (9:00 AM - 6:00 PM IST)</div>
             </div>

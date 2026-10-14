@@ -614,7 +614,7 @@ export const AboutPage: React.FC = () => {
 
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="https://wa.me/917888585478?text=Hello%20Richmud%20India,%20I%20am%20interested%20in%20your%20products."
+                href="https://wa.me/919142950191?text=Hello%20Richmud%20India,%20I%20am%20interested%20in%20your%20products."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center gap-2 shadow-xs transition-colors"
@@ -661,20 +661,14 @@ export const AboutPage: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-                  Contact Numbers
+                  Contact Number
                 </h4>
                 <div className="mt-1.5 space-y-1">
                   <a
-                    href="tel:+917888585478"
+                    href="tel:+919142950191"
                     className="block text-xs sm:text-sm font-mono text-stone-200 hover:text-gold-400 transition-colors font-medium"
                   >
-                    +91-7888585478
-                  </a>
-                  <a
-                    href="tel:+919572144270"
-                    className="block text-xs sm:text-sm font-mono text-stone-200 hover:text-gold-400 transition-colors font-medium"
-                  >
-                    +91-9572144270
+                    +91 91429 50191
                   </a>
                 </div>
                 <p className="text-[11px] text-stone-400 mt-1">

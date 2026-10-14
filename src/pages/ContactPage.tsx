@@ -85,11 +85,14 @@ export const ContactPage: React.FC = () => {
                 <Headphones className="w-4 h-4 text-emerald-400" />
                 <span>Dedicated Farmer Support Hotline</span>
               </div>
-              <div className="font-serif text-3xl font-bold tracking-tight text-white">
-                1800-120-PANSEEDS
-              </div>
+              <a
+                href="tel:+919142950191"
+                className="block font-serif text-3xl font-bold tracking-tight text-white hover:text-gold-300 transition-colors"
+              >
+                +91 91429 50191
+              </a>
               <div className="text-xs font-medium text-emerald-100/90">
-                (1800-120-7267) • Toll-free across India in 6 regional languages
+                Toll-free across India • Connect directly with seed agronomists
               </div>
               <div className="text-[11px] pt-1 text-emerald-200/80">
                 Monday to Saturday: 9:00 AM – 6:00 PM IST
@@ -119,7 +122,9 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-gold-600 shrink-0" />
-                  <span>+91 (033) 2248-7890 / 2248-7891</span>
+                  <a href="tel:+919142950191" className="hover:text-emerald-700 transition-colors">
+                    +91 91429 50191
+                  </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-gold-600 shrink-0" />
@@ -151,7 +156,7 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-gold-600 shrink-0" />
-                  <span>research@panseeds.in</span>
+                  <span>research@richmud.in</span>
                 </div>
               </div>
             </div>
@@ -244,7 +249,7 @@ export const ContactPage: React.FC = () => {
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 91429 50191"
                       className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-400 text-xs sm:text-sm bg-ivory-50 focus:bg-white"
                     />
                   </div>

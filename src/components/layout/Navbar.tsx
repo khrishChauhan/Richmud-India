@@ -757,11 +757,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             <a
-              href="tel:18001207267"
+              href="tel:+919142950191"
               className="w-full py-2.5 rounded-full border border-gold-400/30 text-gold-300 hover:border-emerald-400 hover:text-emerald-400 font-semibold text-xs flex items-center justify-center gap-2 transition-all bg-white/5 touch-manipulation"
             >
               <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Kisan Helpline: 1800-120-7267</span>
+              <span>Kisan Helpline: +91 91429 50191</span>
             </a>
           </div>
         </div>

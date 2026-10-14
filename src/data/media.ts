@@ -36,7 +36,7 @@ export const pressReleases: MediaArticle[] = [
     title: 'richmud Launches Free Agronomy Helpline & Mobile Advisory for Rural Growers',
     date: 'May 05, 2024',
     category: 'Corporate',
-    summary: 'Toll-free 1800 helpline connects farmers in 6 regional languages directly with certified plant pathologists and seed agronomists.',
+    summary: 'Dedicated farmer helpline (+91 91429 50191) connects farmers in 6 regional languages directly with certified plant pathologists and seed agronomists.',
     content: 'Dedicated to the principle of "Good seed good life", richmud has expanded its grower support services with an interactive helpline, providing real-time crop disease diagnostics, weather alerts, and customized fertilizer dosage recommendations at zero cost.',
     image: 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=800&q=80',
     readTime: '2 min read',

@@ -351,7 +351,7 @@ export const CareersPage: React.FC = () => {
                         required
                         value={applicantPhone}
                         onChange={(e) => setApplicantPhone(e.target.value)}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 91429 50191"
                         className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-400 text-xs sm:text-sm bg-white"
                       />
                     </div>
