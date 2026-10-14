@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Sparkles, 
   X, 
@@ -26,13 +26,40 @@ const galleryCategories = [
   { id: 'awards', label: 'Award Ceremonies' },
 ];
 
-export const MediaCenterPage: React.FC = () => {
+interface MediaCenterPageProps {
+  initialTab?: 'gallery' | 'releases' | 'events';
+}
+
+export const MediaCenterPage: React.FC<MediaCenterPageProps> = ({ initialTab = 'gallery' }) => {
   // Gallery State
   const [selectedGalleryCategory, setSelectedGalleryCategory] = useState<string>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Press & Events State
-  const [activeTab, setActiveTab] = useState<'releases' | 'events'>('releases');
+  const [activeTab, setActiveTab] = useState<'releases' | 'events'>(
+    initialTab === 'events' ? 'events' : 'releases'
+  );
+
+  useEffect(() => {
+    if (initialTab === 'events') {
+      setActiveTab('events');
+      setTimeout(() => {
+        const el = document.getElementById('press-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
+    } else if (initialTab === 'releases') {
+      setActiveTab('releases');
+      setTimeout(() => {
+        const el = document.getElementById('press-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
+    } else if (initialTab === 'gallery') {
+      setTimeout(() => {
+        const el = document.getElementById('gallery-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
+    }
+  }, [initialTab]);
   const [selectedArticle, setSelectedArticle] = useState<MediaArticle | null>(null);
   const [pressKitDownloaded, setPressKitDownloaded] = useState(false);
 
@@ -86,7 +113,7 @@ export const MediaCenterPage: React.FC = () => {
 
           <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
             richmud <br />
-            <span className="text-gold-gradient">Media Center & Field Stories</span>
+            <span className="text-gold-gradient">Media Centre & Field Stories</span>
           </h1>
 
           <p className="text-gray-300 max-w-2xl mx-auto text-xs sm:text-base lg:text-lg font-light leading-relaxed">
@@ -225,7 +252,7 @@ export const MediaCenterPage: React.FC = () => {
                 }`}
               >
                 <Calendar className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
-                <span>Agri Expos</span>
+                <span>Events</span>
               </button>
             </div>
 

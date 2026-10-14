@@ -8,7 +8,10 @@ import {
   Sprout, 
   FlaskConical, 
   ArrowRight,
-  PhoneCall
+  PhoneCall,
+  Camera,
+  Newspaper,
+  Calendar
 } from 'lucide-react';
 import { ProductCategory } from '../../types';
 
@@ -16,20 +19,24 @@ interface NavbarProps {
   activePage: string;
   setActivePage: (page: string) => void;
   onSelectCategory?: (category: ProductCategory) => void;
+  onSelectMediaTab?: (tab: 'gallery' | 'releases' | 'events') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   activePage, 
   setActivePage,
-  onSelectCategory 
+  onSelectCategory,
+  onSelectMediaTab
 }) => {
   const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [productsMegaOpen, setProductsMegaOpen] = useState(false);
+  const [mediaDropdownOpen, setMediaDropdownOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileMediaOpen, setMobileMediaOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -72,6 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     setMobileMenuOpen(false);
     setAboutDropdownOpen(false);
     setProductsMegaOpen(false);
+    setMediaDropdownOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -83,6 +91,24 @@ export const Navbar: React.FC<NavbarProps> = ({
     setProductsMegaOpen(false);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleMediaClick = (tab: 'gallery' | 'releases' | 'events') => {
+    if (onSelectMediaTab) {
+      onSelectMediaTab(tab);
+    }
+    setActivePage('media');
+    setMobileMenuOpen(false);
+    setAboutDropdownOpen(false);
+    setProductsMegaOpen(false);
+    setMediaDropdownOpen(false);
+    setTimeout(() => {
+      const sectionId = tab === 'gallery' ? 'gallery-section' : 'press-section';
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   return (
@@ -347,20 +373,87 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Media Center */}
-            <button
-              onClick={() => handleNavClick('media')}
-              className={`relative h-full flex items-center px-2.5 lg:px-3 text-xs lg:text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
-                activePage === 'media'
-                  ? 'text-gold-300 font-semibold'
-                  : 'text-gold-400 hover:text-emerald-400'
-              }`}
+            {/* Media Centre Dropdown */}
+            <div 
+              className="relative h-full flex items-center"
+              onMouseEnter={() => setMediaDropdownOpen(true)}
+              onMouseLeave={() => setMediaDropdownOpen(false)}
             >
-              <span>Media</span>
-              {activePage === 'media' && (
-                <span className="absolute bottom-0 inset-x-2 h-[2px] bg-gold-400 shadow-[0_0_8px_rgba(212,175,55,0.6)]" />
+              <button
+                onClick={() => handleMediaClick('gallery')}
+                className={`relative h-full flex items-center gap-1 px-2.5 lg:px-3 text-xs lg:text-[13px] whitespace-nowrap font-medium tracking-wide transition-colors duration-200 ${
+                  activePage === 'media'
+                    ? 'text-gold-300 font-semibold'
+                    : 'text-gold-400 hover:text-emerald-400'
+                }`}
+              >
+                <span>Media Centre</span>
+                <ChevronDown className={`w-3.5 h-3.5 stroke-[1.5] transition-transform duration-200 ${mediaDropdownOpen ? 'rotate-180 text-emerald-400' : 'text-gold-400/70'}`} />
+                {activePage === 'media' && (
+                  <span className="absolute bottom-0 inset-x-2 h-[2px] bg-gold-400 shadow-[0_0_8px_rgba(212,175,55,0.6)]" />
+                )}
+              </button>
+
+              {mediaDropdownOpen && (
+                <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div 
+                    className="bg-[#141414] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.95)] border border-gold-400/35 p-2"
+                    style={{ backgroundColor: '#141414' }}
+                  >
+                    {/* 1. Gallery */}
+                    <button
+                      onClick={() => handleMediaClick('gallery')}
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/5 text-xs font-medium text-stone-200 flex items-center justify-between group transition-colors"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-7 h-7 rounded-lg bg-white/10 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                          <Camera className="w-3.5 h-3.5" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gold-300 group-hover:text-emerald-400 transition-colors">Gallery</div>
+                          <div className="text-[11px] text-gray-400">Photographs & field chronicles</div>
+                        </div>
+                      </div>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-emerald-400 transition-opacity" />
+                    </button>
+
+                    {/* 2. Press Release */}
+                    <button
+                      onClick={() => handleMediaClick('releases')}
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/5 text-xs font-medium text-stone-200 flex items-center justify-between group transition-colors"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-7 h-7 rounded-lg bg-white/10 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                          <Newspaper className="w-3.5 h-3.5" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gold-300 group-hover:text-emerald-400 transition-colors">Press Release</div>
+                          <div className="text-[11px] text-gray-400">Official dispatches & news</div>
+                        </div>
+                      </div>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-emerald-400 transition-opacity" />
+                    </button>
+
+                    {/* 3. Events */}
+                    <button
+                      onClick={() => handleMediaClick('events')}
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-white/5 text-xs font-medium text-stone-200 flex items-center justify-between group transition-colors"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-7 h-7 rounded-lg bg-white/10 text-gold-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                          <Calendar className="w-3.5 h-3.5" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gold-300 group-hover:text-emerald-400 transition-colors">Events</div>
+                          <div className="text-[11px] text-gray-400">Exhibitions & kisan melas</div>
+                        </div>
+                      </div>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-emerald-400 transition-opacity" />
+                    </button>
+                  </div>
+                </div>
               )}
-            </button>
+            </div>
 
             {/* Contact */}
             <button
@@ -591,18 +684,50 @@ export const Navbar: React.FC<NavbarProps> = ({
               {activePage === 'careers' && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />}
             </button>
 
-            {/* Media Center */}
-            <button
-              onClick={() => handleNavClick('media')}
-              className={`w-full text-left py-3 px-3.5 rounded-xl text-base font-medium tracking-wide transition-all flex items-center justify-between ${
-                activePage === 'media'
-                  ? 'bg-white/10 text-gold-300 font-semibold border-l-2 border-emerald-400'
-                  : 'text-gold-400 hover:text-emerald-400 hover:bg-white/5'
-              }`}
-            >
-              <span>Media Center</span>
-              {activePage === 'media' && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />}
-            </button>
+            {/* Media Centre Accordion */}
+            <div className="rounded-xl overflow-hidden">
+              <button
+                onClick={() => setMobileMediaOpen(!mobileMediaOpen)}
+                className={`w-full text-left py-3 px-3.5 rounded-xl text-base font-medium tracking-wide transition-all flex items-center justify-between ${
+                  activePage === 'media'
+                    ? 'bg-white/10 text-gold-300 font-semibold border-l-2 border-emerald-400'
+                    : 'text-gold-400 hover:text-emerald-400 hover:bg-white/5'
+                }`}
+              >
+                <span>Media Centre</span>
+                <ChevronDown
+                  className={`w-4 h-4 text-gold-400/70 transition-transform duration-300 ${
+                    mobileMediaOpen ? 'rotate-180 text-emerald-400' : ''
+                  }`}
+                />
+              </button>
+
+              {mobileMediaOpen && (
+                <div className="pl-4 pr-1 py-1 space-y-1 bg-black/40 rounded-xl my-1 border-l-2 border-gold-400/40 ml-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <button
+                    onClick={() => handleMediaClick('gallery')}
+                    className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
+                  >
+                    <span>📸 Gallery</span>
+                    <ArrowRight className="w-3 h-3 text-gold-400/60" />
+                  </button>
+                  <button
+                    onClick={() => handleMediaClick('releases')}
+                    className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
+                  >
+                    <span>📰 Press Release</span>
+                    <ArrowRight className="w-3 h-3 text-gold-400/60" />
+                  </button>
+                  <button
+                    onClick={() => handleMediaClick('events')}
+                    className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
+                  >
+                    <span>📅 Events</span>
+                    <ArrowRight className="w-3 h-3 text-gold-400/60" />
+                  </button>
+                </div>
+              )}
+            </div>
 
             {/* Contact */}
             <button

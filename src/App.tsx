@@ -15,6 +15,7 @@ import { Phone, ArrowUp } from 'lucide-react';
 export default function App() {
   const [activePage, setActivePage] = useState<string>('home');
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory>('field-crops');
+  const [mediaTab, setMediaTab] = useState<'gallery' | 'releases' | 'events'>('gallery');
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
 
   // Sync hash routing with state
@@ -22,6 +23,17 @@ export default function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash === 'gallery') {
+        setMediaTab('gallery');
+        setActivePage('media');
+        return;
+      }
+      if (hash === 'press-releases' || hash === 'releases') {
+        setMediaTab('releases');
+        setActivePage('media');
+        return;
+      }
+      if (hash === 'events') {
+        setMediaTab('events');
         setActivePage('media');
         return;
       }
@@ -67,6 +79,12 @@ export default function App() {
     handlePageChange('products');
   };
 
+  // Media tab select handler
+  const handleSelectMediaTab = (tab: 'gallery' | 'releases' | 'events') => {
+    setMediaTab(tab);
+    handlePageChange('media');
+  };
+
   // Scroll to top indicator
   useEffect(() => {
     const handleScroll = () => {
@@ -87,6 +105,7 @@ export default function App() {
         activePage={activePage}
         setActivePage={handlePageChange}
         onSelectCategory={handleSelectCategory}
+        onSelectMediaTab={handleSelectMediaTab}
       />
 
       {/* Main Page Content */}
@@ -107,7 +126,7 @@ export default function App() {
         )}
         {activePage === 'careers' && <CareersPage />}
         {activePage === 'dealers' && <DealerLocatorPage />}
-        {activePage === 'media' && <MediaCenterPage />}
+        {activePage === 'media' && <MediaCenterPage initialTab={mediaTab} />}
         {activePage === 'contact' && <ContactPage />}
       </main>
 
