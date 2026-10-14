@@ -219,17 +219,17 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                 className="bg-white rounded-2xl overflow-hidden border border-amber-200/50 hover:border-gold-500 shadow-sm hover:shadow-gold-md transition-all duration-300 flex flex-col group"
               >
                 {/* Product Image */}
-                <div className="h-32 sm:h-44 md:h-52 overflow-hidden relative bg-[#FAF9F6] border-b border-amber-200/40 flex items-center justify-center p-3 sm:p-4">
+                <div className="h-32 sm:h-44 md:h-52 overflow-hidden relative bg-black border-b border-amber-200/40 flex items-center justify-center p-2.5 sm:p-3.5">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-xs"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
                   />
                   <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-botanical-800 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-bold shadow-md border border-botanical-600 truncate max-w-[85%]">
                     {product.subcategory || product.categoryName}
                   </div>
                   {product.scientificName && (
-                    <div className="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-2 sm:left-2 sm:right-2 bg-stone-900/80 backdrop-blur-xs px-2 py-0.5 rounded text-[8px] sm:text-[10px] text-gold-300 italic truncate text-center">
+                    <div className="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-2 sm:left-2 sm:right-2 bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded text-[8px] sm:text-[10px] text-gold-300 italic truncate text-center border border-gold-500/20">
                       {product.scientificName}
                     </div>
                   )}
@@ -299,10 +299,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gold-400/40 relative animate-in fade-in zoom-in-95 duration-200">
             {/* Header Image Banner */}
-            <div className="relative overflow-hidden bg-[#FAF9F6] border-b border-amber-200/40 flex flex-col items-center justify-center pt-8 pb-5 px-6">
+            <div className="relative overflow-hidden bg-black border-b border-amber-200/40 flex flex-col items-center justify-center pt-8 pb-5 px-6">
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-stone-200/80 hover:bg-stone-300 text-stone-700 transition-colors z-20"
+                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-20 border border-white/20"
                 aria-label="Close Specifications Modal"
               >
                 <X className="w-5 h-5" />
@@ -312,7 +312,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                 <img
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
-                  className="w-full h-full object-contain drop-shadow-sm"
+                  className="w-full h-full object-contain drop-shadow-md"
                 />
               </div>
 
@@ -320,10 +320,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                 <div className="inline-block px-3 py-1 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[10px] font-bold uppercase tracking-wider shadow-xs">
                   {selectedProduct.categoryName} • {selectedProduct.subcategory}
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                   {selectedProduct.name}
                 </h3>
-                <div className="text-xs sm:text-sm text-gold-700 font-semibold">
+                <div className="text-xs sm:text-sm text-gold-400 font-semibold">
                   {selectedProduct.vernacularName} {selectedProduct.scientificName && `(${selectedProduct.scientificName})`}
                 </div>
               </div>

@@ -510,11 +510,11 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 onClick={() => setActivePage('products')}
                 className="bg-white rounded-2xl overflow-hidden border border-amber-200/50 hover:border-botanical-600 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group"
               >
-                <div className="h-32 sm:h-44 md:h-48 overflow-hidden relative bg-[#FAF9F6] border-b border-amber-200/40 flex items-center justify-center p-3 sm:p-4">
+                <div className="h-32 sm:h-44 md:h-48 overflow-hidden relative bg-black border-b border-amber-200/40 flex items-center justify-center p-2.5 sm:p-3.5">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-xs"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
                   />
                   <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-botanical-800 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-bold border border-botanical-600 shadow-sm truncate max-w-[85%]">
                     {product.categoryName}
