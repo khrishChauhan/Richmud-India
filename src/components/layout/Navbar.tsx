@@ -629,35 +629,35 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => handleCategoryClick('field-crops')}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
                   >
-                    <span>🌾 Field Crops (Paddy, Wheat)</span>
+                    <span>Field Crops (Paddy, Wheat)</span>
                     <ArrowRight className="w-3 h-3 text-gold-400/60" />
                   </button>
                   <button
                     onClick={() => handleCategoryClick('vegetable-seeds')}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
                   >
-                    <span>🥬 Vegetable Seeds (22+ Hybrids)</span>
+                    <span>Vegetable Seeds (22+ Hybrids)</span>
                     <ArrowRight className="w-3 h-3 text-gold-400/60" />
                   </button>
                   <button
                     onClick={() => handleCategoryClick('fodder-crops')}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
                   >
-                    <span>🌱 Fodder Crops (Sorghum)</span>
+                    <span>Fodder Crops (Sorghum)</span>
                     <ArrowRight className="w-3 h-3 text-gold-400/60" />
                   </button>
                   <button
                     onClick={() => handleCategoryClick('jute-crops')}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
                   >
-                    <span>🌾 Jute Crops (Golden Fiber)</span>
+                    <span>Jute Crops (Golden Fiber)</span>
                     <ArrowRight className="w-3 h-3 text-gold-400/60" />
                   </button>
                   <button
                     onClick={() => handleCategoryClick('crop-protection')}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
                   >
-                    <span>🛡️ Crop Protection & PGR</span>
+                    <span>Crop Protection & PGR</span>
                     <ArrowRight className="w-3 h-3 text-gold-400/60" />
                   </button>
                   <button
@@ -708,21 +708,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => handleMediaClick('gallery')}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
                   >
-                    <span>📸 Gallery</span>
+                    <span>Gallery</span>
                     <ArrowRight className="w-3 h-3 text-gold-400/60" />
                   </button>
                   <button
                     onClick={() => handleMediaClick('releases')}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
                   >
-                    <span>📰 Press Release</span>
+                    <span>Press Release</span>
                     <ArrowRight className="w-3 h-3 text-gold-400/60" />
                   </button>
                   <button
                     onClick={() => handleMediaClick('events')}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition-colors flex items-center justify-between"
                   >
-                    <span>📅 Events</span>
+                    <span>Events</span>
                     <ArrowRight className="w-3 h-3 text-gold-400/60" />
                   </button>
                 </div>
