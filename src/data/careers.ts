@@ -45,7 +45,7 @@ export const careerOpportunities: CareerOpportunity[] = [
     experience: '3 - 6 Years',
     openings: 3,
     isInternship: false,
-    description: 'Drive dealer network expansion, demand generation activities, and field demonstrations for Pan Ratna Wheat and Pan Samrat Paddy.',
+    description: 'Drive dealer network expansion, demand generation activities, and field demonstrations for Wheat and Paddy varieties.',
     qualifications: [
       'B.Sc. Agriculture / MBA in Agribusiness Management',
       'Prior experience in seed distribution channels in Northern India',

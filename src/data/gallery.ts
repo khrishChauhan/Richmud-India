@@ -23,7 +23,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: 'gal-trials-01',
-    title: 'Pan Sona Bold Mustard Multi-Location Trial',
+    title: 'Mustard Multi-Location Trial',
     category: 'trials',
     categoryLabel: 'Farm Trials',
     image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80',
@@ -59,7 +59,7 @@ export const galleryItems: GalleryItem[] = [
     image: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=80',
     date: 'January 2025',
     location: 'Burdwan Paddy Belt, West Bengal',
-    description: 'Agronomy specialists examining Pan Samrat root vigor with local farming cooperatives.',
+    description: 'Agronomy specialists examining Paddy root vigor with local farming cooperatives.',
   },
   {
     id: 'gal-awards-01',

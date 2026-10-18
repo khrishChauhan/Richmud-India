@@ -376,7 +376,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         </div>
                         <div>
                           <div className="font-semibold text-xs text-gold-300 group-hover:text-emerald-400 transition-colors">Crop Protection & Bio-Nutrition</div>
-                          <div className="text-[11px] text-gray-400 mt-0.5">Insecticides, Curative Fungicides, Herbicides & PanVigor PGR</div>
+                          <div className="text-[11px] text-gray-400 mt-0.5">Insecticides, Fungicides, Herbicides & PGR</div>
                         </div>
                       </button>
                     </div>

@@ -150,7 +150,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by variety name, Palak, Bhindi, Wheat..."
+              placeholder="Search by crop name: Wheat, Mustard, Okra, Tomato..."
               className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-400/20 text-xs sm:text-sm bg-white placeholder-gray-400 focus:outline-none transition-all"
             />
             {searchQuery && (
@@ -240,48 +240,14 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
 
                 {/* Content */}
                 <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between space-y-2 sm:space-y-3">
-                  <div>
-                    <h3 className="font-serif text-sm sm:text-xl font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors leading-tight line-clamp-1 sm:line-clamp-none">
+                  <div className="text-center">
+                    <h3 className="font-serif text-base sm:text-2xl font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors leading-tight text-center tracking-wide">
                       {product.name}
                     </h3>
-                    
-                    {product.vernacularName && (
-                      <div className="text-[10px] sm:text-xs font-semibold text-gold-700 mt-0.5 sm:mt-1 truncate">
-                        {product.vernacularName}
-                      </div>
-                    )}
-
-                    <p className="text-[11px] sm:text-xs text-gray-500 mt-1 line-clamp-2">
-                      {product.tagline}
-                    </p>
-
-                    {/* Key Traits Badges */}
-                    <div className="mt-2 sm:mt-3 flex flex-wrap gap-1 sm:gap-1.5">
-                      {product.keyTraits.slice(0, 2).map((trait, i) => (
-                        <span
-                          key={i}
-                          className="px-1.5 sm:px-2 py-0.5 rounded bg-botanical-50 text-botanical-900 text-[9px] sm:text-[10px] font-semibold border border-botanical-200 truncate max-w-full"
-                        >
-                          <span className="text-botanical-700 font-bold mr-0.5 sm:mr-1">✓</span>{trait}
-                        </span>
-                      ))}
-                    </div>
                   </div>
 
                   {/* Footer & Drawer Trigger */}
-                  <div className="pt-2 sm:pt-3 border-t border-gray-100 space-y-2">
-                    {product.maturityDays && (
-                      <div className="hidden sm:flex items-center justify-between text-[11px] text-gray-500">
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-gold-600" />
-                          <span>Maturity:</span>
-                        </span>
-                        <span className="font-semibold text-charcoal-900">
-                          {product.maturityDays}
-                        </span>
-                      </div>
-                    )}
-
+                  <div className="pt-2 sm:pt-3 border-t border-gray-100">
                     <button
                       onClick={() => setSelectedProduct(product)}
                       className="w-full py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-botanical-50 hover:bg-botanical-800 hover:text-white border border-botanical-300 text-botanical-900 text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm"
@@ -326,9 +292,11 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                   {selectedProduct.name}
                 </h3>
-                <div className="text-xs sm:text-sm text-gold-400 font-semibold">
-                  {selectedProduct.vernacularName} {selectedProduct.scientificName && `(${selectedProduct.scientificName})`}
-                </div>
+                {selectedProduct.scientificName && (
+                  <div className="text-xs sm:text-sm text-gold-400 font-semibold italic">
+                    {selectedProduct.scientificName}
+                  </div>
+                )}
               </div>
             </div>
 

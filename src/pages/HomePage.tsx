@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { 
   ArrowRight, 
-  ChevronLeft, 
-  ChevronRight, 
   Quote, 
   Award, 
   ShieldCheck, 
@@ -12,7 +10,8 @@ import {
   CheckCircle,
   ExternalLink,
   MapPin,
-  Leaf
+  Leaf,
+  User
 } from 'lucide-react';
 import { directorSpotlight, coreStats } from '../data/company';
 import { productsData } from '../data/products';
@@ -23,161 +22,29 @@ interface HomePageProps {
   onSelectCategory?: (category: ProductCategory) => void;
 }
 
-const heroSlides = [
-  {
-    title: 'The Gold Standard in Seed Science',
-    subtitle: 'NURTURING HARVESTS • ENRICHING LIVES',
-    description: 'Engineering climate-smart hybrids with supreme genetic vigor to secure high-yield prosperity for over 10 million Indian farmers.',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=85',
-    ctaPrimary: 'Explore Seed Catalog',
-    ctaPrimaryPage: 'products',
-    ctaSecondary: 'Find Nearest Dealer',
-    ctaSecondaryPage: 'dealers',
-  },
-  {
-    title: 'High-Vitality Vegetable Hybrids',
-    subtitle: '22+ COMMERCIAL CROPS • UNMATCHED UNIFORMITY',
-    description: 'From deep crimson red carrots to export-grade blocky bell peppers, discover seeds tailored for market dominance.',
-    image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=1920&q=85',
-    ctaPrimary: 'Vegetable Portfolio',
-    ctaPrimaryPage: 'products',
-    ctaSecondary: 'Research Facilities',
-    ctaSecondaryPage: 'business',
-  },
-  {
-    title: 'Precision R&D & Genetic Purity',
-    subtitle: 'NABL ACCREDITED • 30+ YEARS OF EXCELLENCE',
-    description: 'Combining traditional field breeding with molecular marker-assisted selection to defeat emerging pathogens and drought.',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1920&q=85',
-    ctaPrimary: 'Discover Core Business',
-    ctaPrimaryPage: 'business',
-    ctaSecondary: 'Director\'s Vision',
-    ctaSecondaryPage: 'about',
-  },
-];
-
 export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCategory }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [isPaused]);
-
   const featuredProducts = productsData.filter((p) => p.featured).slice(0, 4);
 
   return (
     <div>
-      {/* 1. HERO SLIDER / CAROUSEL */}
-      <section 
-        className="relative h-[72vh] sm:h-[82vh] min-h-[460px] sm:min-h-[580px] max-h-[820px] overflow-hidden bg-charcoal-950 text-white"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        {heroSlides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
-            }`}
-          >
-            {/* Background Image with Cinematic Overlay */}
-            <div
-              className="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-10000"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-500/10 via-transparent to-transparent" />
-            </div>
+      {/* 1. MINIMAL LUXURY HERO CANVAS */}
+      <section className="relative h-[36vh] sm:h-[44vh] min-h-[280px] sm:min-h-[340px] max-h-[460px] overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F4EFE6] to-[#ECE5D8] border-b border-amber-200/50 flex items-center justify-center">
+        {/* Subtle Ambient Gold Radial Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-200/25 via-amber-100/10 to-transparent pointer-events-none" />
+        
+        {/* Decorative Hairline Gold Frame Accent */}
+        <div className="absolute inset-5 sm:inset-10 border border-amber-300/30 rounded-3xl pointer-events-none" />
+        <div className="absolute inset-7 sm:inset-12 border border-amber-400/15 rounded-2xl pointer-events-none" />
 
-            {/* Slide Content */}
-            <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-              <div className="max-w-2xl space-y-4 sm:space-y-6">
-                {/* 3D Golden Logo + Badge */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5 mb-2">
-                  <div className="bg-black rounded-2xl p-2 sm:p-2.5 inline-flex items-center justify-center border border-white/10 shadow-xl shrink-0">
-                    <img
-                      src="/richmud-crest-logo.png"
-                      alt="richmud"
-                      className="h-20 sm:h-28 md:h-32 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-md">
-                    <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
-                    <span className="text-white font-medium">{slide.subtitle}</span>
-                  </div>
-                </div>
-
-                {/* Heading */}
-                <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.15]">
-                  {slide.title.split(' ')[0]}{' '}
-                  <span className="text-gold-gradient">
-                    {slide.title.split(' ').slice(1).join(' ')}
-                  </span>
-                </h1>
-
-                {/* Subtitle / Description */}
-                <p className="text-xs sm:text-base lg:text-lg text-gray-200 font-normal leading-relaxed max-w-xl">
-                  {slide.description}
-                </p>
-
-                {/* Action Buttons */}
-                <div className="pt-1 sm:pt-2 flex flex-wrap items-center gap-2.5 sm:gap-4">
-                  <button
-                    onClick={() => setActivePage(slide.ctaPrimaryPage)}
-                    className="px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gold-gradient text-charcoal-950 font-bold text-[11px] sm:text-xs uppercase tracking-wider shadow-gold-md hover:scale-105 transition-all flex items-center gap-1.5 sm:gap-2 group hover:ring-2 hover:ring-botanical-800/30"
-                  >
-                    <span>{slide.ctaPrimary}</span>
-                    <ArrowRight className="w-3.5 sm:w-4 h-3.5 sm:h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-
-                  <button
-                    onClick={() => setActivePage(slide.ctaSecondaryPage)}
-                    className="px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-full bg-botanical-800/80 hover:bg-botanical-800 backdrop-blur-md border border-botanical-500/50 text-white font-semibold text-[11px] sm:text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 sm:gap-2 shadow-sm hover:ring-2 hover:ring-gold-400/40"
-                  >
-                    <span>{slide.ctaSecondary}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        {/* Carousel Nav Arrows */}
-        <div className="absolute bottom-10 right-8 z-20 hidden sm:flex items-center gap-2">
-          <button
-            onClick={() => setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))}
-            className="w-11 h-11 rounded-full bg-black/40 hover:bg-gold-500/80 text-white hover:text-black border border-white/20 flex items-center justify-center transition-all backdrop-blur-sm"
-            aria-label="Previous Slide"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
-            className="w-11 h-11 rounded-full bg-black/40 hover:bg-gold-500/80 text-white hover:text-black border border-white/20 flex items-center justify-center transition-all backdrop-blur-sm"
-            aria-label="Next Slide"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5">
-          {heroSlides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`h-1.5 transition-all duration-300 rounded-full ${
-                idx === currentSlide ? 'w-8 bg-gold-400' : 'w-2.5 bg-white/40 hover:bg-white/70'
-              }`}
+        {/* Minimalist Refined Centerpiece Placeholder */}
+        <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center">
+          <div className="bg-black rounded-2xl p-4 sm:p-5 inline-flex items-center justify-center border border-amber-200/30 shadow-luxury">
+            <img
+              src="/richmud-crest-logo.png"
+              alt="Richmud"
+              className="h-20 sm:h-28 md:h-32 w-auto object-contain drop-shadow-md"
             />
-          ))}
+          </div>
         </div>
       </section>
 
@@ -296,12 +163,12 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
               {/* Gold Outline Frame */}
               <div className="absolute -inset-3 rounded-3xl border-2 border-gold-400/30 transform -rotate-1 pointer-events-none" />
               
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-gold-300/40">
-                <img
-                  src={directorSpotlight.portraitImage}
-                  alt={directorSpotlight.name}
-                  className="w-full h-[460px] object-cover object-top hover:scale-105 transition-transform duration-700"
-                />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-stone-50 border border-amber-200/40 h-[460px] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center p-8 text-center space-y-3">
+                  <div className="w-24 h-24 rounded-full bg-stone-100 border border-amber-200/60 shadow-inner flex items-center justify-center">
+                    <User className="w-14 h-14 text-amber-600/30 stroke-[1.25]" />
+                  </div>
+                </div>
                 
                 {/* Gold Gradient Label Plate */}
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6 text-white">
@@ -324,11 +191,6 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 <Leaf className="w-3.5 h-3.5 text-emerald-300" />
                 <span>Founding Leadership & Vision</span>
               </div>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-charcoal-900 leading-tight">
-                Empowering Farmers with <br />
-                <span className="text-gold-gradient">High-Impact Solutions</span>
-              </h2>
 
               {/* Quote Block with Gold Quotation Accent */}
               <div className="relative pl-6 border-l-2 border-botanical-700 italic text-gray-700 text-lg leading-relaxed">
@@ -403,9 +265,6 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Field Crops
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
-                  Wheat (Pan Ratna), Hybrid Paddy (Pan Samrat), Sona Mustard, Maize, Gram, and high-protein Lentils.
-                </p>
                 <div className="pt-1 sm:pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>View Varieties</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -435,9 +294,6 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Vegetable Seeds
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
-                  Export-grade Okra, Hot Chili, Snow White Muli, Sweet Watermelon, Palak, Dhaniya, Tomato, and Gourds.
-                </p>
                 <div className="pt-1 sm:pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>Explore Vegetables</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -467,9 +323,6 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
                   Crop Protection
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
-                  Systemic insecticides, curative fungicides, selective herbicides, and seaweed-based PanVigor bio-stimulants.
-                </p>
                 <div className="pt-1 sm:pt-2 flex items-center gap-1.5 text-xs font-bold text-botanical-800 group-hover:text-botanical-900">
                   <span>View Formulations</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -521,26 +374,15 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
                 </div>
 
                 <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between space-y-2 sm:space-y-3">
-                  <div>
-                    <h4 className="font-serif text-sm sm:text-lg font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors line-clamp-1 sm:line-clamp-none">
+                  <div className="text-center">
+                    <h4 className="font-serif text-base sm:text-xl font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors text-center tracking-wide">
                       {product.name}
                     </h4>
-                    {product.vernacularName && (
-                      <div className="text-[10px] sm:text-xs text-gold-700 font-medium truncate">
-                        {product.vernacularName}
-                      </div>
-                    )}
-                    <p className="text-[11px] sm:text-xs text-gray-500 mt-1 line-clamp-2">
-                      {product.tagline}
-                    </p>
                   </div>
 
-                  <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-[10px] sm:text-xs">
-                    <span className="text-gray-500 font-medium truncate">
-                      {product.maturityDays || 'High Yield'}
-                    </span>
+                  <div className="pt-2 border-t border-gray-100 flex items-center justify-center text-[10px] sm:text-xs">
                     <span className="text-botanical-800 font-bold group-hover:underline flex items-center gap-1 shrink-0">
-                      Details <ArrowRight className="w-3 h-3" />
+                      View Variety <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
                 </div>
