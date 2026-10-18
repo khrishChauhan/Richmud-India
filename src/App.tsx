@@ -116,7 +116,7 @@ export default function App() {
             onSelectCategory={handleSelectCategory}
           />
         )}
-        {activePage === 'about' && <AboutPage />}
+        {activePage === 'about' && <AboutPage setActivePage={handlePageChange} />}
         {activePage === 'business' && <BusinessPage />}
         {activePage === 'products' && (
           <ProductsPage

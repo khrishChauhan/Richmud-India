@@ -112,12 +112,12 @@ export const leadershipTeam: Leader[] = [
   },
   {
     id: 'exec-hr-finance',
-    name: 'HR & Finance Head',
-    designation: 'Corporate Affairs & Finance',
+    name: 'Corporate Affairs & Finance',
+    designation: 'Position Placeholder / Open (HR & Finance Head)',
     role: 'executive',
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
-    credentials: 'Finance & Talent Governance',
+    credentials: 'HR & Finance Head (Open)',
     experience: 'Corporate Affairs & Finance',
-    bio: 'Leading financial management, corporate accounts, regulatory filings, and human capital recruitment.',
+    bio: 'Overseeing corporate affairs, statutory compliance, financial governance, and talent recruitment.',
   },
 ];

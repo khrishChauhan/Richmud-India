@@ -89,7 +89,11 @@ function LeadershipCard({ name, designation, initials, isBoard = false }: Leader
   );
 }
 
-export const AboutPage: React.FC = () => {
+interface AboutPageProps {
+  setActivePage?: (page: string) => void;
+}
+
+export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
   return (
     <div className="bg-white text-stone-900 pb-16 sm:pb-24">
       {/* ============================================================ */}
@@ -406,79 +410,319 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* ============================================================ */}
-      {/* 5. SECTION 4: LEADERSHIP & TEAM                              */}
+      {/* 5. SECTION 4: LEADERSHIP & MANAGEMENT ORG TREE               */}
       {/* ============================================================ */}
-      <section className="py-14 sm:py-20 lg:py-24 bg-white border-b border-stone-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      <section className="py-14 sm:py-20 lg:py-28 bg-white border-b border-stone-200/80 relative overflow-hidden">
+        {/* Subtle ambient lighting */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gold-400/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 relative z-10">
           
           {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-800 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-800/20">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-800 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-800/20 shadow-2xs">
               <Building2 className="w-3.5 h-3.5 text-gold-600" />
-              <span>Corporate Governance</span>
+              <span>Hierarchical Corporate Structure</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
-              Leadership & Management Team
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-stone-900 tracking-tight">
+              Leadership & Management <span className="text-gold-gradient">Org Tree</span>
             </h2>
-            <p className="text-sm text-stone-600">
-              The executive board and functional leaders guiding Richmud India Pvt Ltd. (RM) toward agricultural excellence.
+            <p className="text-sm sm:text-base text-stone-600 max-w-2xl mx-auto">
+              The strategic governance board, executive bridge, and dedicated operational leadership guiding Richmud India Pvt Ltd. (RM).
             </p>
           </div>
 
-          {/* Part A: Board of Directors (2 Prominent Cards) */}
-          <div className="space-y-6">
-            <div className="text-center">
-              <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-50 px-3 py-1 rounded-full border border-gold-300/40">
-                Board of Directors
-              </span>
+          {/* Org Tree Structure Container */}
+          <div className="max-w-5xl mx-auto">
+            
+            {/* -------------------------------------------------------- */}
+            {/* TIER 1: BOARD OF DIRECTORS (TOP LEVEL GRID / HEADER)     */}
+            {/* -------------------------------------------------------- */}
+            <div className="space-y-4">
+              <div className="text-center">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-50 px-4 py-1.5 rounded-full border border-gold-300/60 shadow-xs">
+                  <Sparkles className="w-3 h-3 text-gold-600" />
+                  <span>Tier 1: Board of Directors</span>
+                </span>
+              </div>
+
+              {/* 2 High-Profile Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
+                {/* Director 1: Vinit Kumar */}
+                <div className="group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-amber-300/60 shadow-[0_10px_30px_rgba(212,175,55,0.08)] hover:shadow-[0_16px_36px_rgba(212,175,55,0.18)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl pointer-events-none">
+                    <div className="absolute transform rotate-45 bg-gradient-to-r from-gold-400 to-amber-500 text-[9px] font-bold text-charcoal-950 uppercase tracking-widest py-0.5 right-[-32px] top-[18px] w-[120px] text-center shadow-xs">
+                      Founder
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-50 via-stone-50 to-amber-100/70 border-2 border-gold-400/60 w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/80 via-transparent to-transparent pointer-events-none" />
+                      <span className="font-serif font-bold text-2xl sm:text-3xl text-gold-700 tracking-wider">
+                        VK
+                      </span>
+                      <span className="absolute bottom-1.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-emerald-900 bg-white/95 px-2 py-0.5 rounded shadow-2xs border border-gold-300/40">
+                        Director
+                      </span>
+                    </div>
+
+                    <div className="space-y-1">
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-stone-900 group-hover:text-emerald-900 transition-colors">
+                        Vinit Kumar
+                      </h3>
+                      <div className="text-xs sm:text-sm font-bold text-gold-700 tracking-wide uppercase">
+                        Director cum Founder
+                      </div>
+                      <p className="text-xs text-stone-500 leading-relaxed pt-1.5">
+                        Pioneering Richmud India's founding vision, strategic governance, and ground-level farming community empowerment from Halsi, Lakhisarai, Bihar.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Director 2: Kajal Kumari */}
+                <div className="group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-amber-300/60 shadow-[0_10px_30px_rgba(212,175,55,0.08)] hover:shadow-[0_16px_36px_rgba(212,175,55,0.18)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl pointer-events-none">
+                    <div className="absolute transform rotate-45 bg-gradient-to-r from-gold-400 to-amber-500 text-[9px] font-bold text-charcoal-950 uppercase tracking-widest py-0.5 right-[-32px] top-[18px] w-[120px] text-center shadow-xs">
+                      Co-Founder
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-50 via-stone-50 to-amber-100/70 border-2 border-gold-400/60 w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/80 via-transparent to-transparent pointer-events-none" />
+                      <span className="font-serif font-bold text-2xl sm:text-3xl text-gold-700 tracking-wider">
+                        KK
+                      </span>
+                      <span className="absolute bottom-1.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-emerald-900 bg-white/95 px-2 py-0.5 rounded shadow-2xs border border-gold-300/40">
+                        Director
+                      </span>
+                    </div>
+
+                    <div className="space-y-1">
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-stone-900 group-hover:text-emerald-900 transition-colors">
+                        Kajal Kumari
+                      </h3>
+                      <div className="text-xs sm:text-sm font-bold text-gold-700 tracking-wide uppercase">
+                        Director cum Co-Founder
+                      </div>
+                      <p className="text-xs text-stone-500 leading-relaxed pt-1.5">
+                        Guiding corporate compliance, institutional oversight, and strategic stakeholder alignment to foster long-term rural prosperity.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6 sm:gap-8">
-              <LeadershipCard
-                name="Vinit Kumar"
-                designation="Director cum Founder"
-                initials="VK"
-                isBoard={true}
-              />
-              <LeadershipCard
-                name="Kajal Kumari"
-                designation="Director cum Co-Founder"
-                initials="KK"
-                isBoard={true}
-              />
-            </div>
-          </div>
+            {/* -------------------------------------------------------- */}
+            {/* CONNECTOR: TIER 1 -> TIER 2 (CONNECTING BRIDGE)          */}
+            {/* -------------------------------------------------------- */}
+            <div className="relative py-4 flex flex-col items-center">
+              {/* Desktop Tree Connector Lines */}
+              <div className="hidden sm:block w-full max-w-lg mx-auto relative h-12">
+                {/* Horizontal Bar connecting both Board card centers */}
+                <div className="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400" />
+                {/* Left stem up towards Vinit Kumar card */}
+                <div className="absolute top-0 left-1/4 w-0.5 h-3 bg-amber-400 -translate-y-3" />
+                {/* Right stem up towards Kajal Kumari card */}
+                <div className="absolute top-0 right-1/4 w-0.5 h-3 bg-amber-400 -translate-y-3" />
+                {/* Central downward stem to Tier 2 */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-12 bg-gradient-to-b from-amber-400 via-emerald-700 to-emerald-800" />
+                {/* Decorative Central Node */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gold-400 border-2 border-white shadow-xs flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-charcoal-900" />
+                </div>
+              </div>
 
-          {/* Part B: Management Team (4 Sleek Grid Cards) */}
-          <div className="space-y-6 pt-4">
-            <div className="text-center">
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-800/20">
-                Management Team
-              </span>
+              {/* Mobile Tree Connector Stem */}
+              <div className="sm:hidden flex flex-col items-center py-2">
+                <div className="w-0.5 h-6 bg-gradient-to-b from-amber-400 to-emerald-800" />
+                <div className="w-3 h-3 rounded-full bg-gold-400 border-2 border-white shadow-xs" />
+                <div className="w-0.5 h-6 bg-emerald-800" />
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 max-w-6xl mx-auto">
-              <LeadershipCard
-                name="Haresh Kumar"
-                designation="Executive Director cum Head Sales & Marketing"
-                initials="HK"
-              />
-              <LeadershipCard
-                name="Gulshan Kumar"
-                designation="Plant Operations & Logistics Head"
-                initials="GK"
-              />
-              <LeadershipCard
-                name="Sonu Kumar"
-                designation="Customer Support & Admin Head"
-                initials="SK"
-              />
-              <LeadershipCard
-                name="HR & Finance Head"
-                designation="Corporate Affairs & Finance"
-                initials="HF"
-              />
+            {/* -------------------------------------------------------- */}
+            {/* TIER 2: EXECUTIVE LEADERSHIP (CONNECTING BRIDGE NODE)    */}
+            {/* -------------------------------------------------------- */}
+            <div className="space-y-4">
+              <div className="text-center">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-800 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-800/30 shadow-xs">
+                  <Briefcase className="w-3 h-3 text-gold-600" />
+                  <span>Tier 2: Executive Leadership (Connecting Bridge Node)</span>
+                </span>
+              </div>
+
+              {/* Centered Executive Bridge Card */}
+              <div className="max-w-xl mx-auto">
+                <div className="group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-emerald-800/40 hover:border-emerald-800 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-center">
+                  {/* Subtle Top Gold Highlight */}
+                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-50 via-stone-50 to-emerald-100/70 border-2 border-emerald-800/30 w-22 h-22 sm:w-26 sm:h-26 flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/80 via-transparent to-transparent pointer-events-none" />
+                      <span className="font-serif font-bold text-2xl sm:text-3xl text-emerald-900 tracking-wider">
+                        HK
+                      </span>
+                      <span className="absolute bottom-1.5 text-[8px] sm:text-[9px] uppercase tracking-wider font-bold text-white bg-emerald-800 px-2 py-0.5 rounded shadow-2xs border border-emerald-700">
+                        Executive
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5 max-w-md mx-auto">
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-stone-900 group-hover:text-emerald-900 transition-colors">
+                        Haresh Kumar
+                      </h3>
+                      <div className="text-xs sm:text-sm font-bold text-emerald-800 tracking-wide uppercase">
+                        Executive Director cum Head Sales & Marketing
+                      </div>
+                      <p className="text-xs text-stone-600 leading-relaxed pt-1">
+                        Serving as the central operational bridge with direct executive authority over Plant Operations, Logistics, Customer Support, and Corporate Administration.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* -------------------------------------------------------- */}
+            {/* CONNECTOR: TIER 2 -> TIER 3 (BRANCHING FLOW)             */}
+            {/* -------------------------------------------------------- */}
+            <div className="relative py-4 flex flex-col items-center">
+              {/* Desktop Tree Branching Lines */}
+              <div className="hidden sm:block w-full max-w-4xl mx-auto relative h-14">
+                {/* Vertical Stem from Haresh Kumar */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-emerald-800" />
+                {/* Central Branching Junction Node */}
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-emerald-800 border-2 border-white shadow-xs flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+                </div>
+                {/* Horizontal Crossbar spanning across the 3 card columns */}
+                <div className="absolute top-6 left-[16.6%] right-[16.6%] h-0.5 bg-gradient-to-r from-emerald-700 via-emerald-800 to-emerald-700" />
+                {/* 3 Vertical Drop Stems into Tier 3 cards */}
+                <div className="absolute top-6 left-[16.6%] w-0.5 h-8 bg-emerald-800" />
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-0.5 h-8 bg-emerald-800" />
+                <div className="absolute top-6 right-[16.6%] w-0.5 h-8 bg-emerald-800" />
+              </div>
+
+              {/* Mobile Tree Connector Stem */}
+              <div className="sm:hidden flex flex-col items-center py-2">
+                <div className="w-0.5 h-6 bg-emerald-800" />
+                <div className="w-3 h-3 rounded-full bg-emerald-800 border-2 border-white shadow-xs" />
+                <div className="w-0.5 h-6 bg-emerald-800" />
+              </div>
+            </div>
+
+            {/* -------------------------------------------------------- */}
+            {/* TIER 3: "OUR TEAM" SUB-TREE (OPERATIONAL HEADS GRID)     */}
+            {/* -------------------------------------------------------- */}
+            <div className="space-y-4">
+              <div className="text-center">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-900 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-800/30 shadow-xs">
+                  <Sprout className="w-3 h-3 text-gold-600" />
+                  <span>Our Team — Functional Operations Heads</span>
+                </span>
+              </div>
+
+              {/* 3-Card Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                {/* Operational Head 1: Gulshan Kumar */}
+                <div className="group relative bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm hover:shadow-md hover:border-emerald-700/50 hover:-translate-y-0.5 transition-all duration-300 text-center flex flex-col justify-between">
+                  <div className="flex flex-col items-center text-center space-y-3.5">
+                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-stone-50 to-stone-100 border border-stone-200/90 w-20 h-20 flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-105">
+                      <span className="font-serif font-bold text-xl text-stone-800 tracking-wider">
+                        GK
+                      </span>
+                      <span className="absolute bottom-1 text-[8px] uppercase tracking-wider font-semibold text-stone-500 bg-white/90 px-1.5 py-0.2 rounded shadow-2xs">
+                        Operations
+                      </span>
+                    </div>
+
+                    <div className="space-y-1">
+                      <h4 className="font-serif text-lg font-bold text-stone-900 group-hover:text-emerald-900 transition-colors">
+                        Gulshan Kumar
+                      </h4>
+                      <p className="text-xs font-semibold text-emerald-800 leading-snug">
+                        Plant Operations & Logistics Head
+                      </p>
+                      <p className="text-xs text-stone-500 pt-1 leading-relaxed">
+                        Managing processing plants, warehouse storage safety protocols, and punctual rural input dispatch across regional distributor hubs.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-stone-100 text-[10px] uppercase tracking-wider font-bold text-stone-400">
+                    Production & Supply Chain
+                  </div>
+                </div>
+
+                {/* Operational Head 2: Sonu Kumar */}
+                <div className="group relative bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm hover:shadow-md hover:border-emerald-700/50 hover:-translate-y-0.5 transition-all duration-300 text-center flex flex-col justify-between">
+                  <div className="flex flex-col items-center text-center space-y-3.5">
+                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-stone-50 to-stone-100 border border-stone-200/90 w-20 h-20 flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-105">
+                      <span className="font-serif font-bold text-xl text-stone-800 tracking-wider">
+                        SK
+                      </span>
+                      <span className="absolute bottom-1 text-[8px] uppercase tracking-wider font-semibold text-stone-500 bg-white/90 px-1.5 py-0.2 rounded shadow-2xs">
+                        Support
+                      </span>
+                    </div>
+
+                    <div className="space-y-1">
+                      <h4 className="font-serif text-lg font-bold text-stone-900 group-hover:text-emerald-900 transition-colors">
+                        Sonu Kumar
+                      </h4>
+                      <p className="text-xs font-semibold text-emerald-800 leading-snug">
+                        Customer Support & Admin Head
+                      </p>
+                      <p className="text-xs text-stone-500 pt-1 leading-relaxed">
+                        Directing real-time dealer communication, farmer grievance resolution, advisory helpdesk operations, and internal administrative workflows.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-stone-100 text-[10px] uppercase tracking-wider font-bold text-stone-400">
+                    Farmer Care & Administration
+                  </div>
+                </div>
+
+                {/* Operational Head 3: Corporate Affairs & Finance (Position Placeholder / Open) */}
+                <div className="group relative bg-stone-50/60 rounded-2xl p-6 border border-dashed border-amber-300/80 hover:border-solid hover:border-gold-400 shadow-2xs hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300 text-center flex flex-col justify-between">
+                  <div className="flex flex-col items-center text-center space-y-3.5">
+                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-50 to-stone-100 border border-amber-200/80 w-20 h-20 flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-105">
+                      <span className="font-serif font-bold text-xs text-amber-700 uppercase tracking-widest">
+                        OPEN
+                      </span>
+                      <span className="absolute bottom-1 text-[8px] uppercase tracking-wider font-semibold text-amber-700 bg-amber-100/90 px-1.5 py-0.2 rounded shadow-2xs">
+                        Hiring
+                      </span>
+                    </div>
+
+                    <div className="space-y-1">
+                      <h4 className="font-serif text-lg font-bold text-stone-900 group-hover:text-amber-900 transition-colors">
+                        Corporate Affairs & Finance
+                      </h4>
+                      <p className="text-xs font-semibold text-gold-700 leading-snug">
+                        Position Placeholder / Open (HR & Finance Head)
+                      </p>
+                      <p className="text-xs text-stone-500 pt-1 leading-relaxed">
+                        Leading statutory accounting, fiscal audits, regulatory filings, corporate compliance, and strategic human capital talent acquisition.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-amber-200/40 text-[10px] uppercase tracking-wider font-bold text-amber-700 flex items-center justify-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
+                    <span>Active Recruitment</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -537,7 +781,7 @@ export const AboutPage: React.FC = () => {
               <div className="pt-4 border-t border-stone-200">
                 <a
                   href="mailto:richmudindia@gmail.com?subject=Application%20for%20Richmud%20India%20Internship%20Program"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold text-xs uppercase tracking-wider shadow-xs transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold text-xs uppercase tracking-wider shadow-xs transition-colors"
                 >
                   <Mail className="w-4 h-4 text-gold-400" />
                   <span>Apply via richmudindia@gmail.com</span>
@@ -575,14 +819,20 @@ export const AboutPage: React.FC = () => {
               </div>
 
               <div className="pt-4 border-t border-stone-200">
-                <a
-                  href="mailto:richmudindia@gmail.com?subject=Job%20Application%20-%20Richmud%20India%20Pvt%20Ltd"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-stone-900 hover:bg-black text-white font-semibold text-xs uppercase tracking-wider shadow-xs transition-colors group"
+                <button
+                  onClick={() => {
+                    if (setActivePage) {
+                      setActivePage('careers');
+                    } else {
+                      window.location.hash = 'careers';
+                    }
+                  }}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-stone-900 hover:bg-black text-white font-semibold text-xs uppercase tracking-wider shadow-md hover:shadow-gold-md hover:ring-2 hover:ring-gold-400/40 transition-all duration-300 group cursor-pointer"
                 >
-                  <Mail className="w-4 h-4 text-gold-400" />
+                  <Briefcase className="w-4 h-4 text-gold-400" />
                   <span>Explore Openings</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-gold-400 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  <ArrowRight className="w-4 h-4 text-gold-400 group-hover:translate-x-1.5 transition-transform duration-300" />
+                </button>
               </div>
             </div>
 
