@@ -28,24 +28,12 @@ export const HomePage: React.FC<HomePageProps> = ({ setActivePage, onSelectCateg
   return (
     <div>
       {/* 1. MINIMAL LUXURY HERO CANVAS */}
-      <section className="relative h-[36vh] sm:h-[44vh] min-h-[280px] sm:min-h-[340px] max-h-[460px] overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F4EFE6] to-[#ECE5D8] border-b border-amber-200/50 flex items-center justify-center">
+      <section className="relative h-28 sm:h-36 overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F4EFE6] to-[#ECE5D8] border-b border-amber-200/40">
         {/* Subtle Ambient Gold Radial Glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-200/25 via-amber-100/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-200/20 via-amber-100/10 to-transparent pointer-events-none" />
         
         {/* Decorative Hairline Gold Frame Accent */}
-        <div className="absolute inset-5 sm:inset-10 border border-amber-300/30 rounded-3xl pointer-events-none" />
-        <div className="absolute inset-7 sm:inset-12 border border-amber-400/15 rounded-2xl pointer-events-none" />
-
-        {/* Minimalist Refined Centerpiece Placeholder */}
-        <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center">
-          <div className="bg-black rounded-2xl p-4 sm:p-5 inline-flex items-center justify-center border border-amber-200/30 shadow-luxury">
-            <img
-              src="/richmud-crest-logo.png"
-              alt="Richmud"
-              className="h-20 sm:h-28 md:h-32 w-auto object-contain drop-shadow-md"
-            />
-          </div>
-        </div>
+        <div className="absolute inset-3 sm:inset-5 border border-amber-300/25 rounded-2xl pointer-events-none" />
       </section>
 
       {/* 2. CORE STATS COUNTER BAR */}
