@@ -1,425 +1,142 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { 
-  Briefcase, 
-  GraduationCap, 
-  MapPin, 
-  Clock, 
-  Search, 
-  X, 
   Sparkles, 
-  CheckCircle2, 
+  Mail, 
   ArrowRight,
-  Send,
-  Building2,
-  Users2,
-  HeartHandshake
+  Briefcase,
+  GraduationCap,
+  Sprout
 } from 'lucide-react';
-import { careerOpportunities } from '../data/careers';
-import { CareerOpportunity } from '../types';
 
 export const CareersPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'jobs' | 'internships'>('jobs');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDepartment, setSelectedDepartment] = useState('All');
-  const [selectedOpportunity, setSelectedOpportunity] = useState<CareerOpportunity | null>(null);
-
-  // Application form state
-  const [applicantName, setApplicantName] = useState('');
-  const [applicantEmail, setApplicantEmail] = useState('');
-  const [applicantPhone, setApplicantPhone] = useState('');
-  const [applicantQualification, setApplicantQualification] = useState('');
-  const [applicantCoverNote, setApplicantCoverNote] = useState('');
-  const [applicationSubmitted, setApplicationSubmitted] = useState(false);
-
-  const departments = useMemo(() => {
-    const deps = careerOpportunities.map((c) => c.department);
-    return ['All', ...Array.from(new Set(deps))];
-  }, []);
-
-  const filteredOpportunities = useMemo(() => {
-    return careerOpportunities.filter((opp) => {
-      // Tab filter
-      if (activeTab === 'jobs' && opp.isInternship) return false;
-      if (activeTab === 'internships' && !opp.isInternship) return false;
-
-      // Department filter
-      if (selectedDepartment !== 'All' && opp.department !== selectedDepartment) {
-        return false;
-      }
-
-      // Search query
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        return (
-          opp.title.toLowerCase().includes(q) ||
-          opp.location.toLowerCase().includes(q) ||
-          opp.department.toLowerCase().includes(q) ||
-          opp.description.toLowerCase().includes(q)
-        );
-      }
-
-      return true;
-    });
-  }, [activeTab, selectedDepartment, searchQuery]);
-
-  const handleApplyClick = (opp: CareerOpportunity) => {
-    setSelectedOpportunity(opp);
-    setApplicationSubmitted(false);
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (applicantName && applicantEmail && applicantPhone) {
-      setApplicationSubmitted(true);
-      setTimeout(() => {
-        setApplicantName('');
-        setApplicantEmail('');
-        setApplicantPhone('');
-        setApplicantQualification('');
-        setApplicantCoverNote('');
-        setSelectedOpportunity(null);
-        setApplicationSubmitted(false);
-      }, 3000);
-    }
-  };
+  const hiringCards = [
+    {
+      id: 'hiring-1',
+      badge: 'R&D & Seed Breeding',
+      icon: Sprout,
+      domain: 'Crop Genetics & Biotechnology',
+    },
+    {
+      id: 'hiring-2',
+      badge: 'Field Operations & Supply Chain',
+      icon: Briefcase,
+      domain: 'Logistics, Plant & Seed Processing',
+    },
+    {
+      id: 'hiring-3',
+      badge: 'Agronomy & Farmer Advisory',
+      icon: GraduationCap,
+      domain: 'Regional Field Trials & Dealer Outreach',
+    },
+  ];
 
   return (
-    <div className="pb-20">
+    <div className="pb-24">
       {/* 1. HERO HEADER */}
-      <section className="relative py-12 sm:py-20 bg-charcoal-950 text-white overflow-hidden">
+      <section className="relative py-14 sm:py-20 bg-charcoal-950 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
           {/* Logo wrapped in solid black container */}
-          <div className="bg-black rounded-2xl px-5 sm:px-6 py-2.5 sm:py-3.5 inline-flex items-center justify-center border border-white/10 shadow-xl mx-auto my-2 sm:my-3">
+          <div className="bg-black rounded-2xl px-5 sm:px-6 py-2.5 sm:py-3.5 inline-flex items-center justify-center border border-white/10 shadow-xl mx-auto my-2">
             <img
               src="/richmud-crest-logo.png"
-              alt="richmud"
+              alt="Richmud"
               className="h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
             />
           </div>
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
-            <Sparkles className="w-3 sm:w-3.5 h-3 sm:w-3.5 text-gold-400" />
-            <span>Careers at richmud</span>
+
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-xs font-semibold uppercase tracking-widest shadow-md">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <span>Mud To Gold</span>
           </div>
 
-          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
-            Grow Your Career <br />
-            <span className="text-gold-gradient">With Scientific Purpose</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
+            Careers at Richmud
           </h1>
 
-          <p className="text-gray-300 max-w-2xl mx-auto text-xs sm:text-base lg:text-lg font-light leading-relaxed">
-            Join a mission-driven assembly of plant geneticists, agronomists, and business leaders shaping the future of agriculture across South Asia.
+          <p className="text-gold-300 font-serif text-lg sm:text-2xl font-light italic max-w-2xl mx-auto">
+            Shape the Future of Indian Agriculture
+          </p>
+
+          <p className="text-stone-300 max-w-2xl mx-auto text-xs sm:text-base font-light leading-relaxed">
+            Join a mission-driven agricultural enterprise committed to enriching soil, boosting farm yields, and driving rural prosperity across India.
           </p>
         </div>
       </section>
 
-      {/* 2. CULTURE VALUES */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="p-6 rounded-2xl bg-white border border-gold-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-gold-50 border border-gold-300 mx-auto flex items-center justify-center text-gold-700">
-              <Building2 className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-xl font-bold text-charcoal-900">
-              World-Class Facilities
-            </h3>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              Work with automated photoperiod chambers, robotic DNA sequencers, and NABL-certified laboratories.
-            </p>
-          </div>
+      {/* 2. ACTIVE SECTION: SLEEK GOLD-BORDERED PLACEHOLDER CARDS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {hiringCards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={card.id}
+                className="group relative bg-white rounded-3xl p-8 sm:p-9 border-2 border-amber-300/70 hover:border-gold-500 shadow-luxury hover:shadow-gold-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-center"
+              >
+                <div className="space-y-5 flex flex-col items-center">
+                  {/* Badge */}
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-900 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-200/80 shadow-2xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
+                    {card.badge}
+                  </span>
 
-          <div className="p-6 rounded-2xl bg-white border border-gold-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-gold-50 border border-gold-300 mx-auto flex items-center justify-center text-gold-700">
-              <Users2 className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-xl font-bold text-charcoal-900">
-              Farmer Impact
-            </h3>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              Your research directly enhances crop yield and livelihoods for more than 10 million smallholder farm households.
-            </p>
-          </div>
+                  {/* Icon Circle */}
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-50 to-stone-100 border border-amber-200/80 flex items-center justify-center text-stone-800 shadow-xs group-hover:scale-105 group-hover:border-gold-400 transition-all duration-300">
+                    <Icon className="w-7 h-7 text-gold-600" />
+                  </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-gold-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-gold-50 border border-gold-300 mx-auto flex items-center justify-center text-gold-700">
-              <HeartHandshake className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-xl font-bold text-charcoal-900">
-              Mentorship & Growth
-            </h3>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              Accelerate your leadership with continuous guidance from senior seed scientists and ICAR-affiliated veterans.
-            </p>
-          </div>
+                  {/* Content */}
+                  <div className="space-y-2">
+                    <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 group-hover:text-emerald-950 transition-colors">
+                      Hiring Soon
+                    </h2>
+                    <p className="text-xs uppercase tracking-wider font-semibold text-gold-700">
+                      {card.domain}
+                    </p>
+                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed pt-1">
+                      Exciting opportunities across Agri-input research, operations & field agronomy.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Action Link */}
+                <div className="pt-6 mt-6 border-t border-stone-100">
+                  <a
+                    href="mailto:richmudindia@gmail.com?subject=Job%20Application%20-%20Richmud%20India%20Pvt%20Ltd"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-stone-900 hover:bg-black text-white font-semibold text-xs uppercase tracking-wider shadow-md hover:shadow-gold-md hover:ring-2 hover:ring-gold-400/40 transition-all duration-300 group/btn"
+                  >
+                    <Mail className="w-4 h-4 text-gold-400" />
+                    <span>Send your CV/Resume to richmudindia@gmail.com</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-gold-400 group-hover/btn:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* 3. SEGMENTED TABS: JOBS VS INTERNSHIPS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-gray-200">
-          
-          {/* Tabs */}
-          <div className="flex items-center gap-2 bg-ivory-200 p-1.5 rounded-2xl">
-            <button
-              onClick={() => setActiveTab('jobs')}
-              className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
-                activeTab === 'jobs'
-                  ? 'bg-botanical-800 text-white font-bold shadow-md'
-                  : 'text-gray-600 hover:text-charcoal-900'
-              }`}
+      {/* 3. TALENT COMMUNITY NOTE */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
+        <div className="p-8 rounded-3xl bg-stone-50 border border-stone-200/90 shadow-2xs space-y-3">
+          <h3 className="font-serif text-xl font-bold text-stone-900">
+            Prospective Talent & Internships
+          </h3>
+          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-xl mx-auto">
+            We are always eager to connect with passionate agricultural professionals, plant breeding scholars, and field executives. Even if your specialized profile is not listed today, write to us with your portfolio.
+          </p>
+          <div className="pt-2">
+            <a
+              href="mailto:richmudindia@gmail.com"
+              className="text-xs font-bold text-emerald-800 hover:text-gold-700 font-mono underline decoration-gold-400 decoration-2 underline-offset-4 transition-colors"
             >
-              <Briefcase className="w-4 h-4" />
-              <span>Professional Openings</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('internships')}
-              className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
-                activeTab === 'internships'
-                  ? 'bg-botanical-800 text-white font-bold shadow-md'
-                  : 'text-gray-600 hover:text-charcoal-900'
-              }`}
-            >
-              <GraduationCap className="w-4 h-4" />
-              <span>Internship Programs</span>
-            </button>
+              richmudindia@gmail.com
+            </a>
           </div>
-
-          {/* Department Filter */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs uppercase tracking-wider text-gray-500 font-semibold">
-              Department:
-            </span>
-            <select
-              value={selectedDepartment}
-              onChange={(e) => setSelectedDepartment(e.target.value)}
-              className="bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs text-charcoal-900 focus:outline-none focus:border-gold-500 font-medium"
-            >
-              {departments.map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-          </div>
-
         </div>
       </section>
-
-      {/* 4. LISTINGS GRID */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredOpportunities.map((opp) => (
-            <div
-              key={opp.id}
-              className="bg-white rounded-2xl p-6 border border-gold-300/40 hover:border-botanical-600 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full bg-botanical-800 text-white border border-botanical-600 text-[11px] font-bold uppercase tracking-wider shadow-sm">
-                    {opp.department}
-                  </span>
-                  <span className="text-xs font-semibold text-gray-500">
-                    {opp.openings} {opp.openings === 1 ? 'Opening' : 'Openings'}
-                  </span>
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold text-charcoal-900 group-hover:text-botanical-800 transition-colors">
-                  {opp.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  {opp.description}
-                </p>
-
-                <div className="flex flex-wrap gap-4 text-xs text-gray-500 pt-2 border-t border-gray-100">
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-gold-600" />
-                    <span>{opp.location}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-gold-600" />
-                    <span>{opp.experience}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Briefcase className="w-3.5 h-3.5 text-gold-600" />
-                    <span>{opp.type}</span>
-                  </div>
-                </div>
-
-                {/* Key Qualifications */}
-                <div className="space-y-1.5 pt-2">
-                  <div className="text-[11px] uppercase tracking-wider font-bold text-gray-700">
-                    Key Prerequisites:
-                  </div>
-                  {opp.qualifications.slice(0, 2).map((q, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-gray-600">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-botanical-700 shrink-0 mt-0.5" />
-                      <span>{q}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
-                <span className="text-xs text-gray-400">
-                  Full Benefits & Relocation
-                </span>
-                <button
-                  onClick={() => handleApplyClick(opp)}
-                  className="px-5 py-2 rounded-full bg-botanical-800 hover:bg-botanical-900 text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:scale-105 border border-gold-400/40 transition-all flex items-center gap-1.5"
-                >
-                  <span>Apply Now</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-gold-300" />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 5. INTERACTIVE APPLICATION MODAL FORM */}
-      {selectedOpportunity && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-gold-400/40 relative">
-            <button
-              onClick={() => setSelectedOpportunity(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
-              aria-label="Close Application Modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {applicationSubmitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-gold-100 border border-gold-400 text-gold-700 flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-                <h3 className="font-serif text-3xl font-bold text-charcoal-900">
-                  Application Received
-                </h3>
-                <p className="text-sm text-gray-600 max-w-sm mx-auto">
-                  Thank you for applying for <span className="font-semibold text-charcoal-900">{selectedOpportunity.title}</span>. Our Human Resources and Talent Acquisition team will review your credentials and get back to you shortly.
-                </p>
-              </div>
-            ) : (
-              <div>
-                <div className="space-y-1 pb-4 border-b border-gray-100">
-                  <span className="text-[11px] uppercase tracking-wider font-semibold text-gold-700">
-                    Application Form
-                  </span>
-                  <h3 className="font-serif text-2xl font-bold text-charcoal-900">
-                    {selectedOpportunity.title}
-                  </h3>
-                  <div className="text-xs text-gray-500">
-                    {selectedOpportunity.department} • {selectedOpportunity.location}
-                  </div>
-                </div>
-
-                <form onSubmit={handleFormSubmit} className="space-y-4 pt-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-charcoal-800 mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={applicantName}
-                      onChange={(e) => setApplicantName(e.target.value)}
-                      placeholder="e.g. Ramesh Kumar Patel"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-400 text-xs sm:text-sm bg-white"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-charcoal-800 mb-1">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={applicantEmail}
-                        onChange={(e) => setApplicantEmail(e.target.value)}
-                        placeholder="you@domain.com"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-400 text-xs sm:text-sm bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-charcoal-800 mb-1">
-                        Mobile Number *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        value={applicantPhone}
-                        onChange={(e) => setApplicantPhone(e.target.value)}
-                        placeholder="+91 91429 50191"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-400 text-xs sm:text-sm bg-white"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-charcoal-800 mb-1">
-                      Highest Academic Degree / Specialization *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={applicantQualification}
-                      onChange={(e) => setApplicantQualification(e.target.value)}
-                      placeholder="e.g. M.Sc. Plant Breeding & Genetics / MBA Agribusiness"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-400 text-xs sm:text-sm bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-charcoal-800 mb-1">
-                      Resume Link / Portfolio (Google Drive / LinkedIn)
-                    </label>
-                    <input
-                      type="url"
-                      placeholder="https://linkedin.com/in/..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-400 text-xs sm:text-sm bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-charcoal-800 mb-1">
-                      Brief Statement of Purpose / Cover Note
-                    </label>
-                    <textarea
-                      rows={3}
-                      value={applicantCoverNote}
-                      onChange={(e) => setApplicantCoverNote(e.target.value)}
-                      placeholder="Explain your relevant field or laboratory experience..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-400 text-xs sm:text-sm bg-white"
-                    />
-                  </div>
-
-                  <div className="pt-3 flex items-center justify-between">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedOpportunity(null)}
-                      className="px-5 py-2.5 rounded-full border border-gray-300 text-gray-700 text-xs font-semibold hover:bg-gray-50"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="px-7 py-2.5 rounded-full bg-gold-gradient text-charcoal-950 text-xs font-bold uppercase tracking-wider shadow-gold-sm hover:scale-105 transition-all flex items-center gap-1.5"
-                    >
-                      <Send className="w-3.5 h-3.5" />
-                      <span>Submit Application</span>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

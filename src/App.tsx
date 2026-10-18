@@ -125,7 +125,9 @@ export default function App() {
           />
         )}
         {activePage === 'careers' && <CareersPage />}
-        {activePage === 'dealers' && <DealerLocatorPage />}
+        {activePage === 'dealers' && (
+          <DealerLocatorPage setActivePage={handlePageChange} />
+        )}
         {activePage === 'media' && <MediaCenterPage initialTab={mediaTab} />}
         {activePage === 'contact' && <ContactPage />}
       </main>
