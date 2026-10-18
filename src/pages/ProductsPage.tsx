@@ -83,17 +83,20 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
-          {/* Logo wrapped in solid black container */}
-          <div className="bg-black rounded-2xl px-5 sm:px-6 py-2.5 sm:py-3.5 inline-flex items-center justify-center border border-white/10 shadow-xl mx-auto my-2 sm:my-3">
-            <img
-              src="/richmud-crest-logo.png"
-              alt="richmud"
-              className="h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
-            />
-          </div>
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
-            <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
-            <span>Certified Hybrid & Crop Science Portfolio</span>
+          {/* Centered Logo & Badge Stack */}
+          <div className="flex flex-col items-center justify-center space-y-3 sm:space-y-4">
+            {/* Logo wrapped in solid black container */}
+            <div className="bg-black rounded-2xl px-5 sm:px-6 py-2.5 sm:py-3.5 inline-flex items-center justify-center border border-white/10 shadow-xl my-2 sm:my-3">
+              <img
+                src="/richmud-crest-logo.png"
+                alt="richmud"
+                className="h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
+              />
+            </div>
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
+              <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
+              <span>Certified Hybrid & Crop Science Portfolio</span>
+            </div>
           </div>
 
           <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">
