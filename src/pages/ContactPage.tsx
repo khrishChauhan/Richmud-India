@@ -51,11 +51,14 @@ export const ContactPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
-          <img
-            src="/richmud-crest-logo.png"
-            alt="richmud"
-            className="h-24 sm:h-32 md:h-36 mx-auto w-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.7)] my-2 sm:my-3 transition-transform duration-300 hover:scale-[1.03]"
-          />
+          {/* Logo wrapped in solid black container */}
+          <div className="bg-black rounded-2xl px-5 sm:px-6 py-2.5 sm:py-3.5 inline-flex items-center justify-center border border-white/10 shadow-xl mx-auto my-2 sm:my-3">
+            <img
+              src="/richmud-crest-logo.png"
+              alt="richmud"
+              className="h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
+            />
+          </div>
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:w-3.5 text-gold-400" />
             <span>Connect with richmud</span>
@@ -85,14 +88,22 @@ export const ContactPage: React.FC = () => {
                 <Headphones className="w-4 h-4 text-emerald-400" />
                 <span>Dedicated Farmer Support Hotline</span>
               </div>
-              <a
-                href="tel:+919142950191"
-                className="block font-serif text-3xl font-bold tracking-tight text-white hover:text-gold-300 transition-colors"
-              >
-                +91 91429 50191
-              </a>
+              <div className="space-y-1 font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                <a
+                  href="tel:+917888585478"
+                  className="block hover:text-gold-300 transition-colors"
+                >
+                  +91-7888585478
+                </a>
+                <a
+                  href="tel:+919572144270"
+                  className="block hover:text-gold-300 transition-colors text-xl sm:text-2xl"
+                >
+                  +91-9572144270
+                </a>
+              </div>
               <div className="text-xs font-medium text-emerald-100/90">
-                Toll-free across India • Connect directly with seed agronomists
+                Direct advisory lines across India • Connect directly with seed agronomists
               </div>
               <div className="text-[11px] pt-1 text-emerald-200/80">
                 Monday to Saturday: 9:00 AM – 6:00 PM IST
@@ -107,28 +118,38 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-bold text-charcoal-900">
-                    Corporate Headquarters
+                    Corporate Office
                   </h3>
-                  <div className="text-xs text-gray-500">Registered Office</div>
+                  <div className="text-xs text-gray-500">Richmud India Pvt Ltd. (RM)</div>
                 </div>
               </div>
 
               <div className="space-y-3 text-xs text-gray-600 pl-2 border-l-2 border-gold-300">
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-gold-600 shrink-0 mt-0.5" />
-                  <span>
-                    richmud Tower, 18 Netaji Subhash Road, BBD Bagh, Kolkata — 700001, West Bengal, India.
+                  <span className="font-medium text-stone-800">
+                    Corporate Office: Richmud India Pvt Ltd., Halsi, Lakhisarai, Bihar, India — Pincode: 811306 / 811311
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-gold-600 shrink-0" />
-                  <a href="tel:+919142950191" className="hover:text-emerald-700 transition-colors">
-                    +91 91429 50191
-                  </a>
+                <div className="space-y-1.5 pt-1">
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-gold-600 shrink-0" />
+                    <a href="tel:+917888585478" className="hover:text-emerald-700 font-mono transition-colors">
+                      +91-7888585478
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-gold-600 shrink-0" />
+                    <a href="tel:+919572144270" className="hover:text-emerald-700 font-mono transition-colors">
+                      +91-9572144270
+                    </a>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 pt-1">
                   <Mail className="w-4 h-4 text-gold-600 shrink-0" />
-                  <span>corporate@richmud.in / info@richmud.in</span>
+                  <a href="mailto:richmudindia@gmail.com" className="hover:text-emerald-700 transition-colors">
+                    richmudindia@gmail.com
+                  </a>
                 </div>
               </div>
             </div>
@@ -156,7 +177,9 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-gold-600 shrink-0" />
-                  <span>research@richmud.in</span>
+                  <a href="mailto:richmudindia@gmail.com" className="hover:text-emerald-700 transition-colors">
+                    richmudindia@gmail.com
+                  </a>
                 </div>
               </div>
             </div>

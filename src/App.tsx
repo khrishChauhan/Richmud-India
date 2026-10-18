@@ -139,10 +139,8 @@ export default function App() {
       {/* Floating Action Button: Quick Farmer Call + Back to Top */}
       <div className="fixed bottom-5 sm:bottom-6 right-5 sm:right-6 z-40 flex flex-col items-end gap-2.5 sm:gap-3 pointer-events-auto">
         {/* Floating Helpline Pill (Desktop) */}
-        <a
-          href="tel:+919142950191"
-          className="group hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-botanical-900/95 backdrop-blur-md border border-gold-400/50 shadow-gold-md hover:bg-botanical-800 transition-all hover:scale-105 text-white"
-          title="Call Farmer Helpline +91 91429 50191"
+        <div
+          className="hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-botanical-900/95 backdrop-blur-md border border-gold-400/50 shadow-gold-md hover:bg-botanical-800 transition-all text-white select-none"
         >
           <div className="w-7 h-7 rounded-full bg-gold-gradient flex items-center justify-center text-charcoal-950 font-bold shadow-sm">
             <Phone className="w-3.5 h-3.5" />
@@ -151,17 +149,23 @@ export default function App() {
             <div className="text-[10px] uppercase font-bold text-gold-300 tracking-wider">
               Kisan Helpline
             </div>
-            <div className="text-xs font-bold text-white font-mono">
-              +91 91429 50191
+            <div className="text-xs font-bold text-white font-mono flex items-center gap-1.5">
+              <a href="tel:+917888585478" className="hover:text-gold-300 transition-colors" title="Call +91-7888585478">
+                +91-7888585478
+              </a>
+              <span className="text-gold-400/60">•</span>
+              <a href="tel:+919572144270" className="hover:text-gold-300 transition-colors" title="Call +91-9572144270">
+                +91-9572144270
+              </a>
             </div>
           </div>
-        </a>
+        </div>
 
         {/* Floating Helpline Button (Mobile) */}
         <a
-          href="tel:+919142950191"
+          href="tel:+917888585478"
           className="flex sm:hidden w-11 h-11 rounded-full bg-botanical-900/95 backdrop-blur-md border border-gold-400/60 shadow-lg items-center justify-center text-white"
-          aria-label="Call Kisan Helpline +91 91429 50191"
+          aria-label="Call Kisan Helpline +91-7888585478"
         >
           <Phone className="w-4 h-4 text-gold-400" />
         </a>

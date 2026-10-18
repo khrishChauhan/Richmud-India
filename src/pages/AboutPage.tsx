@@ -102,17 +102,19 @@ export const AboutPage: React.FC = () => {
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4 sm:space-y-5">
-          {/* Logo */}
-          <img
-            src="/richmud-crest-logo.png"
-            alt="richmud"
-            className="h-24 sm:h-32 md:h-36 mx-auto w-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.7)] my-2 sm:my-3 transition-transform duration-300 hover:scale-[1.03]"
-          />
+          {/* Logo wrapped in solid black container */}
+          <div className="bg-black rounded-2xl px-5 sm:px-6 py-2.5 sm:py-3.5 inline-flex items-center justify-center border border-white/10 shadow-xl mx-auto my-2 sm:my-3">
+            <img
+              src="/richmud-crest-logo.png"
+              alt="richmud"
+              className="h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
+            />
+          </div>
 
-          {/* Badge: ROM • Founded in 2025 */}
+          {/* Badge: RM • Founded in 2025 */}
           <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400" />
-            <span>ROM • Founded in 2025</span>
+            <span>RM • Founded in 2025</span>
           </div>
 
           {/* Title */}
@@ -164,7 +166,7 @@ export const AboutPage: React.FC = () => {
               {/* Exact Narrative Body Text */}
               <div className="space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed">
                 <p className="text-stone-900 font-medium">
-                  Richmud India Pvt Ltd. (ROM) is a startup (Agriculture input) company in India. Richmud India was founded in 2025 with a deep-rooted commitment to empower the farming community. Operating from the agricultural heartland of Halsi, Lakhisarai, Bihar, we understand the real ground challenges that farmers face today. Under the visionary leadership of Director Mr. Vinit Kumar, we are dedicated to transforming modern agriculture by providing high-quality crop seeds, Agrochemicals, PGR’s, non-FCO fertilizer, Agri services and beyond.
+                  Richmud India Pvt Ltd. (RM) is a startup (Agriculture input) company in India. Richmud India was founded in 2025 with a deep-rooted commitment to empower the farming community. Operating from the agricultural heartland of Halsi, Lakhisarai, Bihar, we understand the real ground challenges that farmers face today. Under the visionary leadership of Director Mr. Vinit Kumar, we are dedicated to transforming modern agriculture by providing high-quality crop seeds, Agrochemicals, PGR’s, non-FCO fertilizer, Agri services and beyond.
                 </p>
                 <p className="text-stone-600 text-xs sm:text-sm">
                   Rooted in deep agronomic understanding, we bridge the lab-to-land gap to ensure that farmers across Bihar and Eastern India receive genuine, yield-enhancing crop inputs with dedicated ground support.
@@ -212,12 +214,12 @@ export const AboutPage: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent" />
 
-                  {/* Brand Crest Accent Overlay */}
-                  <div className="absolute top-4 right-4 z-20">
+                  {/* Brand Crest Accent Overlay wrapped in black container */}
+                  <div className="absolute top-4 right-4 z-20 bg-black rounded-xl p-2 border border-white/10 shadow-lg">
                     <img
                       src="/richmud-crest-logo.png"
                       alt="richmud crest"
-                      className="h-16 sm:h-20 w-auto object-contain filter drop-shadow-xl opacity-95 transition-transform duration-300 hover:scale-105"
+                      className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
                     />
                   </div>
 
@@ -419,7 +421,7 @@ export const AboutPage: React.FC = () => {
               Leadership & Management Team
             </h2>
             <p className="text-sm text-stone-600">
-              The executive board and functional leaders guiding Richmud India Pvt Ltd. (ROM) toward agricultural excellence.
+              The executive board and functional leaders guiding Richmud India Pvt Ltd. (RM) toward agricultural excellence.
             </p>
           </div>
 
@@ -614,7 +616,7 @@ export const AboutPage: React.FC = () => {
 
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="https://wa.me/919142950191?text=Hello%20Richmud%20India,%20I%20am%20interested%20in%20your%20products."
+                href="https://wa.me/917888585478?text=Hello%20Richmud%20India,%20I%20am%20interested%20in%20your%20products."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center gap-2 shadow-xs transition-colors"
@@ -661,14 +663,20 @@ export const AboutPage: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-                  Contact Number
+                  Contact Numbers
                 </h4>
                 <div className="mt-1.5 space-y-1">
                   <a
-                    href="tel:+919142950191"
+                    href="tel:+917888585478"
                     className="block text-xs sm:text-sm font-mono text-stone-200 hover:text-gold-400 transition-colors font-medium"
                   >
-                    +91 91429 50191
+                    +91-7888585478
+                  </a>
+                  <a
+                    href="tel:+919572144270"
+                    className="block text-xs sm:text-sm font-mono text-stone-200 hover:text-gold-400 transition-colors font-medium"
+                  >
+                    +91-9572144270
                   </a>
                 </div>
                 <p className="text-[11px] text-stone-400 mt-1">
@@ -707,7 +715,7 @@ export const AboutPage: React.FC = () => {
               <span className="text-stone-300 font-medium">Facebook • Instagram • LinkedIn • WhatsApp</span>
             </div>
             <div className="text-[11px] text-stone-500">
-              © {new Date().getFullYear()} Richmud India Pvt Ltd. (ROM). All rights reserved.
+              © {new Date().getFullYear()} Richmud India Pvt Ltd. (RM). All rights reserved.
             </div>
           </div>
 

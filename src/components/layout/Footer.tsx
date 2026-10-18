@@ -67,20 +67,59 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
               className="focus:outline-none flex items-start group select-none transition-transform duration-300 hover:scale-[1.02]"
               aria-label="richmud Home"
             >
-              <img
-                src="/richmud-footer-logo.png"
-                alt="richmud — Mud to Gold"
-                className="h-28 sm:h-36 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
-                loading="eager"
-              />
+              <div className="bg-black rounded-2xl px-4 py-2.5 inline-flex items-center justify-center border border-white/10 shadow-lg">
+                <img
+                  src="/richmud-footer-logo.png"
+                  alt="Richmud India Pvt Ltd. (RM) — Mud To Gold"
+                  className="h-20 sm:h-24 w-auto object-contain"
+                  loading="eager"
+                />
+              </div>
             </button>
-            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-md">
-              richmud is a premier agricultural crop science and seed research enterprise. 
-              Guided by our pledge, <span className="text-gold-300 italic inline-flex items-center gap-1.5">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block" /> good life"</span>, 
-              we empower over 10 million farmers across India with elite hybrid genetics and harvest reliability.
-            </p>
 
-            <div className="flex flex-wrap gap-2.5 text-[11px] text-gray-400">
+            {/* Luxury Brand Card */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-black/60 border border-gold-400/25 space-y-3 backdrop-blur-sm">
+              <div>
+                <h3 className="text-base sm:text-lg font-serif font-bold text-white tracking-wide">
+                  Richmud India Pvt Ltd. (RM)
+                </h3>
+                <div className="text-xs sm:text-sm font-serif italic text-gold-400 tracking-wider mt-0.5">
+                  "Mud To Gold"
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2 text-xs text-gray-300 leading-relaxed">
+                <MapPin className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                <span>Halsi, Lakhisarai, Bihar, India — Pincode: 811306 / 811311</span>
+              </div>
+
+              <div className="pt-2 border-t border-white/10 space-y-2 text-xs">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-gray-300">
+                  <div className="flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-gold-500 shrink-0" />
+                    <a href="tel:+917888585478" className="hover:text-gold-300 font-mono transition-colors">
+                      +91-7888585478
+                    </a>
+                  </div>
+                  <span className="text-gray-600 hidden sm:inline">•</span>
+                  <div className="flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-gold-500 shrink-0" />
+                    <a href="tel:+919572144270" className="hover:text-gold-300 font-mono transition-colors">
+                      +91-9572144270
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1.5 text-gray-300">
+                  <Mail className="w-3.5 h-3.5 text-gold-500 shrink-0" />
+                  <a href="mailto:richmudindia@gmail.com" className="hover:text-gold-300 transition-colors">
+                    richmudindia@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5 text-[11px] text-gray-400 pt-1">
               <div className="flex items-center gap-1.5 bg-botanical-900/90 border border-botanical-600 px-3 py-1 rounded-full text-white shadow-sm">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span className="font-medium">NABL Accredited</span>
@@ -204,17 +243,26 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
             </form>
 
             <div className="pt-2 border-t border-gray-800">
-              <div className="text-[10px] uppercase tracking-wider text-gray-400 font-medium mb-1">
+              <div className="text-[10px] uppercase tracking-wider text-gray-400 font-medium mb-1.5">
                 Farmer Advisory & Helpline
               </div>
-              <a
-                href="tel:+919142950191"
-                className="text-sm sm:text-base font-serif font-bold text-gold-400 hover:text-gold-300 flex items-center gap-2"
-              >
-                <Phone className="w-3.5 h-3.5 text-gold-500" />
-                <span>+91 91429 50191</span>
-              </a>
-              <div className="text-[10px] text-gray-500 mt-0.5">Mon - Sat (9:00 AM - 6:00 PM IST)</div>
+              <div className="space-y-1">
+                <a
+                  href="tel:+917888585478"
+                  className="text-xs sm:text-sm font-mono font-bold text-gold-400 hover:text-gold-300 flex items-center gap-2 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-gold-500 shrink-0" />
+                  <span>+91-7888585478</span>
+                </a>
+                <a
+                  href="tel:+919572144270"
+                  className="text-xs sm:text-sm font-mono font-bold text-gold-400 hover:text-gold-300 flex items-center gap-2 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-gold-500 shrink-0" />
+                  <span>+91-9572144270</span>
+                </a>
+              </div>
+              <div className="text-[10px] text-gray-500 mt-1">Mon - Sat (9:00 AM - 6:00 PM IST)</div>
             </div>
           </div>
 
@@ -223,9 +271,9 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectCategory 
         {/* Bottom Bar: Copyright & Corporate Info */}
         <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-gray-500 gap-3 text-center sm:text-left">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2">
-            <span>© {new Date().getFullYear()} richmud India Pvt. Ltd. All Rights Reserved.</span>
+            <span>© {new Date().getFullYear()} Richmud India Pvt Ltd. (RM). All Rights Reserved.</span>
             <span className="hidden sm:inline">•</span>
-            <span className="italic text-gold-400">"Good seed <span className="w-1.5 h-1.5 rounded-full bg-botanical-400 inline-block mx-0.5" /> good life"</span>
+            <span className="italic text-gold-400 font-serif">"Mud To Gold"</span>
           </div>
 
           <div className="flex items-center justify-center space-x-4 sm:space-x-6 text-[11px] sm:text-xs">

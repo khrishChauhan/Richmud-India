@@ -58,11 +58,14 @@ export const DealerLocatorPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3 sm:space-y-4">
-          <img
-            src="/richmud-crest-logo.png"
-            alt="richmud"
-            className="h-24 sm:h-32 md:h-36 mx-auto w-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.7)] my-2 sm:my-3 transition-transform duration-300 hover:scale-[1.03]"
-          />
+          {/* Logo wrapped in solid black container */}
+          <div className="bg-black rounded-2xl px-5 sm:px-6 py-2.5 sm:py-3.5 inline-flex items-center justify-center border border-white/10 shadow-xl mx-auto my-2 sm:my-3">
+            <img
+              src="/richmud-crest-logo.png"
+              alt="richmud"
+              className="h-24 sm:h-32 md:h-36 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
+            />
+          </div>
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-botanical-900/90 backdrop-blur-md border border-botanical-500/60 text-botanical-100 text-[10px] sm:text-xs font-semibold uppercase tracking-widest shadow-md">
             <Sparkles className="w-3 sm:w-3.5 h-3 sm:w-3.5 text-gold-400" />
             <span>Authorized Distribution Network</span>
@@ -149,13 +152,14 @@ export const DealerLocatorPage: React.FC = () => {
                 <p className="text-xs text-gray-500">
                   No registered dealers matched your filter criteria. Try selecting "All States" or call our toll-free farmer helpline.
                 </p>
-                <a
-                  href="tel:+919142950191"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-botanical-800 hover:underline pt-2"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>Call Helpline: +91 91429 50191</span>
-                </a>
+                <div className="flex items-center justify-center gap-3 pt-2 text-xs font-bold text-botanical-800">
+                  <span className="flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-gold-600" />
+                    <a href="tel:+917888585478" className="hover:underline">+91-7888585478</a>
+                  </span>
+                  <span>/</span>
+                  <a href="tel:+919572144270" className="hover:underline">+91-9572144270</a>
+                </div>
               </div>
             ) : (
               filteredDealers.map((dealer) => {

@@ -25,13 +25,15 @@ export const SeedLogo: React.FC<SeedLogoProps> = ({
 
   return (
     <div className={`flex flex-col ${alignClasses} justify-center group select-none ${className}`}>
-      {/* 3D Embossed Golden RICHMUD Farmer & Bull Crest Logo Mark */}
-      <img
-        src={richmudLogo}
-        alt="richmud"
-        className={`${logoHeights[size]} w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] filter drop-shadow-[0_2px_8px_rgba(212,175,55,0.2)] drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)]`}
-        loading="eager"
-      />
+      {/* 3D Embossed Golden RICHMUD Farmer & Bull Crest Logo Mark wrapped in sleek solid black container */}
+      <div className="bg-black rounded-xl px-2.5 sm:px-3 py-1 sm:py-1.5 inline-flex items-center justify-center border border-white/10 shadow-sm transition-transform duration-300 group-hover:scale-[1.03]">
+        <img
+          src={richmudLogo}
+          alt="richmud"
+          className={`${logoHeights[size]} w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(212,175,55,0.2)]`}
+          loading="eager"
+        />
+      </div>
     </div>
   );
 };

@@ -11,7 +11,8 @@ import {
   PhoneCall,
   Camera,
   Newspaper,
-  Calendar
+  Calendar,
+  Mail
 } from 'lucide-react';
 import { ProductCategory } from '../../types';
 
@@ -121,6 +122,32 @@ export const Navbar: React.FC<NavbarProps> = ({
       }`}
         style={{ backgroundColor: '#121212' }}
       >
+        {/* Top Luxury Announcement & Contact Bar (Desktop) */}
+        <div className="hidden lg:block bg-black text-gray-300 text-[11px] border-b border-gold-400/15 py-1 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-2 text-stone-300">
+              <span className="text-gold-400 font-semibold font-serif">Richmud India Pvt Ltd. (RM)</span>
+              <span className="text-stone-600">•</span>
+              <span className="italic text-gold-400/90 font-serif">"Mud To Gold"</span>
+              <span className="text-stone-600">•</span>
+              <span className="text-stone-400">Corporate Office: Halsi, Lakhisarai, Bihar — 811306 / 811311</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-1.5 text-stone-300">
+                <PhoneCall className="w-3 h-3 text-gold-400" />
+                <a href="tel:+917888585478" className="hover:text-gold-300 font-mono transition-colors">+91-7888585478</a>
+                <span className="text-stone-600">/</span>
+                <a href="tel:+919572144270" className="hover:text-gold-300 font-mono transition-colors">+91-9572144270</a>
+              </div>
+              <span className="text-stone-600">•</span>
+              <a href="mailto:richmudindia@gmail.com" className="hover:text-gold-300 transition-colors flex items-center gap-1">
+                <Mail className="w-3 h-3 text-gold-400" />
+                <span>richmudindia@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 transition-all duration-300">
           
@@ -756,13 +783,32 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>Dealer Locator</span>
             </button>
 
-            <a
-              href="tel:+919142950191"
-              className="w-full py-2.5 rounded-full border border-gold-400/30 text-gold-300 hover:border-emerald-400 hover:text-emerald-400 font-semibold text-xs flex items-center justify-center gap-2 transition-all bg-white/5 touch-manipulation"
-            >
-              <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Kisan Helpline: +91 91429 50191</span>
-            </a>
+            <div className="space-y-1.5 pt-0.5">
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href="tel:+917888585478"
+                  className="py-2.5 px-2 rounded-xl border border-gold-400/30 text-gold-300 hover:border-emerald-400 hover:text-emerald-400 font-semibold text-[11px] flex items-center justify-center gap-1.5 transition-all bg-white/5 touch-manipulation text-center"
+                >
+                  <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>+91-7888585478</span>
+                </a>
+                <a
+                  href="tel:+919572144270"
+                  className="py-2.5 px-2 rounded-xl border border-gold-400/30 text-gold-300 hover:border-emerald-400 hover:text-emerald-400 font-semibold text-[11px] flex items-center justify-center gap-1.5 transition-all bg-white/5 touch-manipulation text-center"
+                >
+                  <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>+91-9572144270</span>
+                </a>
+              </div>
+
+              <a
+                href="mailto:richmudindia@gmail.com"
+                className="w-full py-2 rounded-xl border border-gold-400/20 text-gray-300 hover:text-gold-300 font-medium text-xs flex items-center justify-center gap-1.5 transition-all bg-white/5"
+              >
+                <Mail className="w-3.5 h-3.5 text-gold-400 shrink-0" />
+                <span>richmudindia@gmail.com</span>
+              </a>
+            </div>
           </div>
         </div>
       </>,

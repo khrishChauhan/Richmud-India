@@ -6,7 +6,7 @@ export const directorSpotlight = {
   portraitImage: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80',
   signatureImage: 'Mr. Vinit Kumar',
   shortQuote: 'Operating from the agricultural heartland of Halsi, Lakhisarai, Bihar, we understand the real ground challenges that farmers face today. We are dedicated to transforming modern agriculture with genuine, high-quality inputs.',
-  fullMessage: 'Richmud India Pvt Ltd. (ROM) is a startup (Agriculture input) company in India. Richmud India was founded in 2025 with a deep-rooted commitment to empower the farming community. Operating from the agricultural heartland of Halsi, Lakhisarai, Bihar, we understand the real ground challenges that farmers face today. Under the visionary leadership of Director Mr. Vinit Kumar, we are dedicated to transforming modern agriculture by providing high-quality crop seeds, Agrochemicals, PGR’s, non-FCO fertilizer, Agri services and beyond.',
+  fullMessage: 'Richmud India Pvt Ltd. (RM) is a startup (Agriculture input) company in India. Richmud India was founded in 2025 with a deep-rooted commitment to empower the farming community. Operating from the agricultural heartland of Halsi, Lakhisarai, Bihar, we understand the real ground challenges that farmers face today. Under the visionary leadership of Director Mr. Vinit Kumar, we are dedicated to transforming modern agriculture by providing high-quality crop seeds, Agrochemicals, PGR’s, non-FCO fertilizer, Agri services and beyond.',
   experience: 'Director & Founder • Halsi, Lakhisarai, Bihar',
 };
 
@@ -41,7 +41,7 @@ export const visionMissionValues = [
 export const timelineMilestones: TimelineMilestone[] = [
   {
     year: '2025',
-    title: 'Founding of Richmud India Pvt Ltd. (ROM)',
+    title: 'Founding of Richmud India Pvt Ltd. (RM)',
     description: 'Established in Halsi, Lakhisarai, Bihar with a deep commitment to empower the farming community through accessible, high-grade agricultural inputs.',
     tag: 'Foundation',
   },

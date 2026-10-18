@@ -93,7 +93,7 @@ export const careerOpportunities: CareerOpportunity[] = [
     id: 'intern-agribusiness-02',
     title: 'Agri-Marketing & Rural Supply Chain Intern',
     department: 'Sales & Commercial',
-    location: 'Kolkata Corporate HQ / Field Offices',
+    location: 'Corporate HQ (Halsi, Bihar) / Regional Field Offices',
     type: 'Internship',
     experience: 'MBA Agribusiness Candidates',
     openings: 4,
