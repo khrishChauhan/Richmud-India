@@ -15,7 +15,8 @@ import {
   Briefcase, 
   Building2, 
   MessageCircle,
-  Sprout
+  Sprout,
+  User
 } from 'lucide-react';
 
 interface LeaderCardProps {
@@ -151,12 +152,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
                 <span>OUR STORY • FOUNDED 2025</span>
               </div>
 
-              {/* Heading */}
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-stone-900 tracking-tight leading-tight">
-                Empowering the Farming Community <br className="hidden sm:inline" />
-                <span className="text-gold-gradient">from the Agricultural Heartland</span>
-              </h2>
-
               {/* Highlight Badges */}
               <div className="flex flex-wrap gap-2 pt-1">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-800/20 text-xs font-semibold shadow-2xs">
@@ -212,14 +207,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setActivePage }) => {
                 {/* 1px Metallic Gold Border Ring */}
                 <div className="absolute inset-0 border border-gold-300/30 rounded-2xl pointer-events-none z-10" />
 
-                {/* Imagery */}
-                <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-stone-900">
-                  <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
-                    alt="Director Mr. Vinit Kumar — Richmud India Pvt Ltd."
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent" />
+                {/* Visual Placeholder Area */}
+                <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-gradient-to-b from-stone-900 via-stone-950 to-black flex items-center justify-center">
+                  {/* Subtle radial gold & botanical glow */}
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Neutral avatar silhouette with delicate gold border */}
+                  <div className="flex flex-col items-center justify-center p-8 text-center space-y-3 relative z-10 -mt-10">
+                    <div className="w-24 h-24 rounded-full bg-stone-900 border border-amber-300/40 shadow-inner flex items-center justify-center">
+                      <User className="w-14 h-14 text-amber-400/40 stroke-[1.25]" />
+                    </div>
+                  </div>
 
                   {/* Brand Crest Accent Overlay wrapped in black container */}
                   <div className="absolute top-4 right-4 z-20 bg-black rounded-xl p-2 border border-white/10 shadow-lg">
