@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Sparkles, 
-  MapPin, 
   Phone, 
   Search, 
   Lock, 
@@ -34,16 +33,16 @@ const DEFAULT_DEALERS: ManagedDealer[] = [
     name: 'Kisan Seva Kendra',
     contactPerson: 'Suresh Prasad Singh',
     cityAndState: 'Lakhisarai, Bihar',
-    phone: '+91-7888585478',
-    address: 'Near Block Office, Halsi Main Road, Halsi, Lakhisarai — 811306',
+    phone: '',
+    address: '',
   },
   {
     id: 'rm-dl-02',
     name: 'Maa Vaishno Krishi Seva Kendra',
     contactPerson: 'Rajiv Kumar',
     cityAndState: 'Lakhisarai, Bihar',
-    phone: '+91-9572144270',
-    address: 'Shop No. 7, Purani Bazar, Station Road, Lakhisarai — 811311',
+    phone: '',
+    address: '',
   },
 ];
 
@@ -71,7 +70,7 @@ const PLACEHOLDER_CARDS = [
   },
 ];
 
-const LOCAL_STORAGE_KEY = 'richmud_authorized_dealers_v2';
+const LOCAL_STORAGE_KEY = 'richmud_authorized_dealers_v3';
 const ADMIN_PIN = 'RM2025';
 
 interface DealerLocatorPageProps {
@@ -325,30 +324,6 @@ export const DealerLocatorPage: React.FC<DealerLocatorPageProps> = ({ setActiveP
                       Proprietor: {dealer.contactPerson}
                     </p>
                   </div>
-
-                  <div className="space-y-2 text-xs text-stone-600 pt-2 border-t border-stone-100">
-                    <div className="flex items-start gap-2">
-                      <MapPin className="w-3.5 h-3.5 text-gold-600 shrink-0 mt-0.5" />
-                      <span className="leading-relaxed">{dealer.address}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-5 mt-5 border-t border-stone-100 flex items-center justify-between">
-                  <a
-                    href={`tel:${dealer.phone}`}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-stone-800 hover:text-emerald-800 transition-colors"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-gold-600" />
-                    <span>{dealer.phone}</span>
-                  </a>
-
-                  <a
-                    href={`tel:${dealer.phone}`}
-                    className="px-4 py-1.5 rounded-full bg-stone-900 hover:bg-black text-white text-[11px] font-bold uppercase tracking-wider shadow-xs hover:ring-1 hover:ring-gold-400/50 transition-all"
-                  >
-                    Contact
-                  </a>
                 </div>
               </div>
             ))}
@@ -679,12 +654,16 @@ export const DealerLocatorPage: React.FC<DealerLocatorPageProps> = ({ setActiveP
                           <div className="text-xs text-gold-700 font-medium pl-7">
                             Proprietor: {dealer.contactPerson} • {dealer.cityAndState}
                           </div>
-                          <div className="text-[11px] text-stone-500 pl-7">
-                            {dealer.address}
-                          </div>
-                          <div className="text-xs font-mono font-semibold text-stone-700 pl-7 pt-0.5">
-                            📞 {dealer.phone}
-                          </div>
+                          {dealer.address ? (
+                            <div className="text-[11px] text-stone-500 pl-7">
+                              {dealer.address}
+                            </div>
+                          ) : null}
+                          {dealer.phone ? (
+                            <div className="text-xs font-mono font-semibold text-stone-700 pl-7 pt-0.5">
+                              📞 {dealer.phone}
+                            </div>
+                          ) : null}
                         </div>
 
                         <button
